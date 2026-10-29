@@ -80,7 +80,7 @@ Cache-Control: max-age=60
 | Borrar | DELETE | /users/42 | 204 |
 
 ## Idempotencia
-Una operación es idempotente si repetirla da el mismo resultado: GET, PUT y DELETE lo son; **POST no**. Importa cuando el cliente reintenta tras un timeout.
+Una operación es idempotente si repetirla tiene el mismo efecto que hacerla una vez. Lo son los métodos seguros (GET, HEAD, OPTIONS), PUT y DELETE; **POST y PATCH no garantizan serlo**. Importa cuando el cliente reintenta tras un timeout.
 
 ## Buenas prácticas
 Paginación (\`?limit=20&cursor=...\`), filtros por query string, versionado (\`/v1/\`), errores con un formato consistente y validación de entrada.`,
@@ -98,7 +98,7 @@ Paginación (\`?limit=20&cursor=...\`), filtros por query string, versionado (\`
 | Delete | DELETE | /users/42 | 204 |
 
 ## Idempotency
-An operation is idempotent if repeating it gives the same result: GET, PUT and DELETE are; **POST is not**. It matters when the client retries after a timeout.
+An operation is idempotent if repeating it has the same effect as doing it once. Safe methods (GET, HEAD, OPTIONS), PUT and DELETE are; **POST and PATCH are not guaranteed to be**. It matters when the client retries after a timeout.
 
 ## Good practices
 Pagination (\`?limit=20&cursor=...\`), query-string filters, versioning (\`/v1/\`), consistently formatted errors and input validation.`,
@@ -123,7 +123,7 @@ app.get('/v1/users/:id', async (req, res) => {
       q('Código correcto al crear un recurso', 'Correct code when creating a resource', [['200', '200'], ['201', '201'], ['204', '204'], ['302', '302']], 1, '201 Created.', '201 Created.'),
     ],
     concepts: [
-      concept('¿Qué es la idempotencia en HTTP?', 'What is idempotency in HTTP?', 'Repetir la misma petición produce el mismo efecto. GET, PUT y DELETE sí; POST no.', 'Repeating the same request has the same effect. GET, PUT and DELETE are; POST is not.'),
+      concept('¿Qué es la idempotencia en HTTP?', 'What is idempotency in HTTP?', 'Repetir la misma petición tiene el mismo efecto que hacerla una vez. Lo son GET, HEAD, OPTIONS, PUT y DELETE; POST y PATCH no garantizan serlo.', 'Repeating the same request has the same effect as doing it once. GET, HEAD, OPTIONS, PUT and DELETE are; POST and PATCH are not guaranteed to be.'),
       concept('PUT vs PATCH', 'PUT vs PATCH', 'PUT reemplaza el recurso completo; PATCH modifica solo algunos campos.', 'PUT replaces the whole resource; PATCH modifies only some fields.'),
     ],
   },
@@ -167,7 +167,6 @@ SELECT u.name, COUNT(o.id) AS pedidos
 FROM users u
 LEFT JOIN orders o ON o.user_id = u.id
 GROUP BY u.id, u.name
-HAVING COUNT(o.id) >= 0
 ORDER BY pedidos DESC;
 
 -- Índice para acelerar búsquedas por email
@@ -206,7 +205,7 @@ COMMIT;`, 'sql'),
 - **Grafos** (Neo4j): relaciones complejas, como redes sociales o recomendaciones.
 
 ## Teorema CAP
-Ante una **partición** de red, un sistema distribuido debe elegir entre **consistencia** (todos ven el mismo dato) y **disponibilidad** (siempre responde). Muchas bases NoSQL eligen disponibilidad con **consistencia eventual**.`,
+Ante una **partición** de red, un sistema distribuido debe elegir entre **consistencia** (todos ven el mismo dato) y **disponibilidad** (siempre responde). Su autor, Eric Brewer, aclaró que el famoso "elige 2 de 3" es engañoso: la elección solo es obligatoria **mientras hay una partición**, y puede hacerse distinta para cada operación. Muchas bases NoSQL priorizan la disponibilidad con **consistencia eventual**.`,
         `## Types
 - **Document** (MongoDB): flexible JSON objects. Profiles, catalogs.
 - **Key-value** (Redis, DynamoDB): very fast. Caching, sessions, counters.
@@ -214,7 +213,7 @@ Ante una **partición** de red, un sistema distribuido debe elegir entre **consi
 - **Graph** (Neo4j): complex relationships, like social networks or recommendations.
 
 ## CAP theorem
-During a network **partition**, a distributed system must choose between **consistency** (everyone sees the same data) and **availability** (it always responds). Many NoSQL databases choose availability with **eventual consistency**.`,
+During a network **partition**, a distributed system must choose between **consistency** (everyone sees the same data) and **availability** (it always responds). Its author, Eric Brewer, clarified that the famous "pick 2 of 3" is misleading: the choice is only forced **while a partition is happening**, and it can differ per operation. Many NoSQL databases favor availability with **eventual consistency**.`,
       ),
       interview('Respuesta segura para un junior: "Empezaría con SQL (PostgreSQL) por las transacciones y la flexibilidad de consultas, y agregaría Redis como caché si hace falta".', 'Safe answer for a junior: "I would start with SQL (PostgreSQL) for transactions and query flexibility, and add Redis as a cache if needed".'),
     ],
@@ -244,7 +243,7 @@ El servidor firma un token con los datos del usuario. Cada petición lo envía e
 Permite que una app acceda a recursos de otra **en nombre del usuario** sin conocer su contraseña ("Iniciar sesión con Google"). **OpenID Connect** agrega identidad encima de OAuth.
 
 ## Contraseñas
-Nunca en texto plano: usa un **hash lento con sal** (bcrypt, argon2).`,
+Nunca en texto plano: usa un **hash lento con sal**. OWASP recomienda **Argon2id**; si no está disponible, scrypt; bcrypt solo en sistemas heredados (y PBKDF2 si se exige FIPS-140).`,
         `## Authentication vs authorization
 **Authentication** = who you are. **Authorization** = what you can do.
 
@@ -258,12 +257,12 @@ The server signs a token with the user's data. Each request sends it as \`Author
 Lets an app access another app's resources **on behalf of the user** without knowing their password ("Sign in with Google"). **OpenID Connect** adds identity on top of OAuth.
 
 ## Passwords
-Never in plain text: use a **slow salted hash** (bcrypt, argon2).`,
+Never in plain text: use a **slow salted hash**. OWASP recommends **Argon2id**; if unavailable, scrypt; bcrypt only for legacy systems (and PBKDF2 when FIPS-140 is required).`,
       ),
       warn('Guardar el JWT en localStorage lo expone a XSS. Una cookie `HttpOnly; Secure; SameSite` es más segura para apps web.', 'Storing a JWT in localStorage exposes it to XSS. An `HttpOnly; Secure; SameSite` cookie is safer for web apps.'),
     ],
     quiz: [
-      q('¿Cómo se deben guardar las contraseñas?', 'How should passwords be stored?', [['Cifradas con AES', 'Encrypted with AES'], ['Con hash lento y sal (bcrypt)', 'With a slow salted hash (bcrypt)'], ['En Base64', 'In Base64'], ['En texto plano en una BD segura', 'Plain text in a secure DB']], 1, 'Un hash no se puede revertir y la sal evita las rainbow tables.', 'A hash cannot be reversed and salt defeats rainbow tables.'),
+      q('¿Cómo se deben guardar las contraseñas?', 'How should passwords be stored?', [['Cifradas con AES', 'Encrypted with AES'], ['Con hash lento y sal (p. ej. Argon2id)', 'With a slow salted hash (e.g. Argon2id)'], ['En Base64', 'In Base64'], ['En texto plano en una BD segura', 'Plain text in a secure DB']], 1, 'Un hash no se puede revertir y la sal evita las rainbow tables.', 'A hash cannot be reversed and salt defeats rainbow tables.'),
       q('Desventaja principal de JWT', 'Main drawback of JWT', [['Es lento', 'It is slow'], ['Difícil de revocar antes de expirar', 'Hard to revoke before expiry'], ['No funciona con móviles', 'Does not work on mobile'], ['Requiere una BD de sesiones', 'Requires a session DB']], 1, 'Es válido hasta que expira.', 'It is valid until it expires.'),
     ],
     concepts: [
@@ -288,7 +287,7 @@ Navegador (\`Cache-Control\`), **CDN** (archivos estáticos cerca del usuario), 
 - **TTL**: los datos expiran solos después de un tiempo.
 - **Desalojo**: LRU (*least recently used*) saca lo menos usado recientemente.
 
-> "Solo hay dos cosas difíciles en computación: invalidar la caché y nombrar cosas."`,
+> "Solo hay dos cosas difíciles en computación: invalidar la caché y ponerle nombre a las cosas." — Phil Karlton`,
         `## Cache levels
 Browser (\`Cache-Control\`), **CDN** (static files close to the user), application cache (**Redis**) and database cache.
 
@@ -298,7 +297,7 @@ Browser (\`Cache-Control\`), **CDN** (static files close to the user), applicati
 - **TTL**: data expires on its own after a while.
 - **Eviction**: LRU (*least recently used*) removes the least recently used items.
 
-> "There are only two hard things in computer science: cache invalidation and naming things."`,
+> "There are only two hard things in Computer Science: cache invalidation and naming things." — Phil Karlton`,
       ),
       code(`def obtener_usuario(id):
     clave = f"user:{id}"
@@ -327,7 +326,7 @@ Browser (\`Cache-Control\`), **CDN** (static files close to the user), applicati
 | **Inyección SQL** | Meter SQL en una entrada | Consultas **parametrizadas** / ORM |
 | **XSS** | Inyectar JS que corre en el navegador de otros | Escapar la salida, CSP, no usar \`innerHTML\` con datos del usuario |
 | **CSRF** | Hacer que el navegador de la víctima envíe una petición con sus cookies | Tokens CSRF, cookies \`SameSite\` |
-| **Autenticación rota** | Contraseñas débiles, sesiones eternas | Hash bcrypt, MFA, expiración, rate limiting |
+| **Autenticación rota** | Contraseñas débiles, sesiones eternas | Hash Argon2id, MFA, expiración, rate limiting |
 
 **CORS** no es un ataque: es la política del navegador que bloquea peticiones a otro origen salvo que el servidor las permita.`,
         `| Attack | What it is | Prevention |
@@ -335,7 +334,7 @@ Browser (\`Cache-Control\`), **CDN** (static files close to the user), applicati
 | **SQL injection** | Sneaking SQL into an input | **Parameterized** queries / ORM |
 | **XSS** | Injecting JS that runs in other users' browsers | Escape output, CSP, no \`innerHTML\` with user data |
 | **CSRF** | Making the victim's browser send a request with their cookies | CSRF tokens, \`SameSite\` cookies |
-| **Broken auth** | Weak passwords, endless sessions | bcrypt hashing, MFA, expiry, rate limiting |
+| **Broken auth** | Weak passwords, endless sessions | Argon2id hashing, MFA, expiry, rate limiting |
 
 **CORS** is not an attack: it is the browser policy that blocks cross-origin requests unless the server allows them.`,
       ),

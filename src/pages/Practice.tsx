@@ -27,7 +27,7 @@ export default function Practice() {
   };
 
   const sections = [
-    { to: 'algorithms', icon: Code2, title: tr('Algoritmos', 'Algorithms'), desc: tr('39 problemas por patrón con pistas y soluciones', '39 problems by pattern with hints and solutions'), type: 'algorithm' as ItemType },
+    { to: 'algorithms', icon: Code2, title: tr('Algoritmos', 'Algorithms'), desc: tr('42 problemas por patrón con pistas y soluciones', '42 problems by pattern with hints and solutions'), type: 'algorithm' as ItemType },
     { to: 'patterns', icon: Puzzle, title: tr('Adivina el patrón', 'Guess the pattern'), desc: tr('Lee el enunciado e identifica la técnica', 'Read the statement and identify the technique') },
     { to: 'concepts', icon: Brain, title: tr('Fundamentos', 'Fundamentals'), desc: tr('Flashcards de OOP, BD, web, SO y más', 'Flashcards on OOP, DBs, web, OS and more'), type: 'concept' as ItemType },
     { to: 'design', icon: Network, title: 'System design', desc: tr('Casos básicos con un marco guiado', 'Basic cases with a guided framework'), type: 'design' as ItemType },

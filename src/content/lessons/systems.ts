@@ -35,7 +35,7 @@ A unit of execution **inside** a process. Threads of the same process **share me
 ## Concurrency vs parallelism
 **Concurrency**: managing several tasks at once (they may take turns on one core). **Parallelism**: running them literally at the same time on several cores.`,
       ),
-      tip('En Python, el GIL impide que varios hilos ejecuten bytecode en paralelo: usa hilos o `asyncio` para tareas de E/S y `multiprocessing` para tareas de CPU.', 'In Python, the GIL prevents several threads from running bytecode in parallel: use threads or `asyncio` for I/O-bound work and `multiprocessing` for CPU-bound work.'),
+      tip('En CPython (el Python estándar), el GIL hace que solo un hilo ejecute bytecode a la vez; se libera durante la E/S. Por eso se usan hilos o `asyncio` para tareas de E/S y `multiprocessing` para tareas de CPU. Desde Python 3.13 existe una versión opcional sin GIL (*free-threaded*, PEP 703).', 'In CPython (standard Python), the GIL lets only one thread execute bytecode at a time; it is released during I/O. That is why threads or `asyncio` are used for I/O-bound work and `multiprocessing` for CPU-bound work. Since Python 3.13 there is an optional build without the GIL (*free-threaded*, PEP 703).'),
     ],
     quiz: [
       q('Los hilos de un mismo proceso…', 'Threads of the same process…', [['Tienen memoria separada', 'Have separate memory'], ['Comparten memoria', 'Share memory'], ['No pueden comunicarse', 'Cannot communicate'], ['Siempre corren en paralelo', 'Always run in parallel']], 1, 'Comparten el heap del proceso.', 'They share the process heap.'),

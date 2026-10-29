@@ -108,7 +108,7 @@ def frecuencias(palabras):
 frecuencias(["a", "b", "a"])  # {'a': 2, 'b': 1}`),
       tip('Cuando escuches "¿existe…?", "¿cuántas veces…?", "¿ya apareció…?" o "encuentra el par…", piensa primero en un **set** o **hash map**.',
         'When you hear "does it exist…?", "how many times…?", "has it appeared…?" or "find the pair…", think of a **set** or **hash map** first.'),
-      warn('Las claves de un hash map deben ser inmutables (en Python: no puedes usar una lista como clave, pero sí una tupla).', 'Hash map keys must be immutable (in Python you cannot use a list as a key, but you can use a tuple).'),
+      warn('Las claves de un diccionario deben ser *hashables*: su hash no puede cambiar. En Python, una lista no sirve como clave; una tupla sí, siempre que sus elementos también sean hashables.', 'Dictionary keys must be *hashable*: their hash cannot change. In Python a list cannot be a key; a tuple can, as long as its elements are hashable too.'),
       interview('Pregunta típica: "¿Cuál es el peor caso de un hash map?". Respuesta: O(n) si todas las claves colisionan, aunque en la práctica es O(1) promedio.', 'Typical question: "What is the worst case of a hash map?". Answer: O(n) if every key collides, though in practice it is O(1) on average.'),
     ],
     quiz: [

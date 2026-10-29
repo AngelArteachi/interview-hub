@@ -129,7 +129,9 @@ ${input.lessonContent}
 </lesson>
 
 Answer in ${langName(input.lang)}. Be concise and clear (usually under 250 words), use markdown, and include short code examples (Python by default) when they help.
-If asked for an interview question, ask ONE question and wait for the student's answer before giving feedback.`;
+If asked for an interview question, ask ONE question and wait for the student's answer before giving feedback.
+Accuracy matters: stick to well-established facts as described in official documentation, standards and recognized textbooks. If you are not sure about something, say so instead of guessing.
+When recommending further reading, only cite the verified sources listed at the end of the lesson or official documentation (python.org, MDN, IETF RFCs, OWASP, PostgreSQL, git-scm.com…). Never invent URLs.`;
 
   const stream = getClient().beta.messages.stream({
     model: MODEL,

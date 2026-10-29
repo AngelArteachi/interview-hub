@@ -107,13 +107,13 @@ export const ALGORITHMS: Algorithm[] = [
       l('Ordenar ambas funciona en O(n log n). ¿Puedes hacerlo en O(n)?', 'Sorting both works in O(n log n). Can you do it in O(n)?'),
       l('Cuenta la frecuencia de cada letra.', 'Count the frequency of each letter.'),
     ],
-    solution: l('Si las longitudes difieren, es falso. Cuenta caracteres de `s` sumando y de `t` restando; todos los conteos deben quedar en 0.', 'If lengths differ, return false. Count characters of `s` adding and of `t` subtracting; every count must end at 0.'),
+    solution: l('Si las longitudes difieren, es falso. Cuenta caracteres de `s` sumando y de `t` restando; todos los conteos deben quedar en 0. El espacio es O(1) porque el alfabeto es fijo (26 letras).', 'If lengths differ, return false. Count characters of `s` adding and of `t` subtracting; every count must end at 0. Space is O(1) because the alphabet is fixed (26 letters).'),
     code: `from collections import Counter
 
 def is_anagram(s, t):
     return len(s) == len(t) and Counter(s) == Counter(t)`,
     time: 'O(n)',
-    space: 'O(1) (26 letras)',
+    space: 'O(1)',
     leetcode: lc('valid-anagram'),
   },
   {
@@ -308,7 +308,7 @@ def top_k_frequent(nums, k):
       l('Mantén una ventana que siempre sea válida (sin repetidos).', 'Keep a window that is always valid (no repeats).'),
       l('Cuando entra un repetido, mueve la izquierda hasta eliminarlo.', 'When a repeat enters, move left until it is removed.'),
     ],
-    solution: l('Usa un set con los caracteres de la ventana. Expande `der`; mientras `s[der]` ya esté, saca `s[izq]` y avanza `izq`. Actualiza la mejor longitud.', 'Use a set with the window characters. Expand `right`; while `s[right]` is already there, remove `s[left]` and advance `left`. Update the best length.'),
+    solution: l('Usa un set con los caracteres de la ventana. Expande `der`; mientras `s[der]` ya esté, saca `s[izq]` y avanza `izq`. Actualiza la mejor longitud. El set nunca guarda más de min(n, k) caracteres, donde k es el tamaño del alfabeto.', 'Use a set with the window characters. Expand `right`; while `s[right]` is already there, remove `s[left]` and advance `left`. Update the best length. The set never holds more than min(n, k) characters, where k is the alphabet size.'),
     code: `def length_of_longest_substring(s):
     seen, left, best = set(), 0, 0
     for right, c in enumerate(s):
@@ -319,7 +319,7 @@ def top_k_frequent(nums, k):
         best = max(best, right - left + 1)
     return best`,
     time: 'O(n)',
-    space: 'O(min(n, alfabeto))',
+    space: 'O(min(n, k))',
     leetcode: lc('longest-substring-without-repeating-characters'),
   },
   {
@@ -415,7 +415,7 @@ def top_k_frequent(nums, k):
 
     def get_min(self):
         return self.stack[-1][1]`,
-    time: 'O(1) por operación',
+    time: 'O(1)',
     space: 'O(n)',
     leetcode: lc('min-stack'),
   },
@@ -778,8 +778,8 @@ def level_order(root):
                 count += 1
                 dfs(r, c)
     return count`,
-    time: 'O(filas × cols)',
-    space: 'O(filas × cols)',
+    time: 'O(m × n)',
+    space: 'O(m × n)',
     leetcode: lc('number-of-islands'),
   },
   {
@@ -927,7 +927,7 @@ def shortest_path(grid):
             if c <= x:
                 dp[x] = min(dp[x], dp[x - c] + 1)
     return dp[amount] if dp[amount] != INF else -1`,
-    time: 'O(amount × monedas)',
+    time: 'O(amount × coins)',
     space: 'O(amount)',
     leetcode: lc('coin-change'),
   },

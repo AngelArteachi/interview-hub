@@ -26,6 +26,8 @@ interface Store {
   /** Revierte una calificación: restaura el estado anterior de la tarjeta y descuenta la actividad */
   undoRate: (itemId: string, prev: SrsState | undefined) => void;
   completeLesson: (lessonId: string, quizScore: number, conceptIds: string[]) => void;
+  /** Mete tarjetas al repaso de hoy (nuevas o adelantando su fecha) */
+  enroll: (ids: string[]) => void;
   saveCustom: (c: CustomCard) => void;
   deleteCustom: (id: string) => void;
   saveStory: (s: Story) => void;
@@ -153,6 +155,13 @@ export function AppStoreProvider({ children }: { children: ReactNode }) {
         if (prev) srs[itemId] = prev;
         else delete srs[itemId];
         return { ...d, srs, activity: bump(d.activity, { reviews: -1, newCards: prev ? 0 : -1 }) };
+      }),
+    enroll: (ids) =>
+      setData((d) => {
+        const today = todayStr();
+        const srs = { ...d.srs };
+        for (const id of ids) srs[id] = srs[id] ? { ...srs[id], due: today } : newState(today);
+        return { ...d, srs };
       }),
     completeLesson: (lessonId, quizScore, conceptIds) =>
       setData((d) => {

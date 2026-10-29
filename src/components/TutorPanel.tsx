@@ -4,17 +4,21 @@ import type { Lesson } from '../types';
 import { aiUnavailableMessage, askTutor, useAIStatus } from '../lib/ai';
 import { useI18n } from '../i18n/I18nContext';
 import { Markdown } from './Markdown';
+import { LESSON_SOURCES } from '../content/lessons/sources';
 
 type Msg = { role: 'user' | 'assistant'; content: string };
 
 export function lessonPlainText(lesson: Lesson, lang: 'es' | 'en') {
-  return lesson.blocks
+  const body = lesson.blocks
     .map((b) => (b.kind === 'md' || b.kind === 'callout' ? b.md[lang] : b.kind === 'code' ? '```\n' + b.code + '\n```' : ''))
     .join('\n\n');
+  // El tutor solo debe recomendar estas fuentes verificadas
+  const sources = (LESSON_SOURCES[lesson.id] ?? []).map((s) => `- ${s.title} (${s.publisher}): ${s.url}`).join('\n');
+  return sources ? `${body}\n\n## Fuentes verificadas de esta lección\n${sources}` : body;
 }
 
 /** Panel lateral "Pregúntale a Claude" con el contexto de la lección */
-export function TutorPanel({ lesson, onClose }: { lesson: Lesson; onClose: () => void }) {
+export function TutorPanel({ lesson, onClose, initialPrompt }: { lesson: Lesson; onClose: () => void; initialPrompt?: string }) {
   const { t, tr, lang } = useI18n();
   const status = useAIStatus();
   const enabled = status === null ? null : status.enabled;
@@ -28,6 +32,15 @@ export function TutorPanel({ lesson, onClose }: { lesson: Lesson; onClose: () =>
     endRef.current?.scrollIntoView({ behavior: 'smooth' });
   }, [messages]);
   useEffect(() => () => abortRef.current?.abort(), []);
+
+  // Pregunta inicial (p. ej. "explícame lo que fallé en el quiz"), enviada en cuanto la IA está disponible
+  const sentInitial = useRef(false);
+  useEffect(() => {
+    if (initialPrompt && enabled && !sentInitial.current) {
+      sentInitial.current = true;
+      send(initialPrompt);
+    }
+  });
 
   const quick = [
     tr('Explícamelo más simple', 'Explain it more simply'),

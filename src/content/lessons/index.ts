@@ -38,3 +38,5 @@ export const lessonsByTrack = (t: TrackId) => LESSONS.filter((x) => x.track === 
 export const lessonById = (id: string) => LESSONS.find((x) => x.id === id);
 export const trackById = (id: TrackId) => TRACKS.find((t) => t.id === id)!;
 export const lessonConceptId = (lessonId: string, i: number) => `les:${lessonId}:${i}`;
+/** Pregunta de quiz convertida en tarjeta de repaso (solo si la fallaste) */
+export const quizItemId = (lessonId: string, i: number) => `qz:${lessonId}:${i}`;

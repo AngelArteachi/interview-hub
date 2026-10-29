@@ -3,7 +3,7 @@ import { ALGORITHMS, PATTERNS } from '../data/algorithms';
 import { CONCEPTS, CONCEPT_TOPICS } from '../data/fundamentals';
 import { DESIGN_CASES } from '../data/systemDesign';
 import { BEHAVIORAL } from '../data/behavioral';
-import { LESSONS, lessonConceptId } from '../content/lessons';
+import { LESSONS, lessonConceptId, quizItemId } from '../content/lessons';
 import { todayStr } from './srs';
 
 const same = (s: string): L => ({ es: s, en: s });
@@ -45,6 +45,20 @@ const LESSON_ITEMS: ReviewItem[] = LESSONS.flatMap((les) =>
     tags: [les.track, les.id],
     link: `/learn/${les.id}`,
   })),
+).concat(
+  LESSONS.flatMap((les) =>
+    les.quiz.map<ReviewItem>((q, i) => ({
+      id: quizItemId(les.id, i),
+      type: 'lesson',
+      front: q.q,
+      back: {
+        es: `**${q.options[q.answer].es}**\n\n${q.explanation.es}`,
+        en: `**${q.options[q.answer].en}**\n\n${q.explanation.en}`,
+      },
+      tags: [les.track, les.id],
+      link: `/learn/${les.id}`,
+    })),
+  ),
 );
 
 export function allItems(data: AppData): ReviewItem[] {
@@ -55,7 +69,7 @@ export function allItems(data: AppData): ReviewItem[] {
     back: same(c.back),
     tags: [c.type, ...c.tags],
   }));
-  // Los conceptos de lecciones solo entran al repaso al completar la lección
+  // Los conceptos de lecciones entran al aprobar la lección; las preguntas de quiz, al fallarlas
   const lessonItems = LESSON_ITEMS.filter((it) => data.srs[it.id]);
   return [...custom, ...lessonItems, ...BUILTIN];
 }

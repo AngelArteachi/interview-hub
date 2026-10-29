@@ -289,7 +289,12 @@ def test_cadena_vacia():
 - Use \`finally\` or context managers (\`with\`) to release resources.
 - In APIs, return correct HTTP codes (400 for invalid input, 500 for server errors) **without leaking internal details**.`,
       ),
-      code(`def leer_config(ruta):
+      code(`import json
+import logging
+
+logger = logging.getLogger(__name__)
+
+def leer_config(ruta):
     try:
         with open(ruta) as f:          # cierra el archivo siempre
             return json.load(f)

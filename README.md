@@ -50,7 +50,7 @@ Siete animaciones paso a paso (play, pausa, avanzar y retroceder) en las que **p
 - Programación dinámica (cambio de monedas)
 
 ### 💪 Practicar
-- **39 problemas de algoritmos** organizados por patrón. Escribes tu enfoque y tu complejidad, revelas pistas una a una, ves la solución explicada y lo programas en LeetCode.
+- **42 problemas de algoritmos** organizados por patrón. Escribes tu enfoque y tu complejidad, revelas pistas una a una, ves la solución explicada y lo programas en LeetCode.
 - **Adivina el patrón**: lees solo el enunciado y eliges la técnica correcta. Entrena la habilidad más importante de una entrevista de código.
 - **50 flashcards de fundamentos**: OOP, estructuras de datos, bases de datos, web, Git, sistemas operativos, testing y JavaScript.
 - **System design básico**: 6 casos (acortador de URLs, rate limiter, chat…) con un marco guiado de 5 pasos y un checklist de autoevaluación.
