@@ -1,22 +1,67 @@
 import { useEffect, useState } from 'react';
 import type { AIEvaluation, ItemType, Lang } from '../types';
+import { accessToken } from './supabase';
+import { useAuth } from '../store/AuthContext';
 
-let statusPromise: Promise<boolean> | null = null;
+export type AIReason = 'NO_KEY' | 'LOGIN_REQUIRED' | 'NOT_ALLOWED' | 'OFFLINE';
+export interface AIStatus {
+  enabled: boolean;
+  reason: AIReason | null;
+}
 
-export function fetchAIStatus(): Promise<boolean> {
-  statusPromise ??= fetch('/api/status')
-    .then((r) => (r.ok ? r.json() : { enabled: false }))
-    .then((d) => Boolean(d.enabled))
-    .catch(() => false);
-  return statusPromise;
+async function authHeaders(): Promise<Record<string, string>> {
+  const token = await accessToken();
+  return token ? { Authorization: `Bearer ${token}` } : {};
+}
+
+// Se cachea por usuario: al iniciar o cerrar sesión se vuelve a consultar
+const statusCache = new Map<string, Promise<AIStatus>>();
+
+function fetchAIStatus(userKey: string): Promise<AIStatus> {
+  let p = statusCache.get(userKey);
+  if (!p) {
+    p = authHeaders()
+      .then((headers) => fetch('/api/status', { headers }))
+      .then((r) => (r.ok ? r.json() : { enabled: false, reason: 'OFFLINE' }))
+      .then((d) => ({ enabled: Boolean(d.enabled), reason: d.reason ?? null }))
+      .catch(() => ({ enabled: false, reason: 'OFFLINE' as const }));
+    statusCache.set(userKey, p);
+  }
+  return p;
+}
+
+export function useAIStatus(): AIStatus | null {
+  const { user, loading } = useAuth();
+  const [status, setStatus] = useState<AIStatus | null>(null);
+  useEffect(() => {
+    if (loading) return;
+    let active = true;
+    setStatus(null);
+    fetchAIStatus(user?.id ?? 'guest').then((s) => active && setStatus(s));
+    return () => {
+      active = false;
+    };
+  }, [user?.id, loading]);
+  return status;
 }
 
 export function useAIEnabled() {
-  const [enabled, setEnabled] = useState<boolean | null>(null);
-  useEffect(() => {
-    fetchAIStatus().then(setEnabled);
-  }, []);
-  return enabled;
+  const s = useAIStatus();
+  return s === null ? null : s.enabled;
+}
+
+/** Mensaje para el usuario cuando la IA no está disponible */
+export function aiUnavailableMessage(reason: AIReason | null, tr: (es: string, en: string) => string) {
+  switch (reason) {
+    case 'LOGIN_REQUIRED':
+      return tr('Inicia sesión con Google para usar la IA.', 'Sign in with Google to use the AI.');
+    case 'NOT_ALLOWED':
+      return tr('Tu cuenta no tiene acceso a la IA (no está en AI_ALLOWED_EMAILS).', 'Your account has no AI access (not in AI_ALLOWED_EMAILS).');
+    case 'OFFLINE':
+      return tr('No se pudo contactar al servidor de IA.', 'Could not reach the AI server.');
+    default:
+      return tr('IA desactivada: configura ANTHROPIC_API_KEY (ver Ajustes).', 'AI disabled: set ANTHROPIC_API_KEY (see Settings).');
+  }
 }
 
 export async function evaluateAnswer(params: {
@@ -28,11 +73,11 @@ export async function evaluateAnswer(params: {
 }): Promise<AIEvaluation> {
   const r = await fetch('/api/evaluate', {
     method: 'POST',
-    headers: { 'Content-Type': 'application/json' },
+    headers: { 'Content-Type': 'application/json', ...(await authHeaders()) },
     body: JSON.stringify(params),
   });
   const data = await r.json().catch(() => ({}));
-  if (!r.ok) throw new Error(data.error === 'AI_DISABLED' ? 'AI_DISABLED' : data.error || `Error ${r.status}`);
+  if (!r.ok) throw new Error(data.error || `Error ${r.status}`);
   return data as AIEvaluation;
 }
 
@@ -43,7 +88,7 @@ export async function askTutor(
 ) {
   const r = await fetch('/api/tutor', {
     method: 'POST',
-    headers: { 'Content-Type': 'application/json' },
+    headers: { 'Content-Type': 'application/json', ...(await authHeaders()) },
     body: JSON.stringify(params),
     signal,
   });

@@ -1,4 +1,4 @@
-import type { AppData, ItemType, L, ReviewItem } from '../types';
+import type { AppData, ItemType, L, Pattern, ReviewItem } from '../types';
 import { ALGORITHMS, PATTERNS } from '../data/algorithms';
 import { CONCEPTS, CONCEPT_TOPICS } from '../data/fundamentals';
 import { DESIGN_CASES } from '../data/systemDesign';
@@ -74,14 +74,103 @@ function interleave(items: ReviewItem[]): ReviewItem[] {
   return out;
 }
 
+/* ---------- Qué lección desbloquea cada pregunta ---------- */
+
+const PATTERN_LESSON: Record<Pattern, string> = {
+  hashing: 'arrays-hashing',
+  'two-pointers': 'two-pointers-window',
+  'sliding-window': 'two-pointers-window',
+  stack: 'stacks-queues',
+  'binary-search': 'binary-search',
+  'linked-list': 'linked-lists',
+  trees: 'trees',
+  graphs: 'graphs',
+  dp: 'dp-intro',
+  sorting: 'sorting',
+};
+
+const CONCEPT_LESSON: Record<string, string> = {
+  'oop-pillars': 'oop-pillars',
+  'oop-solid': 'solid',
+  'oop-composition': 'oop-pillars',
+  'oop-interface-abstract': 'oop-pillars',
+  'oop-di': 'solid',
+  'oop-overload-override': 'oop-pillars',
+  'ds-array-list': 'linked-lists',
+  'ds-hashmap': 'arrays-hashing',
+  'ds-stack-queue': 'stacks-queues',
+  'ds-heap': 'heaps',
+  'ds-bst': 'trees',
+  'ds-graph-repr': 'graphs',
+  'ds-bfs-dfs': 'graphs',
+  'ds-trie': 'trees',
+  'bigo-what': 'big-o',
+  'bigo-order': 'big-o',
+  'bigo-sorts': 'sorting',
+  'bigo-recursion-space': 'recursion',
+  'bigo-amortized': 'big-o',
+  'db-acid': 'sql',
+  'db-index': 'sql',
+  'db-joins': 'sql',
+  'db-normalization': 'sql',
+  'db-sql-nosql': 'nosql',
+  'db-n-plus-1': 'sql',
+  'web-http-methods': 'rest-apis',
+  'web-status': 'how-web-works',
+  'web-rest': 'rest-apis',
+  'web-url': 'how-web-works',
+  'web-auth': 'auth',
+  'web-jwt': 'auth',
+  'web-cors': 'web-security',
+  'web-cache': 'caching',
+  'web-xss-sqli': 'web-security',
+  'git-merge-rebase': 'git',
+  'git-conflict': 'git',
+  'git-reset-revert': 'git',
+  'os-process-thread': 'processes-threads',
+  'os-race': 'concurrency',
+  'os-deadlock': 'concurrency',
+  'os-stack-heap-mem': 'processes-threads',
+  'os-tcp-udp': 'networking',
+  'test-pyramid': 'testing',
+  'test-mock': 'testing',
+  'test-tdd': 'testing',
+  // No hay lección de JavaScript: se desbloquean con la primera lección web
+  'js-event-loop': 'how-web-works',
+  'js-closure': 'how-web-works',
+  'js-var-let-const': 'how-web-works',
+  'js-equality': 'how-web-works',
+  'js-promise-async': 'how-web-works',
+};
+
+/** Lección que hay que completar para que una pregunta aparezca como nueva (null = siempre disponible) */
+export function requiredLesson(itemId: string): string | null {
+  const [prefix, id] = itemId.split(':');
+  if (prefix === 'alg') {
+    const a = ALGORITHMS.find((x) => x.id === id);
+    return a ? PATTERN_LESSON[a.pattern] : null;
+  }
+  if (prefix === 'con') return CONCEPT_LESSON[id] ?? null;
+  if (prefix === 'des') return 'rest-apis'; // system design requiere bases de APIs
+  return null; // conductuales, propias y conceptos de lecciones
+}
+
+export function isUnlocked(itemId: string, data: AppData): boolean {
+  const lesson = requiredLesson(itemId);
+  return !lesson || Boolean(data.lessons[lesson]);
+}
+
 export function dailyQueue(data: AppData, today = todayStr()) {
   const items = allItems(data);
   const due = items.filter((i) => data.srs[i.id] && data.srs[i.id].due <= today);
   due.sort((a, b) => data.srs[a.id].due.localeCompare(data.srs[b.id].due));
   const introducedToday = data.activity[today]?.newCards ?? 0;
   const newLimit = Math.max(0, data.settings.newPerDay - introducedToday);
-  const fresh = interleave(items.filter((i) => !data.srs[i.id])).slice(0, newLimit);
-  return { due: interleave(due), fresh, all: [...interleave(due), ...fresh] };
+  const unseen = items.filter((i) => !data.srs[i.id]);
+  // Solo preguntas nuevas de temas cuya lección ya completaste
+  const fresh = interleave(unseen.filter((i) => isUnlocked(i.id, data))).slice(0, newLimit);
+  const locked = unseen.filter((i) => !isUnlocked(i.id, data)).length;
+  return { due: interleave(due), fresh, locked, all: [...interleave(due), ...fresh] };
 }
 
 export const TYPE_LABEL: Record<ItemType, L> = {

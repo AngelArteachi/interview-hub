@@ -1,7 +1,7 @@
-import { useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { Loader2, Sparkles, ThumbsUp, Wrench } from 'lucide-react';
 import type { AIEvaluation, ItemType } from '../types';
-import { evaluateAnswer, useAIEnabled } from '../lib/ai';
+import { aiUnavailableMessage, evaluateAnswer, useAIStatus } from '../lib/ai';
 import { useI18n } from '../i18n/I18nContext';
 import { Markdown } from './Markdown';
 
@@ -48,22 +48,35 @@ export function AIEvaluateButton({
   referenceAnswer,
   userAnswer,
   onResult,
+  autoRun = false,
 }: {
   type: ItemType;
   question: string;
   referenceAnswer?: string;
   userAnswer: string;
   onResult: (ev: AIEvaluation) => void;
+  /** Evaluar en cuanto la IA esté disponible, sin esperar el clic */
+  autoRun?: boolean;
 }) {
   const { tr, lang } = useI18n();
-  const enabled = useAIEnabled();
+  const status = useAIStatus();
+  const enabled = status?.enabled;
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState('');
+  const autoRan = useRef(false);
 
-  if (enabled === false)
+  useEffect(() => {
+    if (autoRun && enabled && !autoRan.current && userAnswer.trim().length >= 5) {
+      autoRan.current = true;
+      run();
+    }
+  });
+
+  if (status && !status.enabled)
     return (
       <p className="text-xs text-zinc-500">
-        {tr('Evaluación con IA desactivada: configura ANTHROPIC_API_KEY (ver Ajustes).', 'AI evaluation disabled: set ANTHROPIC_API_KEY (see Settings).')}
+        <Sparkles size={12} className="mr-1 inline" />
+        {aiUnavailableMessage(status.reason, tr)}
       </p>
     );
 

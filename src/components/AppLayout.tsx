@@ -6,6 +6,8 @@ import { useTheme } from '../store/ThemeContext';
 import { useStore } from '../store/AppStore';
 import { dailyQueue } from '../lib/items';
 import { streak } from '../lib/stats';
+import { AccountButton } from './Account';
+import { useAuth } from '../store/AuthContext';
 
 export function LangToggle() {
   const { lang, setLang } = useI18n();
@@ -38,6 +40,7 @@ export function ThemeToggle() {
 export function AppLayout() {
   const { tr } = useI18n();
   const { data } = useStore();
+  const { authError, clearAuthError } = useAuth();
   const [open, setOpen] = useState(false);
   const pending = dailyQueue(data).all.length;
   const s = streak(data);
@@ -83,6 +86,7 @@ export function AppLayout() {
             <NavLink to="/settings" className="btn-ghost hidden p-2 sm:inline-flex" aria-label={tr('Ajustes', 'Settings')}>
               <Settings size={18} />
             </NavLink>
+            <AccountButton />
             <button className="btn-ghost p-2 lg:hidden" onClick={() => setOpen(!open)} aria-label="Menu">
               {open ? <X size={20} /> : <Menu size={20} />}
             </button>
@@ -103,6 +107,16 @@ export function AppLayout() {
         )}
       </header>
       <main className="mx-auto max-w-6xl px-4 py-6 sm:py-8">
+        {authError && (
+          <div className="mb-6 flex items-start gap-3 rounded-2xl border border-rose-300 bg-rose-50 p-4 text-sm text-rose-800 dark:border-rose-500/30 dark:bg-rose-500/10 dark:text-rose-300">
+            <div className="flex-1">
+              <b>{tr('No se pudo iniciar sesión:', 'Sign-in failed:')}</b> {authError}
+            </div>
+            <button onClick={clearAuthError} className="btn-ghost p-1" aria-label={tr('Cerrar', 'Close')}>
+              <X size={16} />
+            </button>
+          </div>
+        )}
         <Outlet />
       </main>
     </div>

@@ -59,7 +59,7 @@ Siete animaciones paso a paso (play, pausa, avanzar y retroceder) en las que **p
 - **Sesiones personalizadas**: elige tipos, dificultad y modo (aleatorio, solo nuevas o tus puntos débiles primero).
 
 ### 🎤 Simulador de entrevista
-Elige el tipo (técnica, conductual o mixta), la duración y el número de preguntas. La app arma la entrevista **priorizando tus puntos débiles** y corre con temporizador real. Al terminar revisas cada respuesta junto a la respuesta de referencia y te calificas; el resultado se guarda en tu historial y actualiza tu repaso.
+Elige el tipo (técnica, conductual o mixta), la duración y el número de preguntas. Igual que en una entrevista real, las preguntas salen **al azar de todos los temas**, sin importar qué lecciones hayas completado, y corre con temporizador real. Al terminar revisas cada respuesta junto a la respuesta de referencia y te calificas; el resultado se guarda en tu historial de simulacros sin modificar tu repaso diario.
 
 ### 🤖 Inteligencia artificial con Claude (opcional)
 - **Evaluación de respuestas**: Claude califica lo que escribiste (1 a 5), te dice tus fortalezas, qué mejorar y cómo sería una respuesta ideal. Funciona en algoritmos, conceptos, system design, conductuales y el simulador.
@@ -70,12 +70,15 @@ Sin IA la app funciona completa con autoevaluación.
 ### 📈 Progreso
 Racha de días, mapa de actividad, dominio por categoría, por patrón de algoritmos y por tema, tus 5 puntos más débiles, pronóstico de repasos para los próximos 7 días y la evolución de tus simulacros.
 
+### ☁️ Cuentas y sincronización
+Inicia sesión con **Google** y tu progreso se sincroniza entre tu computadora y tu celular. También puedes usarla **sin cuenta** (modo invitado): al iniciar sesión, lo que llevabas se sube y se combina con tu cuenta sin perder nada. Cada usuario solo puede ver su propio progreso.
+
 ### Otros detalles
 - Español e inglés, con cambio instantáneo.
 - Tema claro y oscuro.
 - Diseño adaptado a celular.
 - Atajos de teclado en el repaso: `espacio` para revelar y `1` a `4` para calificar.
-- Tu progreso se guarda en el navegador y puedes exportarlo o importarlo en JSON.
+- Funciona sin internet: el progreso se guarda en el navegador y se sube al reconectar. También puedes exportarlo o importarlo en JSON.
 
 ---
 
@@ -88,12 +91,11 @@ npm run dev
 
 Abre http://localhost:5173.
 
-Para activar la IA, crea un archivo `.env` (basado en `.env.example`) con tu clave de [Anthropic](https://console.anthropic.com) y reinicia el servidor. La clave solo se usa en el servidor y nunca llega al navegador.
+Sin configurar nada, la app funciona completa en modo invitado. Para activar las cuentas y la IA, crea un archivo `.env` basado en `.env.example`:
 
-```
-ANTHROPIC_API_KEY=sk-ant-...
-```
+- **Cuentas con Google:** sigue la guía [docs/supabase.md](docs/supabase.md).
+- **IA:** agrega tu clave de [Anthropic](https://console.anthropic.com) en `ANTHROPIC_API_KEY`, y en `AI_ALLOWED_EMAILS` los correos que pueden usarla. La clave solo vive en el servidor y nunca llega al navegador.
 
 ## Tecnologías
 
-React 18, TypeScript, Vite, Tailwind CSS v4, React Router y la API de Claude (`@anthropic-ai/sdk`). Lista para desplegarse en Vercel.
+React 18, TypeScript, Vite, Tailwind CSS v4, React Router, Supabase (Auth + Postgres) y la API de Claude (`@anthropic-ai/sdk`). Lista para desplegarse en Vercel.

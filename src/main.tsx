@@ -5,6 +5,7 @@ import App from './App';
 import { I18nProvider } from './i18n/I18nContext';
 import { ThemeProvider } from './store/ThemeContext';
 import { AppStoreProvider } from './store/AppStore';
+import { AuthProvider } from './store/AuthContext';
 import './index.css';
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
@@ -12,9 +13,11 @@ ReactDOM.createRoot(document.getElementById('root')!).render(
     <BrowserRouter>
       <ThemeProvider>
         <I18nProvider>
-          <AppStoreProvider>
-            <App />
-          </AppStoreProvider>
+          <AuthProvider>
+            <AppStoreProvider>
+              <App />
+            </AppStoreProvider>
+          </AuthProvider>
         </I18nProvider>
       </ThemeProvider>
     </BrowserRouter>

@@ -1,6 +1,7 @@
 import Anthropic from '@anthropic-ai/sdk';
 import { betaZodOutputFormat } from '@anthropic-ai/sdk/helpers/beta/zod';
 import { z } from 'zod';
+import { createClient, type SupabaseClient } from '@supabase/supabase-js';
 import type { IncomingMessage, ServerResponse } from 'node:http';
 
 export const MODEL = process.env.ANTHROPIC_MODEL || 'claude-opus-5-5';
@@ -9,6 +10,35 @@ const FALLBACK = { betas: ['server-side-fallback-2026-07-01'], fallbacks: 'defau
 
 export function aiEnabled() {
   return Boolean(process.env.ANTHROPIC_API_KEY || process.env.ANTHROPIC_AUTH_TOKEN);
+}
+
+/* ---------------- Quién puede usar la IA ---------------- */
+
+export type AIAccess = { ok: true } | { ok: false; reason: 'NO_KEY' | 'LOGIN_REQUIRED' | 'NOT_ALLOWED' };
+
+let authClient: SupabaseClient | null = null;
+
+/**
+ * Con Supabase configurado, la IA exige sesión iniciada y un correo de AI_ALLOWED_EMAILS.
+ * Sin Supabase (desarrollo local sin cuentas), basta con la API key.
+ */
+export async function checkAccess(req: IncomingMessage): Promise<AIAccess> {
+  if (!aiEnabled()) return { ok: false, reason: 'NO_KEY' };
+  const url = process.env.VITE_SUPABASE_URL;
+  const key = process.env.VITE_SUPABASE_PUBLISHABLE_KEY;
+  if (!url || !key) return { ok: true };
+
+  const token = req.headers.authorization?.replace(/^Bearer\s+/i, '');
+  if (!token) return { ok: false, reason: 'LOGIN_REQUIRED' };
+  authClient ??= createClient(url, key, { auth: { persistSession: false, autoRefreshToken: false } });
+  const { data, error } = await authClient.auth.getUser(token);
+  if (error || !data.user?.email) return { ok: false, reason: 'LOGIN_REQUIRED' };
+
+  const allowed = (process.env.AI_ALLOWED_EMAILS ?? '')
+    .split(',')
+    .map((e) => e.trim().toLowerCase())
+    .filter(Boolean);
+  return allowed.includes(data.user.email.toLowerCase()) ? { ok: true } : { ok: false, reason: 'NOT_ALLOWED' };
 }
 
 let client: Anthropic | null = null;

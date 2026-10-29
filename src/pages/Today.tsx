@@ -1,6 +1,6 @@
 import { useMemo, useState } from 'react';
 import { Link } from 'react-router-dom';
-import { ArrowRight, BookOpen, CalendarCheck, CheckCircle2, Flame, Layers, Mic, Sparkles } from 'lucide-react';
+import { ArrowRight, BookOpen, CalendarCheck, CheckCircle2, Flame, Layers, Lock, Mic, Sparkles } from 'lucide-react';
 import { useStore } from '../store/AppStore';
 import { useI18n } from '../i18n/I18nContext';
 import { dailyQueue } from '../lib/items';
@@ -78,6 +78,18 @@ export default function Today() {
               </div>
             </div>
           )}
+          {queue.locked > 0 && (
+            <p className="mt-4 flex items-center gap-2 text-sm text-zinc-500">
+              <Lock size={14} className="shrink-0" />
+              <span>
+                {tr(`${queue.locked} preguntas se desbloquean al completar sus lecciones en `, `${queue.locked} questions unlock as you complete their lessons in `)}
+                <Link to="/learn" className="font-semibold text-brand-600 hover:underline">
+                  {tr('Aprender', 'Learn')}
+                </Link>
+                .
+              </span>
+            </p>
+          )}
         </div>
 
         <div className="space-y-4">
@@ -97,7 +109,7 @@ export default function Today() {
             <div className="mt-1 text-sm text-zinc-500">
               {data.mocks.length
                 ? tr(`Has hecho ${data.mocks.length}. ¿Otro hoy?`, `You've done ${data.mocks.length}. Another today?`)
-                : tr('Practica con tiempo real y preguntas de tus puntos débiles.', 'Practice under real time with questions from your weak spots.')}
+                : tr('Preguntas al azar de todos los temas, con tiempo real.', 'Random questions from every topic, under real time.')}
             </div>
           </Link>
         </div>

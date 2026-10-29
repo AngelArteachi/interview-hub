@@ -1,6 +1,7 @@
 import type { IncomingMessage, ServerResponse } from 'node:http';
-import { MODEL, aiEnabled, sendJSON } from './_claude.js';
+import { MODEL, checkAccess, sendJSON } from './_claude.js';
 
-export default function handler(_req: IncomingMessage, res: ServerResponse) {
-  sendJSON(res, 200, { enabled: aiEnabled(), model: MODEL });
+export default async function handler(req: IncomingMessage, res: ServerResponse) {
+  const access = await checkAccess(req);
+  sendJSON(res, 200, { enabled: access.ok, reason: access.ok ? null : access.reason, model: MODEL });
 }

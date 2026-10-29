@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from 'react';
 import { Bot, Loader2, Send, Sparkles, X } from 'lucide-react';
 import type { Lesson } from '../types';
-import { askTutor, useAIEnabled } from '../lib/ai';
+import { aiUnavailableMessage, askTutor, useAIStatus } from '../lib/ai';
 import { useI18n } from '../i18n/I18nContext';
 import { Markdown } from './Markdown';
 
@@ -16,7 +16,8 @@ export function lessonPlainText(lesson: Lesson, lang: 'es' | 'en') {
 /** Panel lateral "Pregúntale a Claude" con el contexto de la lección */
 export function TutorPanel({ lesson, onClose }: { lesson: Lesson; onClose: () => void }) {
   const { t, tr, lang } = useI18n();
-  const enabled = useAIEnabled();
+  const status = useAIStatus();
+  const enabled = status === null ? null : status.enabled;
   const [messages, setMessages] = useState<Msg[]>([]);
   const [input, setInput] = useState('');
   const [busy, setBusy] = useState(false);
@@ -76,10 +77,7 @@ export function TutorPanel({ lesson, onClose }: { lesson: Lesson; onClose: () =>
       <div className="flex-1 space-y-4 overflow-y-auto p-4">
         {enabled === false && (
           <div className="rounded-xl bg-amber-50 p-3 text-sm text-amber-800 dark:bg-amber-500/10 dark:text-amber-300">
-            {tr(
-              'El tutor necesita una API key de Anthropic. Crea un archivo .env con ANTHROPIC_API_KEY=... y reinicia el servidor (ver Ajustes).',
-              'The tutor needs an Anthropic API key. Create a .env file with ANTHROPIC_API_KEY=... and restart the server (see Settings).',
-            )}
+            {aiUnavailableMessage(status?.reason ?? null, tr)}
           </div>
         )}
         {!messages.length && enabled !== false && (

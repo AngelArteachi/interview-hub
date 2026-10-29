@@ -1,9 +1,10 @@
 import type { IncomingMessage, ServerResponse } from 'node:http';
-import { aiEnabled, errorMessage, evaluate, readBody, sendJSON, type EvaluateInput } from './_claude.js';
+import { checkAccess, errorMessage, evaluate, readBody, sendJSON, type EvaluateInput } from './_claude.js';
 
 export default async function handler(req: IncomingMessage, res: ServerResponse) {
   if (req.method !== 'POST') return sendJSON(res, 405, { error: 'Method not allowed' });
-  if (!aiEnabled()) return sendJSON(res, 503, { error: 'AI_DISABLED' });
+  const access = await checkAccess(req);
+  if (!access.ok) return sendJSON(res, access.reason === 'NO_KEY' ? 503 : 403, { error: access.reason });
   try {
     const body = await readBody<EvaluateInput>(req);
     if (!body.question || !body.userAnswer?.trim()) return sendJSON(res, 400, { error: 'question y userAnswer son requeridos' });

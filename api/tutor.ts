@@ -1,9 +1,10 @@
 import type { IncomingMessage, ServerResponse } from 'node:http';
-import { aiEnabled, errorMessage, readBody, sendJSON, tutorStream, type TutorInput } from './_claude.js';
+import { checkAccess, errorMessage, readBody, sendJSON, tutorStream, type TutorInput } from './_claude.js';
 
 export default async function handler(req: IncomingMessage, res: ServerResponse) {
   if (req.method !== 'POST') return sendJSON(res, 405, { error: 'Method not allowed' });
-  if (!aiEnabled()) return sendJSON(res, 503, { error: 'AI_DISABLED' });
+  const access = await checkAccess(req);
+  if (!access.ok) return sendJSON(res, access.reason === 'NO_KEY' ? 503 : 403, { error: access.reason });
   let started = false;
   try {
     const body = await readBody<TutorInput>(req);

@@ -1,10 +1,9 @@
 import { useEffect, useMemo, useRef, useState } from 'react';
 import { Clock, Loader2, Mic, Play, Sparkles, Square, Trophy } from 'lucide-react';
-import type { AIEvaluation, MockAnswer, MockKind, MockResult, Rating, ReviewItem } from '../types';
+import type { AIEvaluation, MockAnswer, MockKind, MockResult, ReviewItem } from '../types';
 import { useStore } from '../store/AppStore';
 import { useI18n } from '../i18n/I18nContext';
 import { TYPE_COLOR, TYPE_LABEL, allItems } from '../lib/items';
-import { weakness } from '../lib/srs';
 import { uid } from '../lib/storage';
 import { evaluateAnswer, useAIEnabled } from '../lib/ai';
 import { Markdown } from '../components/Markdown';
@@ -12,12 +11,11 @@ import { AIFeedbackView } from '../components/AIFeedback';
 import { PageHeader, ProgressBar } from '../components/ui';
 
 const fmt = (s: number) => `${Math.floor(s / 60)}:${String(Math.max(0, s) % 60).padStart(2, '0')}`;
-const scoreToRating = (s: number): Rating => (s <= 2 ? 1 : s === 3 ? 2 : s === 4 ? 3 : 4);
 
 type Phase = 'setup' | 'running' | 'review' | 'done';
 
 export default function MockInterview() {
-  const { data, addMock, rate } = useStore();
+  const { data, addMock } = useStore();
   const { t, tr, lang } = useI18n();
   const aiEnabled = useAIEnabled();
   const [phase, setPhase] = useState<Phase>('setup');
@@ -34,18 +32,19 @@ export default function MockInterview() {
   const [saved, setSaved] = useState<MockResult | null>(null);
   const finishedRef = useRef(false);
 
+  // Como en una entrevista real: todo el banco de preguntas, sin importar lecciones ni repasos
   const pool = useMemo(() => {
-    const items = allItems(data);
-    const technical = items.filter((i) => ['algorithm', 'concept', 'design', 'lesson'].includes(i.type) || (i.type === 'custom' && !i.tags.includes('behavioral')));
+    const items = allItems(data).filter((i) => i.type !== 'lesson');
+    const technical = items.filter((i) => ['algorithm', 'concept', 'design'].includes(i.type) || (i.type === 'custom' && !i.tags.includes('behavioral')));
     const behavioral = items.filter((i) => i.type === 'behavioral' || (i.type === 'custom' && i.tags.includes('behavioral')));
     return { technical, behavioral };
   }, [data]);
 
-  /** Prioriza puntos débiles con algo de aleatoriedad */
+  /** Selección completamente al azar */
   const pick = (list: ReviewItem[], n: number) =>
     list
-      .map((i) => ({ i, w: weakness(data.srs[i.id]) + Math.random() * 0.8 }))
-      .sort((a, b) => b.w - a.w)
+      .map((i) => ({ i, r: Math.random() }))
+      .sort((a, b) => a.r - b.r)
       .slice(0, n)
       .map((x) => x.i);
 
@@ -120,8 +119,7 @@ export default function MockInterview() {
 
   const save = () => {
     const result: MockResult = { id: uid(), date: new Date().toISOString(), kind, durationMin: minutes, answers };
-    addMock(result);
-    for (const a of answers) if (a.selfScore) rate(a.itemId, scoreToRating(a.selfScore));
+    addMock(result); // solo al historial: el simulacro no modifica el repaso espaciado
     setSaved(result);
     setPhase('done');
   };
@@ -246,7 +244,7 @@ export default function MockInterview() {
           <Trophy size={48} className="mx-auto text-amber-500" />
           <h2 className="mt-3 text-2xl font-extrabold">{tr('¡Simulacro guardado!', 'Mock saved!')}</h2>
           <div className="mt-2 text-5xl font-extrabold text-brand-600">{avg.toFixed(1)}/5</div>
-          <p className="mt-2 text-zinc-500">{tr('Tus calificaciones también actualizaron el repaso espaciado.', 'Your scores also updated your spaced repetition.')}</p>
+          <p className="mt-2 text-zinc-500">{tr('Quedó en tu historial. El simulacro no modifica tu repaso diario.', 'Saved to your history. Mocks do not change your daily review.')}</p>
           <button onClick={() => setPhase('setup')} className="btn-primary mt-6">
             {tr('Volver', 'Back')}
           </button>
@@ -257,7 +255,7 @@ export default function MockInterview() {
 
   return (
     <div>
-      <PageHeader title={tr('Simulador de entrevista', 'Mock interview')} subtitle={tr('Preguntas al azar priorizando tus puntos débiles, con tiempo real.', 'Random questions prioritizing your weak spots, under real time.')} />
+      <PageHeader title={tr('Simulador de entrevista', 'Mock interview')} subtitle={tr('Como una entrevista real: preguntas al azar de todos los temas, sin importar lo que hayas estudiado, y con tiempo real.', 'Like a real interview: random questions from every topic, regardless of what you have studied, under real time.')} />
       <div className="grid gap-6 lg:grid-cols-3">
         <div className="card p-6 lg:col-span-2">
           <div className="space-y-5">
