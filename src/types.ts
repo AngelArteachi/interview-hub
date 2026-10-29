@@ -67,6 +67,8 @@ export interface ReviewItem {
   difficulty?: Difficulty;
   /** ruta para ver el detalle */
   link?: string;
+  /** Qué se espera que respondas (se muestra aparte del enunciado) */
+  prompt?: L;
 }
 
 export interface SrsState {

@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
-import { ArrowRight, ChevronLeft, ChevronRight, Eye, History, PartyPopper, RotateCcw, Send } from 'lucide-react';
+import { ArrowRight, ChevronLeft, ChevronRight, Eye, History, MessageSquare, PartyPopper, RotateCcw, Send } from 'lucide-react';
 import type { AIEvaluation, Rating, ReviewItem, SrsState } from '../types';
 import { useStore } from '../store/AppStore';
 import { useI18n } from '../i18n/I18nContext';
@@ -202,6 +202,12 @@ export function ReviewSession({ items, onExit }: { items: ReviewItem[]; onExit?:
 
         <div className="p-5">
           <Markdown>{t(item.front)}</Markdown>
+          {item.prompt && (
+            <div className="mt-4 flex items-start gap-2 rounded-xl bg-brand-50 px-3 py-2.5 text-sm text-brand-800 dark:bg-brand-500/10 dark:text-brand-200">
+              <MessageSquare size={16} className="mt-0.5 shrink-0" />
+              <span>{t(item.prompt)}</span>
+            </div>
+          )}
 
           <div className="mt-5">
             <label className="label">{tr('Tu respuesta (recuerdo activo)', 'Your answer (active recall)')}</label>

@@ -53,7 +53,7 @@ export function CodeBlock({ code, lang }: { code: string; lang?: string }) {
   return (
     <div className="not-prose group relative my-4 overflow-hidden rounded-xl border border-zinc-800 bg-zinc-950">
       <div className="flex items-center justify-between border-b border-zinc-800 px-4 py-1.5 text-xs text-zinc-500">
-        <span className="font-mono">{lang ?? 'code'}</span>
+        <span className="font-mono">{lang === 'text' ? '' : (lang ?? 'code')}</span>
         <button onClick={copy} className="flex items-center gap-1 rounded px-1.5 py-0.5 hover:bg-zinc-800 hover:text-zinc-200" aria-label="Copy">
           {copied ? <Check size={13} /> : <Copy size={13} />}
         </button>

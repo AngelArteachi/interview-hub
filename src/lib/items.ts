@@ -12,10 +12,19 @@ const BUILTIN: ReviewItem[] = [
   ...ALGORITHMS.map<ReviewItem>((a) => ({
     id: `alg:${a.id}`,
     type: 'algorithm',
-    front: { es: `**${a.title.es}**\n\n${a.statement.es}`, en: `**${a.title.en}**\n\n${a.statement.en}` },
+    // Frente: problema + ejemplo
+    front: {
+      es: `**${a.title.es}**\n\n${a.statement.es}${a.example ? `\n\n**Ejemplo:**\n\n\`\`\`text\n${a.example}\n\`\`\`` : ''}`,
+      en: `**${a.title.en}**\n\n${a.statement.en}${a.example ? `\n\n**Example:**\n\n\`\`\`text\n${a.example}\n\`\`\`` : ''}`,
+    },
+    // Reverso: explicación + código + complejidad
     back: {
-      es: `${a.solution.es}\n\n**Patrón:** ${PATTERNS[a.pattern].name.es} · **Tiempo:** ${a.time} · **Espacio:** ${a.space}`,
-      en: `${a.solution.en}\n\n**Pattern:** ${PATTERNS[a.pattern].name.en} · **Time:** ${a.time} · **Space:** ${a.space}`,
+      es: `${a.solution.es}\n\n\`\`\`python\n${a.code}\n\`\`\`\n\n**Patrón:** ${PATTERNS[a.pattern].name.es} · **Tiempo:** ${a.time} · **Espacio:** ${a.space}`,
+      en: `${a.solution.en}\n\n\`\`\`python\n${a.code}\n\`\`\`\n\n**Pattern:** ${PATTERNS[a.pattern].name.en} · **Time:** ${a.time} · **Space:** ${a.space}`,
+    },
+    prompt: {
+      es: 'Explica cómo lo resolverías: la idea principal, qué estructura de datos usarías y su complejidad. No hace falta escribir el código.',
+      en: 'Explain how you would solve it: the main idea, which data structure you would use and its complexity. No need to write the code.',
     },
     tags: [a.pattern],
     difficulty: a.difficulty,
@@ -30,10 +39,24 @@ const BUILTIN: ReviewItem[] = [
       es: d.steps.map((s) => `**${s.title.es}**\n${s.points.map((p) => `- ${p.es}`).join('\n')}`).join('\n\n'),
       en: d.steps.map((s) => `**${s.title.en}**\n${s.points.map((p) => `- ${p.en}`).join('\n')}`).join('\n\n'),
     },
+    prompt: {
+      es: 'Esboza tu diseño: requisitos, API y datos, diseño general y cómo escalaría.',
+      en: 'Sketch your design: requirements, API and data, high-level design and how it would scale.',
+    },
     tags: ['design'],
     link: `/practice/design/${d.id}`,
   })),
-  ...BEHAVIORAL.map<ReviewItem>((b) => ({ id: `beh:${b.id}`, type: 'behavioral', front: b.q, back: b.tip, tags: b.tags })),
+  ...BEHAVIORAL.map<ReviewItem>((b) => ({
+    id: `beh:${b.id}`,
+    type: 'behavioral',
+    front: b.q,
+    back: b.tip,
+    prompt: {
+      es: 'Responde como en la entrevista, con una historia real y el formato STAR: Situación, Tarea, Acción y Resultado.',
+      en: 'Answer as in the interview, with a real story and the STAR format: Situation, Task, Action and Result.',
+    },
+    tags: b.tags,
+  })),
 ];
 
 const LESSON_ITEMS: ReviewItem[] = LESSONS.flatMap((les) =>

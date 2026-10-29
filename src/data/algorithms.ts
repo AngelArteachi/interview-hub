@@ -54,17 +54,17 @@ export const ALGORITHMS: Algorithm[] = [
     pattern: 'hashing',
     difficulty: 'easy',
     statement: l(
-      'Dado un arreglo de enteros `nums` y un `target`, devuelve los índices de los dos números que suman `target`. Hay exactamente una solución.',
-      'Given an integer array `nums` and a `target`, return the indices of the two numbers that add up to `target`. There is exactly one solution.',
+      'Te dan una lista de números `nums` y un número objetivo `target`. Encuentra **dos números distintos de la lista que sumados den `target`** y devuelve sus **posiciones** (índices, empezando en 0). Siempre existe exactamente un par que cumple.',
+      'You get a list of numbers `nums` and a target number `target`. Find **two different numbers in the list that add up to `target`** and return their **positions** (indices, starting at 0). Exactly one such pair always exists.',
     ),
-    example: 'nums = [2,7,11,15], target = 9  →  [0,1]',
+    example: 'nums = [2, 7, 11, 15], target = 9  →  [0, 1]\n(nums[0] + nums[1] = 2 + 7 = 9)',
     hints: [
       l('La fuerza bruta prueba todos los pares: O(n²). ¿Qué necesitas saber de cada número?', 'Brute force tries every pair: O(n²). What do you need to know about each number?'),
       l('Para cada x, buscas `target - x`. ¿Cómo lo encuentras en O(1)?', 'For each x you look for `target - x`. How can you find it in O(1)?'),
     ],
     solution: l(
-      'Recorre el arreglo guardando en un hash map `valor → índice`. Para cada número calcula el complemento `target - x`; si ya está en el mapa, encontraste el par.',
-      'Walk the array storing a hash map `value → index`. For each number compute the complement `target - x`; if it is already in the map you found the pair.',
+      'Recorre la lista una sola vez. Para cada número `x`, el que te falta para llegar a `target` es `target - x` (su "complemento"). Guarda en un hash map cada número que ya viste junto con su posición (`valor → índice`): así puedes preguntar en O(1) si el complemento ya apareció. Si está, ese es el par. Ejemplo: con target 9, al llegar al 7 buscas el 2, que ya viste en la posición 0 → respuesta [0, 1].',
+      'Walk the list once. For each number `x`, the one you still need to reach `target` is `target - x` (its "complement"). Store every number you have seen with its position in a hash map (`value → index`), so you can ask in O(1) whether the complement already appeared. If it did, that is the pair. Example: with target 9, when you reach 7 you look for 2, which you saw at position 0 → answer [0, 1].',
     ),
     code: `def two_sum(nums, target):
     seen = {}
@@ -397,6 +397,7 @@ def top_k_frequent(nums, k):
     pattern: 'stack',
     difficulty: 'medium',
     statement: l('Diseña una pila que soporte push, pop, top y getMin, todos en O(1).', 'Design a stack supporting push, pop, top and getMin, all in O(1).'),
+    example: 'push(-2), push(0), push(-3)\ngetMin() → -3\npop()\ntop() → 0\ngetMin() → -2',
     hints: [l('Guarda junto a cada elemento el mínimo hasta ese punto.', 'Store, next to each element, the minimum up to that point.')],
     solution: l('Usa una segunda pila (o pares) con el mínimo actual en cada nivel. Al hacer pop, el mínimo anterior queda automáticamente en la cima.', 'Use a second stack (or pairs) with the current minimum at each level. On pop, the previous minimum is automatically on top.'),
     code: `class MinStack:
@@ -552,6 +553,7 @@ def top_k_frequent(nums, k):
     pattern: 'binary-search',
     difficulty: 'easy',
     statement: l('Las versiones 1..n son buenas hasta cierto punto y luego todas malas. Encuentra la primera mala llamando lo menos posible a `isBadVersion`.', 'Versions 1..n are good up to a point and then all bad. Find the first bad one calling `isBadVersion` as few times as possible.'),
+    example: 'n = 5  (1, 2, 3 ✓ · 4, 5 ✗)\nisBadVersion(3) → false\nisBadVersion(4) → true   →  4',
     hints: [l('El predicado es monótono: F F F T T T. Busca la frontera.', 'The predicate is monotonic: F F F T T T. Search for the boundary.')],
     solution: l('Búsqueda binaria sobre la respuesta: si mid es mala, la respuesta está en [lo, mid]; si no, en [mid+1, hi].', 'Binary search on the answer: if mid is bad the answer is in [lo, mid]; otherwise in [mid+1, hi].'),
     code: `def first_bad_version(n):
@@ -594,6 +596,7 @@ def top_k_frequent(nums, k):
     pattern: 'linked-list',
     difficulty: 'easy',
     statement: l('Combina dos listas enlazadas ordenadas en una sola lista ordenada.', 'Merge two sorted linked lists into one sorted list.'),
+    example: '1 → 2 → 4\n1 → 3 → 4   →  1 → 1 → 2 → 3 → 4 → 4',
     hints: [l('Un nodo "dummy" simplifica el manejo de la cabeza.', 'A "dummy" node simplifies handling the head.')],
     solution: l('Con un nodo dummy y un puntero `tail`, enlaza siempre el menor de los dos nodos actuales. Al final, enlaza lo que quede.', 'With a dummy node and a `tail` pointer, always link the smaller of the two current nodes. At the end, link whatever remains.'),
     code: `def merge_two_lists(a, b):
@@ -616,6 +619,7 @@ def top_k_frequent(nums, k):
     pattern: 'linked-list',
     difficulty: 'easy',
     statement: l('Determina si una lista enlazada tiene un ciclo usando memoria O(1).', 'Determine whether a linked list has a cycle using O(1) memory.'),
+    example: '3 → 2 → 0 → -4 ↺ (-4 → 2)  →  true\n1 → 2 → null              →  false',
     hints: [l('Algoritmo de la tortuga y la liebre (Floyd).', 'Tortoise and hare algorithm (Floyd).')],
     solution: l('Un puntero lento avanza 1 y uno rápido 2. Si hay ciclo, se encontrarán; si el rápido llega a None, no hay ciclo.', 'A slow pointer moves 1 and a fast one moves 2. If there is a cycle they meet; if fast reaches None, there is no cycle.'),
     code: `def has_cycle(head):
@@ -635,6 +639,7 @@ def top_k_frequent(nums, k):
     pattern: 'linked-list',
     difficulty: 'easy',
     statement: l('Devuelve el nodo del medio (el segundo si hay dos).', 'Return the middle node (the second one if there are two).'),
+    example: '1 → 2 → 3 → 4 → 5      →  3\n1 → 2 → 3 → 4 → 5 → 6  →  4',
     hints: [l('Si un puntero va al doble de velocidad, ¿dónde está el lento cuando el rápido termina?', 'If one pointer moves at double speed, where is the slow one when the fast one ends?')],
     solution: l('Punteros lento y rápido: cuando el rápido llega al final, el lento está en el medio.', 'Slow and fast pointers: when fast reaches the end, slow is in the middle.'),
     code: `def middle_node(head):
@@ -653,6 +658,7 @@ def top_k_frequent(nums, k):
     pattern: 'trees',
     difficulty: 'easy',
     statement: l('Devuelve la profundidad máxima de un árbol binario.', 'Return the maximum depth of a binary tree.'),
+    example: '    3\n   / \\\n  9   20\n     /  \\\n    15   7     →  3',
     hints: [l('La profundidad de un nodo = 1 + máx(profundidad izquierda, derecha).', 'Depth of a node = 1 + max(left depth, right depth).')],
     solution: l('Recursión: caso base nodo nulo → 0. Si no, 1 + max(izq, der).', 'Recursion: base case null node → 0. Otherwise 1 + max(left, right).'),
     code: `def max_depth(root):
@@ -668,7 +674,8 @@ def top_k_frequent(nums, k):
     title: l('Invertir árbol binario', 'Invert Binary Tree'),
     pattern: 'trees',
     difficulty: 'easy',
-    statement: l('Invierte (refleja) un árbol binario.', 'Invert (mirror) a binary tree.'),
+    statement: l('Convierte un árbol binario en su **reflejo**, como si lo vieras en un espejo: en cada nodo, el hijo izquierdo pasa a la derecha y el derecho a la izquierda. Devuelve la raíz.', 'Turn a binary tree into its **mirror image**: at every node, the left child moves to the right and the right child to the left. Return the root.'),
+    example: '     4              4\n   /   \\          /   \\\n  2     7   →    7     2\n / \\   / \\      / \\   / \\\n1   3 6   9    9   6 3   1',
     hints: [l('Intercambia los hijos de cada nodo.', 'Swap the children of every node.')],
     solution: l('Para cada nodo, intercambia `left` y `right`, y repite recursivamente en ambos hijos.', 'For each node, swap `left` and `right`, then recurse on both children.'),
     code: `def invert_tree(root):
@@ -713,6 +720,7 @@ def level_order(root):
     pattern: 'trees',
     difficulty: 'medium',
     statement: l('Determina si un árbol binario es un árbol binario de búsqueda válido.', 'Determine whether a binary tree is a valid binary search tree.'),
+    example: '  2          5\n / \\        / \\\n1   3      1   4\n              / \\\n             3   6\n→ true      → false (3 < 5)',
     hints: [
       l('No basta comparar con los hijos directos.', 'Comparing with direct children is not enough.'),
       l('Pasa un rango (mín, máx) permitido a cada nodo.', 'Pass an allowed range (min, max) to each node.'),
@@ -735,6 +743,7 @@ def level_order(root):
     pattern: 'trees',
     difficulty: 'medium',
     statement: l('Encuentra el ancestro común más bajo de dos nodos p y q en un BST.', 'Find the lowest common ancestor of two nodes p and q in a BST.'),
+    example: '        6\n      /   \\\n     2     8\n    / \\   / \\\n   0   4 7   9\np = 2, q = 8  →  6\np = 2, q = 4  →  2',
     hints: [l('Si ambos son menores que el nodo, el LCA está a la izquierda.', 'If both are smaller than the node, the LCA is on the left.')],
     solution: l('Desde la raíz: si p y q son menores, baja a la izquierda; si ambos mayores, a la derecha; si no, el nodo actual es el punto de separación → LCA.', 'From the root: if p and q are smaller go left; if both larger go right; otherwise the current node is the split point → LCA.'),
     code: `def lowest_common_ancestor(root, p, q):
@@ -757,6 +766,7 @@ def level_order(root):
     pattern: 'graphs',
     difficulty: 'medium',
     statement: l('Cuenta las islas en una cuadrícula de "1" (tierra) y "0" (agua). Las islas se conectan horizontal/verticalmente.', 'Count islands in a grid of "1" (land) and "0" (water). Islands connect horizontally/vertically.'),
+    example: '1 1 0 0 0\n1 1 0 0 0\n0 0 1 0 0\n0 0 0 1 1   →  3',
     hints: [
       l('Cada celda es un nodo; sus vecinos son las 4 direcciones.', 'Each cell is a node; its neighbors are the 4 directions.'),
       l('Cada vez que encuentres tierra no visitada, "hunde" toda la isla con DFS/BFS.', 'Whenever you find unvisited land, "sink" the whole island with DFS/BFS.'),
@@ -788,6 +798,7 @@ def level_order(root):
     pattern: 'graphs',
     difficulty: 'easy',
     statement: l('Desde (sr, sc), cambia a `color` todas las celdas conectadas que tengan el color original.', 'From (sr, sc), change to `color` every connected cell with the original color.'),
+    example: '1 1 1        2 2 2\n1 1 0   →    2 2 0\n1 0 1        2 0 1\n(sr = 1, sc = 1, color = 2)',
     hints: [l('Cuidado si el color nuevo es igual al original (bucle infinito).', 'Careful if the new color equals the original (infinite loop).')],
     solution: l('DFS desde la celda inicial, pintando y expandiendo a los 4 vecinos con el color original.', 'DFS from the starting cell, painting and expanding to the 4 neighbors with the original color.'),
     code: `def flood_fill(image, sr, sc, color):
@@ -812,6 +823,7 @@ def level_order(root):
     pattern: 'graphs',
     difficulty: 'medium',
     statement: l('Hay n cursos con prerrequisitos [a, b] (para tomar a debes tomar b). ¿Se pueden terminar todos?', 'There are n courses with prerequisites [a, b] (to take a you must take b). Can you finish all of them?'),
+    example: 'n = 2, [[1, 0]]          →  true\nn = 2, [[1, 0], [0, 1]]  →  false (1 ⇄ 0)',
     hints: [
       l('Es un grafo dirigido: ¿qué impediría terminar?', 'It is a directed graph: what would make it impossible?'),
       l('Detecta ciclos. Orden topológico (Kahn) con grados de entrada.', 'Detect cycles. Topological order (Kahn) with in-degrees.'),
@@ -845,6 +857,7 @@ def can_finish(n, prereqs):
     pattern: 'graphs',
     difficulty: 'medium',
     statement: l('Encuentra la longitud del camino más corto de la esquina superior izquierda a la inferior derecha pasando solo por 0 (8 direcciones).', 'Find the length of the shortest path from top-left to bottom-right passing only through 0s (8 directions).'),
+    example: '0 0 0\n1 1 0\n1 1 0   →  4',
     hints: [l('Sin pesos → BFS garantiza el camino más corto.', 'Unweighted → BFS guarantees the shortest path.')],
     solution: l('BFS desde (0,0) guardando la distancia; marca visitados al encolar. La primera vez que llegas al destino, esa es la distancia mínima.', 'BFS from (0,0) storing the distance; mark visited when enqueuing. The first time you reach the target, that is the minimum distance.'),
     code: `from collections import deque
@@ -998,6 +1011,7 @@ def shortest_path(grid):
     pattern: 'sorting',
     difficulty: 'easy',
     statement: l('Dados intervalos de reuniones, ¿puede una persona asistir a todas?', 'Given meeting intervals, can a person attend all of them?'),
+    example: '[[0, 30], [5, 10], [15, 20]]  →  false\n[[7, 10], [2, 4]]             →  true',
     hints: [l('Tras ordenar, solo necesitas comparar reuniones consecutivas.', 'After sorting, you only need to compare consecutive meetings.')],
     solution: l('Ordena por inicio; si alguna reunión empieza antes de que termine la anterior, no se puede.', 'Sort by start; if any meeting starts before the previous one ends, it is impossible.'),
     code: `def can_attend(intervals):

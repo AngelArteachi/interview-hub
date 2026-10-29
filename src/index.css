@@ -63,7 +63,7 @@
 }
 
 
-.prose pre {
+.prose :where(pre):not(:where(.not-prose *)) {
   @apply rounded-xl border border-zinc-800 bg-zinc-950 text-[13px] leading-relaxed;
 }
 .prose :where(code):not(:where(pre *)) {
