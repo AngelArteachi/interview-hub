@@ -142,6 +142,14 @@ export interface AppData {
   activity: Record<string, DayActivity>;
   notes: Record<string, string>;
   settings: { newPerDay: number };
+  /** Progreso en los ejercicios de práctica de las lecciones (clave: `<lessonId>:<exId>`) */
+  exercises: Record<string, ExerciseProgress>;
+}
+
+export interface ExerciseProgress {
+  ok: boolean;
+  date: string;
+  tries: number;
 }
 
 /* ---------- Lecciones ---------- */
@@ -152,7 +160,22 @@ export type Block =
   | { kind: 'md'; md: L }
   | { kind: 'code'; code: string; lang?: string; caption?: L }
   | { kind: 'viz'; id: VisualizerId }
-  | { kind: 'callout'; tone: 'tip' | 'interview' | 'warning'; md: L };
+  | { kind: 'callout'; tone: 'tip' | 'interview' | 'warning'; md: L }
+  | { kind: 'exercise'; ex: Exercise };
+
+/* ---------- Ejercicios de práctica (no cuentan para aprobar) ---------- */
+export type ExerciseLevel = 'basic' | 'medium' | 'interview';
+
+export type Exercise = { id: string; level: ExerciseLevel } & (
+  /** Predice qué imprime el código. `walkthrough`: cómo funciona el algoritmo, sin dar la respuesta */
+  | { kind: 'predict'; prompt: L; code: string; lang: 'python' | 'javascript'; answer: string; explanation: L; walkthrough?: L }
+  /** Elige la línea que falta (marcada con ____ en el código) */
+  | { kind: 'complete'; prompt: L; code: string; lang: 'python' | 'javascript'; options: string[]; answer: number; explanation: L; walkthrough?: L }
+  /** Pregunta abierta: escribes y te autoevalúas */
+  | { kind: 'recall'; q: L; a: L }
+  /** Ordena los pasos (vienen en el orden correcto; se barajan al mostrarlos) */
+  | { kind: 'order'; prompt: L; steps: L[]; explanation: L }
+);
 
 export interface QuizQ {
   q: L;
@@ -171,6 +194,8 @@ export interface Lesson {
   quiz: QuizQ[];
   concepts: { q: L; a: L }[];
   related?: string[]; // ids de algoritmos
+  /** Banco de ejercicios de "Practica esta lección" */
+  practice?: Exercise[];
 }
 
 export interface Track {

@@ -39,6 +39,13 @@ Lecciones cortas que explican los temas desde cero, con ejemplos de código, con
 
 Cada pregunta del repaso está ligada a la lección que la explica: **solo te aparece cuando ya aprobaste esa lección**. Al aprobar una lección, sus conceptos clave entran solos a tu repaso diario, y la lección te enlaza a los problemas de práctica relacionados.
 
+### ✏️ Ejercicios para recordar, no para releer
+Las lecciones incluyen ejercicios cortos entre secciones y un banco **"Practica esta lección"** en 3 niveles (básico, intermedio y tipo entrevista), de cuatro tipos: **predice la salida**, **completa el código**, **repaso rápido** y **ordena los pasos**. Los que fallas entran a tu repaso diario. En los temas difíciles hay una "Parte 2" hecha de ejemplos resueltos seguidos de un "Ahora tú" (p. ej. *Big O en la práctica*).
+
+En los ejercicios con código puedes abrir un **paso a paso** opcional al lado del código: resalta la línea que se ejecuta, explica qué hace y muestra las variables. Te guía en los primeros pasos y deja el final para ti hasta que respondes, así que no te da la respuesta.
+
+> Para desarrolladores: el paso a paso se genera **ejecutando el código real** de cada ejercicio con `python -I -X utf8 scripts/gen_traces.py`, que escribe `src/content/lessons/exercises/traces.json`. Vuelve a ejecutarlo al cambiar un ejercicio (la app ignora un paso a paso desactualizado).
+
 ### 🎬 Visualizaciones interactivas
 Siete animaciones paso a paso (play, pausa, avanzar y retroceder) en las que **puedes cambiar los datos de entrada**:
 

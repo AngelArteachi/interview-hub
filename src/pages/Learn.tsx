@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import { CheckCircle2, Circle, Clock } from 'lucide-react';
+import { CheckCircle2, Circle, Clock, Dumbbell } from 'lucide-react';
 import { TRACKS, lessonsByTrack } from '../content/lessons';
 import { useStore } from '../store/AppStore';
 import { useI18n } from '../i18n/I18nContext';
@@ -43,6 +43,11 @@ export default function Learn() {
                           <div className="truncate text-sm text-zinc-500">{t(l.summary)}</div>
                         </div>
                         {l.id === nextId && <span className="chip hidden bg-brand-600 text-white sm:inline-flex">{tr('Siguiente', 'Next')}</span>}
+                        {!!l.practice?.length && (
+                          <span className="chip hidden bg-zinc-100 text-zinc-600 sm:inline-flex dark:bg-zinc-800 dark:text-zinc-300" title={tr('Ejercicios de práctica resueltos', 'Practice exercises solved')}>
+                            <Dumbbell size={11} /> {l.practice.filter((e) => data.exercises?.[`${l.id}:${e.id}`]?.ok).length}/{l.practice.length}
+                          </span>
+                        )}
                         {p && <span className="hidden text-xs text-zinc-500 sm:block">Quiz {p.quizScore}%</span>}
                         <span className="flex shrink-0 items-center gap-1 text-xs text-zinc-400">
                           <Clock size={12} /> {l.minutes}m

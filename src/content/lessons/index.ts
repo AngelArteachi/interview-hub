@@ -1,4 +1,4 @@
-import type { Lesson, Track, TrackId } from '../../types';
+import type { Exercise, Lesson, Track, TrackId } from '../../types';
 import { l } from './helpers';
 import { DSA_LESSONS } from './dsa';
 import { DESIGN_LESSONS } from './design';
@@ -6,6 +6,7 @@ import { WEB_LESSONS } from './web';
 import { SYSTEMS_LESSONS } from './systems';
 import { EXTRA_BLOCKS } from './extras';
 import { BEHAVIORAL_LESSON, JS_LESSON, SYSTEM_DESIGN_LESSON } from './newLessons';
+import { BIG_O_CHECKPOINTS, BIG_O_PRACTICE, BIG_O_PRACTICE_LESSON } from './exercises/bigO';
 
 export const TRACKS: Track[] = [
   {
@@ -43,8 +44,26 @@ export const TRACKS: Track[] = [
 // JavaScript va justo después de "Cómo funciona la web"; system design cierra la ruta web
 const [firstWeb, ...restWeb] = WEB_LESSONS;
 
+/** Checkpoints (ejercicios entre secciones) y banco de práctica por lección */
+const CHECKPOINTS: Record<string, Record<number, Exercise>> = { 'big-o': BIG_O_CHECKPOINTS };
+const PRACTICE: Record<string, Exercise[]> = { 'big-o': BIG_O_PRACTICE };
+
+function withExercises(les: Lesson): Lesson {
+  const blocks = [...les.blocks, ...(EXTRA_BLOCKS[les.id] ?? [])];
+  const cps = CHECKPOINTS[les.id] ?? {};
+  // Inserta cada checkpoint justo después de su bloque (de atrás hacia adelante para no mover índices)
+  for (const idx of Object.keys(cps).map(Number).sort((a, b) => b - a)) {
+    blocks.splice(idx + 1, 0, { kind: 'exercise', ex: cps[idx] });
+  }
+  return { ...les, blocks, practice: les.practice ?? PRACTICE[les.id] };
+}
+
+const [bigO, ...restDsa] = DSA_LESSONS;
+
 export const LESSONS: Lesson[] = [
-  ...DSA_LESSONS,
+  bigO,
+  BIG_O_PRACTICE_LESSON,
+  ...restDsa,
   ...DESIGN_LESSONS,
   firstWeb,
   JS_LESSON,
@@ -52,11 +71,9 @@ export const LESSONS: Lesson[] = [
   SYSTEM_DESIGN_LESSON,
   ...SYSTEMS_LESSONS,
   BEHAVIORAL_LESSON,
-].map((les) => (EXTRA_BLOCKS[les.id] ? { ...les, blocks: [...les.blocks, ...EXTRA_BLOCKS[les.id]] } : les));
+].map(withExercises);
 
 export const lessonsByTrack = (t: TrackId) => LESSONS.filter((x) => x.track === t);
 export const lessonById = (id: string) => LESSONS.find((x) => x.id === id);
 export const trackById = (id: TrackId) => TRACKS.find((t) => t.id === id)!;
-export const lessonConceptId = (lessonId: string, i: number) => `les:${lessonId}:${i}`;
-/** Pregunta de quiz convertida en tarjeta de repaso (solo si la fallaste) */
-export const quizItemId = (lessonId: string, i: number) => `qz:${lessonId}:${i}`;
+export { exerciseItemId, lessonConceptId, quizItemId } from './ids';

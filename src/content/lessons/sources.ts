@@ -25,6 +25,11 @@ const OSTEP: Source = {
 export const LESSON_SOURCES: Record<string, Source[]> = {
   /* ---------- Estructuras de datos y algoritmos ---------- */
   'big-o': [MIT_6006, { title: 'Time complexity of operations on built-in types', publisher: 'Documentación oficial de Python', url: 'https://docs.python.org/3/builtins/time-complexity.html' }],
+  'big-o-practice': [
+    MIT_6006,
+    { title: 'Time complexity of operations on built-in types', publisher: 'Documentación oficial de Python', url: 'https://docs.python.org/3/builtins/time-complexity.html' },
+    { title: 'Built-in Types: nota sobre concatenar secuencias (costo cuadrático)', publisher: 'Documentación oficial de Python', url: 'https://docs.python.org/3/builtins/stdtypes.html' },
+  ],
   'arrays-hashing': [
     { title: 'Data Structures (listas, diccionarios y sets)', publisher: 'Documentación oficial de Python', url: 'https://docs.python.org/3/tutorial/datastructures.html' },
     { title: 'Built-in Types: dict y set', publisher: 'Documentación oficial de Python', url: 'https://docs.python.org/3/builtins/stdtypes.html' },

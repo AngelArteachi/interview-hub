@@ -1,6 +1,6 @@
 import { useRef, useState } from 'react';
 import { Link, Navigate, useParams } from 'react-router-dom';
-import { AlertTriangle, ArrowRight, BookOpen, CheckCircle2, ChevronLeft, ChevronRight, Clock, ExternalLink, Library, Lightbulb, MessageSquareQuote, RotateCcw, Sparkles } from 'lucide-react';
+import { AlertTriangle, ArrowRight, BookOpen, CheckCircle2, Dumbbell, ChevronLeft, ChevronRight, Clock, ExternalLink, Library, Lightbulb, MessageSquareQuote, RotateCcw, Sparkles } from 'lucide-react';
 import type { Block } from '../types';
 import { LESSONS, lessonById, lessonConceptId, quizItemId, trackById } from '../content/lessons';
 import { algorithmById } from '../data/algorithms';
@@ -10,6 +10,7 @@ import { useI18n } from '../i18n/I18nContext';
 import { Markdown } from '../components/Markdown';
 import { CodeBlock } from '../components/CodeBlock';
 import { Quiz } from '../components/Quiz';
+import { Exercise } from '../components/Exercise';
 import { TutorPanel } from '../components/TutorPanel';
 import { Visualizer } from '../visualizers';
 import { DifficultyBadge } from '../components/ui';
@@ -17,9 +18,11 @@ import { DifficultyBadge } from '../components/ui';
 /** Porcentaje mínimo para aprobar el quiz de una lección */
 const PASS = 70;
 
-function BlockView({ block }: { block: Block }) {
+function BlockView({ block, lessonId }: { block: Block; lessonId: string }) {
   const { t, tr } = useI18n();
   switch (block.kind) {
+    case 'exercise':
+      return <Exercise ex={block.ex} lessonId={lessonId} />;
     case 'md':
       return <Markdown>{t(block.md)}</Markdown>;
     case 'code':
@@ -98,6 +101,7 @@ function LessonView({ id }: { id: string }) {
   const progress = data.lessons[lesson.id];
   const related = (lesson.related ?? []).map(algorithmById).filter((a) => !!a);
   const sources = LESSON_SOURCES[lesson.id] ?? [];
+  const practiceDone = (lesson.practice ?? []).filter((e) => data.exercises?.[`${lesson.id}:${e.id}`]?.ok).length;
 
   return (
     <div className="mx-auto max-w-3xl">
@@ -124,9 +128,30 @@ function LessonView({ id }: { id: string }) {
 
       <article>
         {lesson.blocks.map((b, i) => (
-          <BlockView key={i} block={b} />
+          <BlockView key={i} block={b} lessonId={lesson.id} />
         ))}
       </article>
+
+      {!!lesson.practice?.length && (
+        <Link
+          to={`/learn/${lesson.id}/practice`}
+          className="card mt-8 flex items-center gap-4 border-brand-300 p-5 transition hover:border-brand-500 hover:shadow-md dark:border-brand-500/40"
+        >
+          <div className="rounded-xl bg-brand-100 p-3 text-brand-700 dark:bg-brand-500/15 dark:text-brand-300">
+            <Dumbbell size={22} />
+          </div>
+          <div className="flex-1">
+            <div className="font-bold">{tr('Practica esta lección', 'Practice this lesson')}</div>
+            <div className="text-sm text-zinc-500">
+              {tr(
+                `${lesson.practice.length} ejercicios en 3 niveles · llevas ${practiceDone}/${lesson.practice.length}. Practicar recordando fija mejor que releer.`,
+                `${lesson.practice.length} exercises in 3 levels · ${practiceDone}/${lesson.practice.length} done. Practicing recall sticks better than re-reading.`,
+              )}
+            </div>
+          </div>
+          <ArrowRight size={18} className="text-brand-500" />
+        </Link>
+      )}
 
       {sources.length > 0 && (
         <section className="mt-8 rounded-2xl border border-zinc-200 p-5 dark:border-zinc-800">

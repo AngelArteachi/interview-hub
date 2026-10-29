@@ -4,6 +4,7 @@ import { AppLayout } from './components/AppLayout';
 import Today from './pages/Today';
 import Learn from './pages/Learn';
 import LessonPage from './pages/Lesson';
+import LessonPractice from './pages/LessonPractice';
 import Practice from './pages/Practice';
 import Algorithms from './pages/Algorithms';
 import AlgorithmDetail from './pages/AlgorithmDetail';
@@ -34,6 +35,7 @@ export default function App() {
           <Route index element={<Today />} />
           <Route path="learn" element={<Learn />} />
           <Route path="learn/:id" element={<LessonPage />} />
+          <Route path="learn/:id/practice" element={<LessonPractice />} />
           <Route path="practice" element={<Practice />} />
           <Route path="practice/algorithms" element={<Algorithms />} />
           <Route path="practice/algorithms/:id" element={<AlgorithmDetail />} />

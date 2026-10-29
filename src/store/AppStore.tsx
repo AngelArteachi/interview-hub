@@ -3,6 +3,7 @@ import type { AppData, CustomCard, DayActivity, MockResult, Rating, SrsState, St
 import { useLocalStorage } from '../lib/storage';
 import { newState, review, todayStr } from '../lib/srs';
 import { fetchRemote, mergeData, pushRemote } from '../lib/sync';
+import { exerciseItemId } from '../content/lessons/ids';
 import { useAuth } from './AuthContext';
 
 export type SyncStatus = 'guest' | 'syncing' | 'synced' | 'error';
@@ -17,6 +18,7 @@ export const EMPTY_DATA: AppData = {
   activity: {},
   notes: {},
   settings: { newPerDay: 10 },
+  exercises: {},
 };
 
 interface Store {
@@ -28,6 +30,8 @@ interface Store {
   completeLesson: (lessonId: string, quizScore: number, conceptIds: string[]) => void;
   /** Mete tarjetas al repaso de hoy (nuevas o adelantando su fecha) */
   enroll: (ids: string[]) => void;
+  /** Guarda el resultado de un ejercicio de práctica; si falló, su tarjeta entra al repaso de hoy */
+  recordExercise: (lessonId: string, exId: string, ok: boolean) => void;
   saveCustom: (c: CustomCard) => void;
   deleteCustom: (id: string) => void;
   saveStory: (s: Story) => void;
@@ -162,6 +166,17 @@ export function AppStoreProvider({ children }: { children: ReactNode }) {
         const srs = { ...d.srs };
         for (const id of ids) srs[id] = srs[id] ? { ...srs[id], due: today } : newState(today);
         return { ...d, srs };
+      }),
+    recordExercise: (lessonId, exId, ok) =>
+      setData((d) => {
+        const key = `${lessonId}:${exId}`;
+        const prev = d.exercises?.[key];
+        const exercises = { ...d.exercises, [key]: { ok, date: new Date().toISOString(), tries: (prev?.tries ?? 0) + 1 } };
+        if (ok) return { ...d, exercises };
+        const cardId = exerciseItemId(lessonId, exId);
+        const today = todayStr();
+        const srs = { ...d.srs, [cardId]: d.srs[cardId] ? { ...d.srs[cardId], due: today } : newState(today) };
+        return { ...d, exercises, srs };
       }),
     completeLesson: (lessonId, quizScore, conceptIds) =>
       setData((d) => {

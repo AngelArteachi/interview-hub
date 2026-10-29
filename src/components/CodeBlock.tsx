@@ -39,7 +39,11 @@ function highlight(code: string, lang = 'python'): ReactNode[] {
   return out;
 }
 
-export function CodeBlock({ code, lang }: { code: string; lang?: string }) {
+/**
+ * Bloque de código con resaltado de sintaxis.
+ * Con `lineNumbers` muestra números de línea; con `highlightLine` marca esa línea (paso a paso).
+ */
+export function CodeBlock({ code, lang, lineNumbers = false, highlightLine }: { code: string; lang?: string; lineNumbers?: boolean; highlightLine?: number }) {
   const [copied, setCopied] = useState(false);
   const copy = async () => {
     try {
@@ -59,7 +63,21 @@ export function CodeBlock({ code, lang }: { code: string; lang?: string }) {
         </button>
       </div>
       <pre className="overflow-x-auto p-4 font-mono text-[13px] leading-relaxed text-zinc-200 [font-variant-ligatures:none]">
-        <code>{highlight(code, lang)}</code>
+        {lineNumbers || highlightLine ? (
+          <code className="block min-w-max">
+            {code.split('\n').map((ln, i) => (
+              <div
+                key={i}
+                className={`-mx-4 flex border-l-[3px] px-4 transition-colors ${i + 1 === highlightLine ? 'border-brand-400 bg-brand-500/25' : 'border-transparent'}`}
+              >
+                <span className="mr-4 w-5 shrink-0 select-none text-right text-zinc-600">{i + 1}</span>
+                <span>{highlight(ln, lang)}</span>
+              </div>
+            ))}
+          </code>
+        ) : (
+          <code>{highlight(code, lang)}</code>
+        )}
       </pre>
     </div>
   );

@@ -1,9 +1,10 @@
-import type { AppData, ItemType, L, Pattern, ReviewItem } from '../types';
+import type { AppData, Exercise, ItemType, L, Pattern, ReviewItem } from '../types';
 import { ALGORITHMS, PATTERNS } from '../data/algorithms';
 import { CONCEPTS, CONCEPT_TOPICS } from '../data/fundamentals';
 import { DESIGN_CASES } from '../data/systemDesign';
 import { BEHAVIORAL } from '../data/behavioral';
-import { LESSONS, lessonConceptId, quizItemId } from '../content/lessons';
+import { LESSONS, exerciseItemId, lessonConceptId, quizItemId } from '../content/lessons';
+import { lessonExercises, shuffledOrder } from './exercise';
 import { todayStr } from './srs';
 
 const same = (s: string): L => ({ es: s, en: s });
@@ -84,6 +85,48 @@ const LESSON_ITEMS: ReviewItem[] = LESSONS.flatMap((les) =>
   ),
 );
 
+/* ---------- Ejercicios de práctica fallados → tarjetas de repaso ---------- */
+
+const fence = (code: string, lang: string) => '```' + lang + '\n' + code + '\n```';
+
+function exerciseCard(lessonId: string, ex: Exercise): Pick<ReviewItem, 'front' | 'back' | 'prompt'> {
+  const both = (fn: (lang: 'es' | 'en') => string): L => ({ es: fn('es'), en: fn('en') });
+  switch (ex.kind) {
+    case 'predict':
+      return {
+        front: both((lg) => `${ex.prompt[lg]}\n\n${fence(ex.code, ex.lang)}`),
+        back: both((lg) => `${fence(ex.answer, 'text')}\n\n${ex.explanation[lg]}`),
+        prompt: { es: 'Escribe exactamente lo que imprime.', en: 'Write exactly what it prints.' },
+      };
+    case 'complete':
+      return {
+        front: both((lg) => `${ex.prompt[lg]}\n\n${fence(ex.code, ex.lang)}\n\n${ex.options.map((o, i) => `${String.fromCharCode(65 + i)}. \`${o}\``).join('\n\n')}`),
+        back: both((lg) => `**${String.fromCharCode(65 + ex.answer)}.** \`${ex.options[ex.answer]}\`\n\n${ex.explanation[lg]}`),
+        prompt: { es: '¿Qué opción va en el espacio ____?', en: 'Which option goes in the ____ gap?' },
+      };
+    case 'recall':
+      return { front: ex.q, back: ex.a };
+    case 'order': {
+      const order = shuffledOrder(`${lessonId}:${ex.id}`, ex.steps.length);
+      return {
+        front: both((lg) => `${ex.prompt[lg]}\n\n${order.map((i) => `- ${ex.steps[i][lg]}`).join('\n')}`),
+        back: both((lg) => `${ex.steps.map((s, i) => `${i + 1}. ${s[lg]}`).join('\n')}\n\n${ex.explanation[lg]}`),
+        prompt: { es: 'Di en qué orden van los pasos.', en: 'Say the order the steps go in.' },
+      };
+    }
+  }
+}
+
+const EXERCISE_ITEMS: ReviewItem[] = LESSONS.flatMap((les) =>
+  lessonExercises(les).map<ReviewItem>((ex) => ({
+    id: exerciseItemId(les.id, ex.id),
+    type: 'lesson',
+    ...exerciseCard(les.id, ex),
+    tags: [les.track, les.id],
+    link: `/learn/${les.id}/practice`,
+  })),
+);
+
 export function allItems(data: AppData): ReviewItem[] {
   const custom = data.custom.map<ReviewItem>((c) => ({
     id: `cus:${c.id}`,
@@ -93,7 +136,7 @@ export function allItems(data: AppData): ReviewItem[] {
     tags: [c.type, ...c.tags],
   }));
   // Los conceptos de lecciones entran al aprobar la lección; las preguntas de quiz, al fallarlas
-  const lessonItems = LESSON_ITEMS.filter((it) => data.srs[it.id]);
+  const lessonItems = [...LESSON_ITEMS, ...EXERCISE_ITEMS].filter((it) => data.srs[it.id]);
   return [...custom, ...lessonItems, ...BUILTIN];
 }
 

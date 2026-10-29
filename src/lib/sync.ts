@@ -7,6 +7,16 @@ function newerSrs(a: SrsState, b: SrsState): SrsState {
   return a.history.length >= b.history.length ? a : b;
 }
 
+/** Por ejercicio gana el intento más reciente; se conserva el mayor número de intentos */
+function mergeExercises(local: AppData['exercises'], remote: AppData['exercises']): AppData['exercises'] {
+  const out = { ...remote };
+  for (const [k, v] of Object.entries(local)) {
+    const r = out[k];
+    out[k] = !r ? v : { ...(v.date >= r.date ? v : r), tries: Math.max(v.tries, r.tries) };
+  }
+  return out;
+}
+
 function unionById<T extends { id: string }>(primary: T[], secondary: T[]): T[] {
   const ids = new Set(primary.map((x) => x.id));
   return [...primary, ...secondary.filter((x) => !ids.has(x.id))];
@@ -42,6 +52,7 @@ export function mergeData(local: AppData, remote: AppData): AppData {
     mocks: unionById(local.mocks, remote.mocks).sort((a, b) => b.date.localeCompare(a.date)),
     notes: { ...remote.notes, ...Object.fromEntries(Object.entries(local.notes).filter(([, v]) => v)) },
     settings: { ...remote.settings, ...local.settings },
+    exercises: mergeExercises(local.exercises ?? {}, remote.exercises ?? {}),
   };
 }
 

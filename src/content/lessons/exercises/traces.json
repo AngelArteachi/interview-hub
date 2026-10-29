@@ -1,0 +1,5756 @@
+{
+ "cp-nested": {
+  "code": "n = 4\npasos = 0\nfor i in range(n):\n    for j in range(n):\n        pasos += 1\nprint(pasos)",
+  "kind": "predict",
+  "steps": [
+   {
+    "line": 1,
+    "depth": 0,
+    "fn": null,
+    "vars": {
+     "n": "4"
+    },
+    "changed": [
+     "n"
+    ],
+    "text": {
+     "es": "Ejecuta la línea: crea `n` = 4.",
+     "en": "Runs the line: creates `n` = 4."
+    }
+   },
+   {
+    "line": 2,
+    "depth": 0,
+    "fn": null,
+    "vars": {
+     "n": "4",
+     "pasos": "0"
+    },
+    "changed": [
+     "pasos"
+    ],
+    "text": {
+     "es": "Ejecuta la línea: crea `pasos` = 0.",
+     "en": "Runs the line: creates `pasos` = 0."
+    }
+   },
+   {
+    "line": 3,
+    "depth": 0,
+    "fn": null,
+    "vars": {
+     "n": "4",
+     "pasos": "0",
+     "i": "0"
+    },
+    "changed": [
+     "i"
+    ],
+    "text": {
+     "es": "Siguiente vuelta del ciclo: `i` = 0.",
+     "en": "Next loop iteration: `i` = 0."
+    }
+   },
+   {
+    "line": 4,
+    "depth": 0,
+    "fn": null,
+    "vars": {
+     "n": "4",
+     "pasos": "0",
+     "i": "0",
+     "j": "0"
+    },
+    "changed": [
+     "j"
+    ],
+    "text": {
+     "es": "Siguiente vuelta del ciclo: `j` = 0.",
+     "en": "Next loop iteration: `j` = 0."
+    }
+   },
+   {
+    "line": 5,
+    "depth": 0,
+    "fn": null,
+    "vars": {
+     "n": "4",
+     "pasos": "1",
+     "i": "0",
+     "j": "0"
+    },
+    "changed": [
+     "pasos"
+    ],
+    "text": {
+     "es": "Ejecuta la línea: `pasos` cambia de 0 a 1.",
+     "en": "Runs the line: `pasos` changes from 0 to 1."
+    }
+   },
+   {
+    "line": 4,
+    "depth": 0,
+    "fn": null,
+    "vars": {
+     "n": "4",
+     "pasos": "1",
+     "i": "0",
+     "j": "1"
+    },
+    "changed": [
+     "j"
+    ],
+    "text": {
+     "es": "Siguiente vuelta del ciclo: `j` = 1.",
+     "en": "Next loop iteration: `j` = 1."
+    }
+   },
+   {
+    "line": 5,
+    "depth": 0,
+    "fn": null,
+    "vars": {
+     "n": "4",
+     "pasos": "2",
+     "i": "0",
+     "j": "1"
+    },
+    "changed": [
+     "pasos"
+    ],
+    "text": {
+     "es": "Ejecuta la línea: `pasos` cambia de 1 a 2.",
+     "en": "Runs the line: `pasos` changes from 1 to 2."
+    }
+   },
+   {
+    "line": 4,
+    "depth": 0,
+    "fn": null,
+    "vars": {
+     "n": "4",
+     "pasos": "2",
+     "i": "0",
+     "j": "2"
+    },
+    "changed": [
+     "j"
+    ],
+    "text": {
+     "es": "Siguiente vuelta del ciclo: `j` = 2.",
+     "en": "Next loop iteration: `j` = 2."
+    }
+   },
+   {
+    "line": 5,
+    "depth": 0,
+    "fn": null,
+    "vars": {
+     "n": "4",
+     "pasos": "3",
+     "i": "0",
+     "j": "2"
+    },
+    "changed": [
+     "pasos"
+    ],
+    "text": {
+     "es": "Ejecuta la línea: `pasos` cambia de 2 a 3.",
+     "en": "Runs the line: `pasos` changes from 2 to 3."
+    }
+   },
+   {
+    "line": 4,
+    "depth": 0,
+    "fn": null,
+    "vars": {
+     "n": "4",
+     "pasos": "3",
+     "i": "0",
+     "j": "3"
+    },
+    "changed": [
+     "j"
+    ],
+    "text": {
+     "es": "Siguiente vuelta del ciclo: `j` = 3.",
+     "en": "Next loop iteration: `j` = 3."
+    }
+   },
+   {
+    "line": 5,
+    "depth": 0,
+    "fn": null,
+    "vars": {
+     "n": "4",
+     "pasos": "4",
+     "i": "0",
+     "j": "3"
+    },
+    "changed": [
+     "pasos"
+    ],
+    "text": {
+     "es": "Ejecuta la línea: `pasos` cambia de 3 a 4.",
+     "en": "Runs the line: `pasos` changes from 3 to 4."
+    }
+   },
+   {
+    "line": 4,
+    "depth": 0,
+    "fn": null,
+    "vars": {
+     "n": "4",
+     "pasos": "4",
+     "i": "0",
+     "j": "3"
+    },
+    "changed": [],
+    "text": {
+     "es": "Ya no quedan valores: termina el ciclo `for j`.",
+     "en": "No values left: the `for j` loop ends."
+    }
+   },
+   {
+    "line": 3,
+    "depth": 0,
+    "fn": null,
+    "vars": {
+     "n": "4",
+     "pasos": "4",
+     "i": "1",
+     "j": "3"
+    },
+    "changed": [
+     "i"
+    ],
+    "text": {
+     "es": "Siguiente vuelta del ciclo: `i` = 1.",
+     "en": "Next loop iteration: `i` = 1."
+    }
+   },
+   {
+    "line": 4,
+    "depth": 0,
+    "fn": null,
+    "vars": {
+     "n": "4",
+     "pasos": "4",
+     "i": "1",
+     "j": "0"
+    },
+    "changed": [
+     "j"
+    ],
+    "text": {
+     "es": "Siguiente vuelta del ciclo: `j` = 0.",
+     "en": "Next loop iteration: `j` = 0."
+    }
+   },
+   {
+    "line": 5,
+    "depth": 0,
+    "fn": null,
+    "vars": {
+     "n": "4",
+     "pasos": "5",
+     "i": "1",
+     "j": "0"
+    },
+    "changed": [
+     "pasos"
+    ],
+    "text": {
+     "es": "Ejecuta la línea: `pasos` cambia de 4 a 5.",
+     "en": "Runs the line: `pasos` changes from 4 to 5."
+    }
+   },
+   {
+    "line": 4,
+    "depth": 0,
+    "fn": null,
+    "vars": {
+     "n": "4",
+     "pasos": "5",
+     "i": "1",
+     "j": "1"
+    },
+    "changed": [
+     "j"
+    ],
+    "text": {
+     "es": "Siguiente vuelta del ciclo: `j` = 1.",
+     "en": "Next loop iteration: `j` = 1."
+    }
+   },
+   {
+    "line": 5,
+    "depth": 0,
+    "fn": null,
+    "vars": {
+     "n": "4",
+     "pasos": "6",
+     "i": "1",
+     "j": "1"
+    },
+    "changed": [
+     "pasos"
+    ],
+    "text": {
+     "es": "Ejecuta la línea: `pasos` cambia de 5 a 6.",
+     "en": "Runs the line: `pasos` changes from 5 to 6."
+    }
+   },
+   {
+    "line": 4,
+    "depth": 0,
+    "fn": null,
+    "vars": {
+     "n": "4",
+     "pasos": "6",
+     "i": "1",
+     "j": "2"
+    },
+    "changed": [
+     "j"
+    ],
+    "text": {
+     "es": "Siguiente vuelta del ciclo: `j` = 2.",
+     "en": "Next loop iteration: `j` = 2."
+    }
+   },
+   {
+    "line": 5,
+    "depth": 0,
+    "fn": null,
+    "vars": {
+     "n": "4",
+     "pasos": "7",
+     "i": "1",
+     "j": "2"
+    },
+    "changed": [
+     "pasos"
+    ],
+    "text": {
+     "es": "Ejecuta la línea: `pasos` cambia de 6 a 7.",
+     "en": "Runs the line: `pasos` changes from 6 to 7."
+    }
+   },
+   {
+    "line": 4,
+    "depth": 0,
+    "fn": null,
+    "vars": {
+     "n": "4",
+     "pasos": "7",
+     "i": "1",
+     "j": "3"
+    },
+    "changed": [
+     "j"
+    ],
+    "text": {
+     "es": "Siguiente vuelta del ciclo: `j` = 3.",
+     "en": "Next loop iteration: `j` = 3."
+    }
+   },
+   {
+    "line": 5,
+    "depth": 0,
+    "fn": null,
+    "vars": {
+     "n": "4",
+     "pasos": "8",
+     "i": "1",
+     "j": "3"
+    },
+    "changed": [
+     "pasos"
+    ],
+    "text": {
+     "es": "Ejecuta la línea: `pasos` cambia de 7 a 8.",
+     "en": "Runs the line: `pasos` changes from 7 to 8."
+    }
+   },
+   {
+    "line": 4,
+    "depth": 0,
+    "fn": null,
+    "vars": {
+     "n": "4",
+     "pasos": "8",
+     "i": "1",
+     "j": "3"
+    },
+    "changed": [],
+    "text": {
+     "es": "Ya no quedan valores: termina el ciclo `for j`.",
+     "en": "No values left: the `for j` loop ends."
+    }
+   },
+   {
+    "line": 3,
+    "depth": 0,
+    "fn": null,
+    "vars": {
+     "n": "4",
+     "pasos": "8",
+     "i": "2",
+     "j": "3"
+    },
+    "changed": [
+     "i"
+    ],
+    "text": {
+     "es": "Siguiente vuelta del ciclo: `i` = 2.",
+     "en": "Next loop iteration: `i` = 2."
+    }
+   },
+   {
+    "line": 4,
+    "depth": 0,
+    "fn": null,
+    "vars": {
+     "n": "4",
+     "pasos": "8",
+     "i": "2",
+     "j": "0"
+    },
+    "changed": [
+     "j"
+    ],
+    "text": {
+     "es": "Siguiente vuelta del ciclo: `j` = 0.",
+     "en": "Next loop iteration: `j` = 0."
+    }
+   },
+   {
+    "line": 5,
+    "depth": 0,
+    "fn": null,
+    "vars": {
+     "n": "4",
+     "pasos": "9",
+     "i": "2",
+     "j": "0"
+    },
+    "changed": [
+     "pasos"
+    ],
+    "text": {
+     "es": "Ejecuta la línea: `pasos` cambia de 8 a 9.",
+     "en": "Runs the line: `pasos` changes from 8 to 9."
+    }
+   },
+   {
+    "line": 4,
+    "depth": 0,
+    "fn": null,
+    "vars": {
+     "n": "4",
+     "pasos": "9",
+     "i": "2",
+     "j": "1"
+    },
+    "changed": [
+     "j"
+    ],
+    "text": {
+     "es": "Siguiente vuelta del ciclo: `j` = 1.",
+     "en": "Next loop iteration: `j` = 1."
+    }
+   },
+   {
+    "line": 5,
+    "depth": 0,
+    "fn": null,
+    "vars": {
+     "n": "4",
+     "pasos": "10",
+     "i": "2",
+     "j": "1"
+    },
+    "changed": [
+     "pasos"
+    ],
+    "text": {
+     "es": "Ejecuta la línea: `pasos` cambia de 9 a 10.",
+     "en": "Runs the line: `pasos` changes from 9 to 10."
+    }
+   },
+   {
+    "line": 4,
+    "depth": 0,
+    "fn": null,
+    "vars": {
+     "n": "4",
+     "pasos": "10",
+     "i": "2",
+     "j": "2"
+    },
+    "changed": [
+     "j"
+    ],
+    "text": {
+     "es": "Siguiente vuelta del ciclo: `j` = 2.",
+     "en": "Next loop iteration: `j` = 2."
+    }
+   },
+   {
+    "line": 5,
+    "depth": 0,
+    "fn": null,
+    "vars": {
+     "n": "4",
+     "pasos": "11",
+     "i": "2",
+     "j": "2"
+    },
+    "changed": [
+     "pasos"
+    ],
+    "text": {
+     "es": "Ejecuta la línea: `pasos` cambia de 10 a 11.",
+     "en": "Runs the line: `pasos` changes from 10 to 11."
+    }
+   },
+   {
+    "line": 4,
+    "depth": 0,
+    "fn": null,
+    "vars": {
+     "n": "4",
+     "pasos": "11",
+     "i": "2",
+     "j": "3"
+    },
+    "changed": [
+     "j"
+    ],
+    "text": {
+     "es": "Siguiente vuelta del ciclo: `j` = 3.",
+     "en": "Next loop iteration: `j` = 3."
+    }
+   },
+   {
+    "line": 5,
+    "depth": 0,
+    "fn": null,
+    "vars": {
+     "n": "4",
+     "pasos": "12",
+     "i": "2",
+     "j": "3"
+    },
+    "changed": [
+     "pasos"
+    ],
+    "text": {
+     "es": "Ejecuta la línea: `pasos` cambia de 11 a 12.",
+     "en": "Runs the line: `pasos` changes from 11 to 12."
+    }
+   },
+   {
+    "line": 4,
+    "depth": 0,
+    "fn": null,
+    "vars": {
+     "n": "4",
+     "pasos": "12",
+     "i": "2",
+     "j": "3"
+    },
+    "changed": [],
+    "text": {
+     "es": "Ya no quedan valores: termina el ciclo `for j`.",
+     "en": "No values left: the `for j` loop ends."
+    }
+   },
+   {
+    "line": 3,
+    "depth": 0,
+    "fn": null,
+    "vars": {
+     "n": "4",
+     "pasos": "12",
+     "i": "3",
+     "j": "3"
+    },
+    "changed": [
+     "i"
+    ],
+    "text": {
+     "es": "Siguiente vuelta del ciclo: `i` = 3.",
+     "en": "Next loop iteration: `i` = 3."
+    }
+   },
+   {
+    "line": 4,
+    "depth": 0,
+    "fn": null,
+    "vars": {
+     "n": "4",
+     "pasos": "12",
+     "i": "3",
+     "j": "0"
+    },
+    "changed": [
+     "j"
+    ],
+    "text": {
+     "es": "Siguiente vuelta del ciclo: `j` = 0.",
+     "en": "Next loop iteration: `j` = 0."
+    }
+   },
+   {
+    "line": 5,
+    "depth": 0,
+    "fn": null,
+    "vars": {
+     "n": "4",
+     "pasos": "13",
+     "i": "3",
+     "j": "0"
+    },
+    "changed": [
+     "pasos"
+    ],
+    "text": {
+     "es": "Ejecuta la línea: `pasos` cambia de 12 a 13.",
+     "en": "Runs the line: `pasos` changes from 12 to 13."
+    }
+   },
+   {
+    "line": 4,
+    "depth": 0,
+    "fn": null,
+    "vars": {
+     "n": "4",
+     "pasos": "13",
+     "i": "3",
+     "j": "1"
+    },
+    "changed": [
+     "j"
+    ],
+    "text": {
+     "es": "Siguiente vuelta del ciclo: `j` = 1.",
+     "en": "Next loop iteration: `j` = 1."
+    }
+   },
+   {
+    "line": 5,
+    "depth": 0,
+    "fn": null,
+    "vars": {
+     "n": "4",
+     "pasos": "14",
+     "i": "3",
+     "j": "1"
+    },
+    "changed": [
+     "pasos"
+    ],
+    "text": {
+     "es": "Ejecuta la línea: `pasos` cambia de 13 a 14.",
+     "en": "Runs the line: `pasos` changes from 13 to 14."
+    }
+   },
+   {
+    "line": 4,
+    "depth": 0,
+    "fn": null,
+    "vars": {
+     "n": "4",
+     "pasos": "14",
+     "i": "3",
+     "j": "2"
+    },
+    "changed": [
+     "j"
+    ],
+    "text": {
+     "es": "Siguiente vuelta del ciclo: `j` = 2.",
+     "en": "Next loop iteration: `j` = 2."
+    }
+   },
+   {
+    "line": 5,
+    "depth": 0,
+    "fn": null,
+    "vars": {
+     "n": "4",
+     "pasos": "15",
+     "i": "3",
+     "j": "2"
+    },
+    "changed": [
+     "pasos"
+    ],
+    "text": {
+     "es": "Ejecuta la línea: `pasos` cambia de 14 a 15.",
+     "en": "Runs the line: `pasos` changes from 14 to 15."
+    }
+   },
+   {
+    "line": 4,
+    "depth": 0,
+    "fn": null,
+    "vars": {
+     "n": "4",
+     "pasos": "15",
+     "i": "3",
+     "j": "3"
+    },
+    "changed": [
+     "j"
+    ],
+    "text": {
+     "es": "Siguiente vuelta del ciclo: `j` = 3.",
+     "en": "Next loop iteration: `j` = 3."
+    }
+   },
+   {
+    "line": 5,
+    "depth": 0,
+    "fn": null,
+    "vars": {
+     "n": "4",
+     "pasos": "16",
+     "i": "3",
+     "j": "3"
+    },
+    "changed": [
+     "pasos"
+    ],
+    "text": {
+     "es": "Ejecuta la línea: `pasos` cambia de 15 a 16.",
+     "en": "Runs the line: `pasos` changes from 15 to 16."
+    }
+   },
+   {
+    "line": 4,
+    "depth": 0,
+    "fn": null,
+    "vars": {
+     "n": "4",
+     "pasos": "16",
+     "i": "3",
+     "j": "3"
+    },
+    "changed": [],
+    "text": {
+     "es": "Ya no quedan valores: termina el ciclo `for j`.",
+     "en": "No values left: the `for j` loop ends."
+    }
+   },
+   {
+    "line": 3,
+    "depth": 0,
+    "fn": null,
+    "vars": {
+     "n": "4",
+     "pasos": "16",
+     "i": "3",
+     "j": "3"
+    },
+    "changed": [],
+    "text": {
+     "es": "Ya no quedan valores: termina el ciclo `for i`.",
+     "en": "No values left: the `for i` loop ends."
+    }
+   },
+   {
+    "line": 6,
+    "depth": 0,
+    "fn": null,
+    "vars": {
+     "n": "4",
+     "pasos": "16",
+     "i": "3",
+     "j": "3"
+    },
+    "changed": [],
+    "text": {
+     "es": "Imprime algo en pantalla (lo verás al comprobar tu respuesta).",
+     "en": "Prints something (you will see it when you check your answer)."
+    }
+   }
+  ],
+  "truncated": false
+ },
+ "cp-amortized": {
+  "code": "capacidad, copias = 1, 0\nfor tam in range(1, 9):       # 8 inserciones\n    if tam > capacidad:       # se llenó: duplicar y copiar todo\n        copias += capacidad\n        capacidad *= 2\nprint(copias)",
+  "kind": "predict",
+  "steps": [
+   {
+    "line": 1,
+    "depth": 0,
+    "fn": null,
+    "vars": {
+     "capacidad": "1",
+     "copias": "0"
+    },
+    "changed": [
+     "capacidad",
+     "copias"
+    ],
+    "text": {
+     "es": "Ejecuta la línea: crea `capacidad` = 1; crea `copias` = 0.",
+     "en": "Runs the line: creates `capacidad` = 1; creates `copias` = 0."
+    }
+   },
+   {
+    "line": 2,
+    "depth": 0,
+    "fn": null,
+    "vars": {
+     "capacidad": "1",
+     "copias": "0",
+     "tam": "1"
+    },
+    "changed": [
+     "tam"
+    ],
+    "text": {
+     "es": "Siguiente vuelta del ciclo: `tam` = 1.",
+     "en": "Next loop iteration: `tam` = 1."
+    }
+   },
+   {
+    "line": 3,
+    "depth": 0,
+    "fn": null,
+    "vars": {
+     "capacidad": "1",
+     "copias": "0",
+     "tam": "1"
+    },
+    "changed": [],
+    "text": {
+     "es": "Comprueba `tam > capacidad`: es **falso**, así que se salta el bloque.",
+     "en": "Checks `tam > capacidad`: it is **false**, so it skips the block."
+    }
+   },
+   {
+    "line": 2,
+    "depth": 0,
+    "fn": null,
+    "vars": {
+     "capacidad": "1",
+     "copias": "0",
+     "tam": "2"
+    },
+    "changed": [
+     "tam"
+    ],
+    "text": {
+     "es": "Siguiente vuelta del ciclo: `tam` = 2.",
+     "en": "Next loop iteration: `tam` = 2."
+    }
+   },
+   {
+    "line": 3,
+    "depth": 0,
+    "fn": null,
+    "vars": {
+     "capacidad": "1",
+     "copias": "0",
+     "tam": "2"
+    },
+    "changed": [],
+    "text": {
+     "es": "Comprueba `tam > capacidad`: es **verdadero**, así que entra al bloque.",
+     "en": "Checks `tam > capacidad`: it is **true**, so it enters the block."
+    }
+   },
+   {
+    "line": 4,
+    "depth": 0,
+    "fn": null,
+    "vars": {
+     "capacidad": "1",
+     "copias": "1",
+     "tam": "2"
+    },
+    "changed": [
+     "copias"
+    ],
+    "text": {
+     "es": "Ejecuta la línea: `copias` cambia de 0 a 1.",
+     "en": "Runs the line: `copias` changes from 0 to 1."
+    }
+   },
+   {
+    "line": 5,
+    "depth": 0,
+    "fn": null,
+    "vars": {
+     "capacidad": "2",
+     "copias": "1",
+     "tam": "2"
+    },
+    "changed": [
+     "capacidad"
+    ],
+    "text": {
+     "es": "Ejecuta la línea: `capacidad` cambia de 1 a 2.",
+     "en": "Runs the line: `capacidad` changes from 1 to 2."
+    }
+   },
+   {
+    "line": 2,
+    "depth": 0,
+    "fn": null,
+    "vars": {
+     "capacidad": "2",
+     "copias": "1",
+     "tam": "3"
+    },
+    "changed": [
+     "tam"
+    ],
+    "text": {
+     "es": "Siguiente vuelta del ciclo: `tam` = 3.",
+     "en": "Next loop iteration: `tam` = 3."
+    }
+   },
+   {
+    "line": 3,
+    "depth": 0,
+    "fn": null,
+    "vars": {
+     "capacidad": "2",
+     "copias": "1",
+     "tam": "3"
+    },
+    "changed": [],
+    "text": {
+     "es": "Comprueba `tam > capacidad`: es **verdadero**, así que entra al bloque.",
+     "en": "Checks `tam > capacidad`: it is **true**, so it enters the block."
+    }
+   },
+   {
+    "line": 4,
+    "depth": 0,
+    "fn": null,
+    "vars": {
+     "capacidad": "2",
+     "copias": "3",
+     "tam": "3"
+    },
+    "changed": [
+     "copias"
+    ],
+    "text": {
+     "es": "Ejecuta la línea: `copias` cambia de 1 a 3.",
+     "en": "Runs the line: `copias` changes from 1 to 3."
+    }
+   },
+   {
+    "line": 5,
+    "depth": 0,
+    "fn": null,
+    "vars": {
+     "capacidad": "4",
+     "copias": "3",
+     "tam": "3"
+    },
+    "changed": [
+     "capacidad"
+    ],
+    "text": {
+     "es": "Ejecuta la línea: `capacidad` cambia de 2 a 4.",
+     "en": "Runs the line: `capacidad` changes from 2 to 4."
+    }
+   },
+   {
+    "line": 2,
+    "depth": 0,
+    "fn": null,
+    "vars": {
+     "capacidad": "4",
+     "copias": "3",
+     "tam": "4"
+    },
+    "changed": [
+     "tam"
+    ],
+    "text": {
+     "es": "Siguiente vuelta del ciclo: `tam` = 4.",
+     "en": "Next loop iteration: `tam` = 4."
+    }
+   },
+   {
+    "line": 3,
+    "depth": 0,
+    "fn": null,
+    "vars": {
+     "capacidad": "4",
+     "copias": "3",
+     "tam": "4"
+    },
+    "changed": [],
+    "text": {
+     "es": "Comprueba `tam > capacidad`: es **falso**, así que se salta el bloque.",
+     "en": "Checks `tam > capacidad`: it is **false**, so it skips the block."
+    }
+   },
+   {
+    "line": 2,
+    "depth": 0,
+    "fn": null,
+    "vars": {
+     "capacidad": "4",
+     "copias": "3",
+     "tam": "5"
+    },
+    "changed": [
+     "tam"
+    ],
+    "text": {
+     "es": "Siguiente vuelta del ciclo: `tam` = 5.",
+     "en": "Next loop iteration: `tam` = 5."
+    }
+   },
+   {
+    "line": 3,
+    "depth": 0,
+    "fn": null,
+    "vars": {
+     "capacidad": "4",
+     "copias": "3",
+     "tam": "5"
+    },
+    "changed": [],
+    "text": {
+     "es": "Comprueba `tam > capacidad`: es **verdadero**, así que entra al bloque.",
+     "en": "Checks `tam > capacidad`: it is **true**, so it enters the block."
+    }
+   },
+   {
+    "line": 4,
+    "depth": 0,
+    "fn": null,
+    "vars": {
+     "capacidad": "4",
+     "copias": "7",
+     "tam": "5"
+    },
+    "changed": [
+     "copias"
+    ],
+    "text": {
+     "es": "Ejecuta la línea: `copias` cambia de 3 a 7.",
+     "en": "Runs the line: `copias` changes from 3 to 7."
+    }
+   },
+   {
+    "line": 5,
+    "depth": 0,
+    "fn": null,
+    "vars": {
+     "capacidad": "8",
+     "copias": "7",
+     "tam": "5"
+    },
+    "changed": [
+     "capacidad"
+    ],
+    "text": {
+     "es": "Ejecuta la línea: `capacidad` cambia de 4 a 8.",
+     "en": "Runs the line: `capacidad` changes from 4 to 8."
+    }
+   },
+   {
+    "line": 2,
+    "depth": 0,
+    "fn": null,
+    "vars": {
+     "capacidad": "8",
+     "copias": "7",
+     "tam": "6"
+    },
+    "changed": [
+     "tam"
+    ],
+    "text": {
+     "es": "Siguiente vuelta del ciclo: `tam` = 6.",
+     "en": "Next loop iteration: `tam` = 6."
+    }
+   },
+   {
+    "line": 3,
+    "depth": 0,
+    "fn": null,
+    "vars": {
+     "capacidad": "8",
+     "copias": "7",
+     "tam": "6"
+    },
+    "changed": [],
+    "text": {
+     "es": "Comprueba `tam > capacidad`: es **falso**, así que se salta el bloque.",
+     "en": "Checks `tam > capacidad`: it is **false**, so it skips the block."
+    }
+   },
+   {
+    "line": 2,
+    "depth": 0,
+    "fn": null,
+    "vars": {
+     "capacidad": "8",
+     "copias": "7",
+     "tam": "7"
+    },
+    "changed": [
+     "tam"
+    ],
+    "text": {
+     "es": "Siguiente vuelta del ciclo: `tam` = 7.",
+     "en": "Next loop iteration: `tam` = 7."
+    }
+   },
+   {
+    "line": 3,
+    "depth": 0,
+    "fn": null,
+    "vars": {
+     "capacidad": "8",
+     "copias": "7",
+     "tam": "7"
+    },
+    "changed": [],
+    "text": {
+     "es": "Comprueba `tam > capacidad`: es **falso**, así que se salta el bloque.",
+     "en": "Checks `tam > capacidad`: it is **false**, so it skips the block."
+    }
+   },
+   {
+    "line": 2,
+    "depth": 0,
+    "fn": null,
+    "vars": {
+     "capacidad": "8",
+     "copias": "7",
+     "tam": "8"
+    },
+    "changed": [
+     "tam"
+    ],
+    "text": {
+     "es": "Siguiente vuelta del ciclo: `tam` = 8.",
+     "en": "Next loop iteration: `tam` = 8."
+    }
+   },
+   {
+    "line": 3,
+    "depth": 0,
+    "fn": null,
+    "vars": {
+     "capacidad": "8",
+     "copias": "7",
+     "tam": "8"
+    },
+    "changed": [],
+    "text": {
+     "es": "Comprueba `tam > capacidad`: es **falso**, así que se salta el bloque.",
+     "en": "Checks `tam > capacidad`: it is **false**, so it skips the block."
+    }
+   },
+   {
+    "line": 2,
+    "depth": 0,
+    "fn": null,
+    "vars": {
+     "capacidad": "8",
+     "copias": "7",
+     "tam": "8"
+    },
+    "changed": [],
+    "text": {
+     "es": "Ya no quedan valores: termina el ciclo `for tam`.",
+     "en": "No values left: the `for tam` loop ends."
+    }
+   },
+   {
+    "line": 6,
+    "depth": 0,
+    "fn": null,
+    "vars": {
+     "capacidad": "8",
+     "copias": "7",
+     "tam": "8"
+    },
+    "changed": [],
+    "text": {
+     "es": "Imprime algo en pantalla (lo verás al comprobar tu respuesta).",
+     "en": "Prints something (you will see it when you check your answer)."
+    }
+   }
+  ],
+  "truncated": false
+ },
+ "p-halving": {
+  "code": "n = 16\npasos = 0\nwhile n > 1:\n    n //= 2\n    pasos += 1\nprint(pasos)",
+  "kind": "predict",
+  "steps": [
+   {
+    "line": 1,
+    "depth": 0,
+    "fn": null,
+    "vars": {
+     "n": "16"
+    },
+    "changed": [
+     "n"
+    ],
+    "text": {
+     "es": "Ejecuta la línea: crea `n` = 16.",
+     "en": "Runs the line: creates `n` = 16."
+    }
+   },
+   {
+    "line": 2,
+    "depth": 0,
+    "fn": null,
+    "vars": {
+     "n": "16",
+     "pasos": "0"
+    },
+    "changed": [
+     "pasos"
+    ],
+    "text": {
+     "es": "Ejecuta la línea: crea `pasos` = 0.",
+     "en": "Runs the line: creates `pasos` = 0."
+    }
+   },
+   {
+    "line": 3,
+    "depth": 0,
+    "fn": null,
+    "vars": {
+     "n": "16",
+     "pasos": "0"
+    },
+    "changed": [],
+    "text": {
+     "es": "Condición del while `n > 1`: **verdadera**, da otra vuelta.",
+     "en": "While condition `n > 1`: **true**, it runs another iteration."
+    }
+   },
+   {
+    "line": 4,
+    "depth": 0,
+    "fn": null,
+    "vars": {
+     "n": "8",
+     "pasos": "0"
+    },
+    "changed": [
+     "n"
+    ],
+    "text": {
+     "es": "Ejecuta la línea: `n` cambia de 16 a 8.",
+     "en": "Runs the line: `n` changes from 16 to 8."
+    }
+   },
+   {
+    "line": 5,
+    "depth": 0,
+    "fn": null,
+    "vars": {
+     "n": "8",
+     "pasos": "1"
+    },
+    "changed": [
+     "pasos"
+    ],
+    "text": {
+     "es": "Ejecuta la línea: `pasos` cambia de 0 a 1.",
+     "en": "Runs the line: `pasos` changes from 0 to 1."
+    }
+   },
+   {
+    "line": 3,
+    "depth": 0,
+    "fn": null,
+    "vars": {
+     "n": "8",
+     "pasos": "1"
+    },
+    "changed": [],
+    "text": {
+     "es": "Condición del while `n > 1`: **verdadera**, da otra vuelta.",
+     "en": "While condition `n > 1`: **true**, it runs another iteration."
+    }
+   },
+   {
+    "line": 4,
+    "depth": 0,
+    "fn": null,
+    "vars": {
+     "n": "4",
+     "pasos": "1"
+    },
+    "changed": [
+     "n"
+    ],
+    "text": {
+     "es": "Ejecuta la línea: `n` cambia de 8 a 4.",
+     "en": "Runs the line: `n` changes from 8 to 4."
+    }
+   },
+   {
+    "line": 5,
+    "depth": 0,
+    "fn": null,
+    "vars": {
+     "n": "4",
+     "pasos": "2"
+    },
+    "changed": [
+     "pasos"
+    ],
+    "text": {
+     "es": "Ejecuta la línea: `pasos` cambia de 1 a 2.",
+     "en": "Runs the line: `pasos` changes from 1 to 2."
+    }
+   },
+   {
+    "line": 3,
+    "depth": 0,
+    "fn": null,
+    "vars": {
+     "n": "4",
+     "pasos": "2"
+    },
+    "changed": [],
+    "text": {
+     "es": "Condición del while `n > 1`: **verdadera**, da otra vuelta.",
+     "en": "While condition `n > 1`: **true**, it runs another iteration."
+    }
+   },
+   {
+    "line": 4,
+    "depth": 0,
+    "fn": null,
+    "vars": {
+     "n": "2",
+     "pasos": "2"
+    },
+    "changed": [
+     "n"
+    ],
+    "text": {
+     "es": "Ejecuta la línea: `n` cambia de 4 a 2.",
+     "en": "Runs the line: `n` changes from 4 to 2."
+    }
+   },
+   {
+    "line": 5,
+    "depth": 0,
+    "fn": null,
+    "vars": {
+     "n": "2",
+     "pasos": "3"
+    },
+    "changed": [
+     "pasos"
+    ],
+    "text": {
+     "es": "Ejecuta la línea: `pasos` cambia de 2 a 3.",
+     "en": "Runs the line: `pasos` changes from 2 to 3."
+    }
+   },
+   {
+    "line": 3,
+    "depth": 0,
+    "fn": null,
+    "vars": {
+     "n": "2",
+     "pasos": "3"
+    },
+    "changed": [],
+    "text": {
+     "es": "Condición del while `n > 1`: **verdadera**, da otra vuelta.",
+     "en": "While condition `n > 1`: **true**, it runs another iteration."
+    }
+   },
+   {
+    "line": 4,
+    "depth": 0,
+    "fn": null,
+    "vars": {
+     "n": "1",
+     "pasos": "3"
+    },
+    "changed": [
+     "n"
+    ],
+    "text": {
+     "es": "Ejecuta la línea: `n` cambia de 2 a 1.",
+     "en": "Runs the line: `n` changes from 2 to 1."
+    }
+   },
+   {
+    "line": 5,
+    "depth": 0,
+    "fn": null,
+    "vars": {
+     "n": "1",
+     "pasos": "4"
+    },
+    "changed": [
+     "pasos"
+    ],
+    "text": {
+     "es": "Ejecuta la línea: `pasos` cambia de 3 a 4.",
+     "en": "Runs the line: `pasos` changes from 3 to 4."
+    }
+   },
+   {
+    "line": 3,
+    "depth": 0,
+    "fn": null,
+    "vars": {
+     "n": "1",
+     "pasos": "4"
+    },
+    "changed": [],
+    "text": {
+     "es": "Condición del while `n > 1`: **falsa**, sale del ciclo.",
+     "en": "While condition `n > 1`: **false**, it leaves the loop."
+    }
+   },
+   {
+    "line": 6,
+    "depth": 0,
+    "fn": null,
+    "vars": {
+     "n": "1",
+     "pasos": "4"
+    },
+    "changed": [],
+    "text": {
+     "es": "Imprime algo en pantalla (lo verás al comprobar tu respuesta).",
+     "en": "Prints something (you will see it when you check your answer)."
+    }
+   }
+  ],
+  "truncated": false
+ },
+ "p-n-squared": {
+  "code": "n = 3\npasos = 0\nfor i in range(n):\n    ____\n        pasos += 1\nprint(pasos)",
+  "kind": "complete",
+  "steps": [
+   {
+    "line": 1,
+    "depth": 0,
+    "fn": null,
+    "vars": {
+     "n": "3"
+    },
+    "changed": [
+     "n"
+    ],
+    "text": {
+     "es": "Ejecuta la línea: crea `n` = 3.",
+     "en": "Runs the line: creates `n` = 3."
+    }
+   },
+   {
+    "line": 2,
+    "depth": 0,
+    "fn": null,
+    "vars": {
+     "n": "3",
+     "pasos": "0"
+    },
+    "changed": [
+     "pasos"
+    ],
+    "text": {
+     "es": "Ejecuta la línea: crea `pasos` = 0.",
+     "en": "Runs the line: creates `pasos` = 0."
+    }
+   },
+   {
+    "line": 3,
+    "depth": 0,
+    "fn": null,
+    "vars": {
+     "n": "3",
+     "pasos": "0",
+     "i": "0"
+    },
+    "changed": [
+     "i"
+    ],
+    "text": {
+     "es": "Siguiente vuelta del ciclo: `i` = 0.",
+     "en": "Next loop iteration: `i` = 0."
+    }
+   },
+   {
+    "line": 4,
+    "depth": 0,
+    "fn": null,
+    "vars": {
+     "n": "3",
+     "pasos": "0",
+     "i": "0",
+     "j": "0"
+    },
+    "changed": [
+     "j"
+    ],
+    "text": {
+     "es": "Siguiente vuelta del ciclo: `j` = 0.",
+     "en": "Next loop iteration: `j` = 0."
+    }
+   },
+   {
+    "line": 5,
+    "depth": 0,
+    "fn": null,
+    "vars": {
+     "n": "3",
+     "pasos": "1",
+     "i": "0",
+     "j": "0"
+    },
+    "changed": [
+     "pasos"
+    ],
+    "text": {
+     "es": "Ejecuta la línea: `pasos` cambia de 0 a 1.",
+     "en": "Runs the line: `pasos` changes from 0 to 1."
+    }
+   },
+   {
+    "line": 4,
+    "depth": 0,
+    "fn": null,
+    "vars": {
+     "n": "3",
+     "pasos": "1",
+     "i": "0",
+     "j": "1"
+    },
+    "changed": [
+     "j"
+    ],
+    "text": {
+     "es": "Siguiente vuelta del ciclo: `j` = 1.",
+     "en": "Next loop iteration: `j` = 1."
+    }
+   },
+   {
+    "line": 5,
+    "depth": 0,
+    "fn": null,
+    "vars": {
+     "n": "3",
+     "pasos": "2",
+     "i": "0",
+     "j": "1"
+    },
+    "changed": [
+     "pasos"
+    ],
+    "text": {
+     "es": "Ejecuta la línea: `pasos` cambia de 1 a 2.",
+     "en": "Runs the line: `pasos` changes from 1 to 2."
+    }
+   },
+   {
+    "line": 4,
+    "depth": 0,
+    "fn": null,
+    "vars": {
+     "n": "3",
+     "pasos": "2",
+     "i": "0",
+     "j": "2"
+    },
+    "changed": [
+     "j"
+    ],
+    "text": {
+     "es": "Siguiente vuelta del ciclo: `j` = 2.",
+     "en": "Next loop iteration: `j` = 2."
+    }
+   },
+   {
+    "line": 5,
+    "depth": 0,
+    "fn": null,
+    "vars": {
+     "n": "3",
+     "pasos": "3",
+     "i": "0",
+     "j": "2"
+    },
+    "changed": [
+     "pasos"
+    ],
+    "text": {
+     "es": "Ejecuta la línea: `pasos` cambia de 2 a 3.",
+     "en": "Runs the line: `pasos` changes from 2 to 3."
+    }
+   },
+   {
+    "line": 4,
+    "depth": 0,
+    "fn": null,
+    "vars": {
+     "n": "3",
+     "pasos": "3",
+     "i": "0",
+     "j": "2"
+    },
+    "changed": [],
+    "text": {
+     "es": "Ya no quedan valores: termina el ciclo `for j`.",
+     "en": "No values left: the `for j` loop ends."
+    }
+   },
+   {
+    "line": 3,
+    "depth": 0,
+    "fn": null,
+    "vars": {
+     "n": "3",
+     "pasos": "3",
+     "i": "1",
+     "j": "2"
+    },
+    "changed": [
+     "i"
+    ],
+    "text": {
+     "es": "Siguiente vuelta del ciclo: `i` = 1.",
+     "en": "Next loop iteration: `i` = 1."
+    }
+   },
+   {
+    "line": 4,
+    "depth": 0,
+    "fn": null,
+    "vars": {
+     "n": "3",
+     "pasos": "3",
+     "i": "1",
+     "j": "0"
+    },
+    "changed": [
+     "j"
+    ],
+    "text": {
+     "es": "Siguiente vuelta del ciclo: `j` = 0.",
+     "en": "Next loop iteration: `j` = 0."
+    }
+   },
+   {
+    "line": 5,
+    "depth": 0,
+    "fn": null,
+    "vars": {
+     "n": "3",
+     "pasos": "4",
+     "i": "1",
+     "j": "0"
+    },
+    "changed": [
+     "pasos"
+    ],
+    "text": {
+     "es": "Ejecuta la línea: `pasos` cambia de 3 a 4.",
+     "en": "Runs the line: `pasos` changes from 3 to 4."
+    }
+   },
+   {
+    "line": 4,
+    "depth": 0,
+    "fn": null,
+    "vars": {
+     "n": "3",
+     "pasos": "4",
+     "i": "1",
+     "j": "1"
+    },
+    "changed": [
+     "j"
+    ],
+    "text": {
+     "es": "Siguiente vuelta del ciclo: `j` = 1.",
+     "en": "Next loop iteration: `j` = 1."
+    }
+   },
+   {
+    "line": 5,
+    "depth": 0,
+    "fn": null,
+    "vars": {
+     "n": "3",
+     "pasos": "5",
+     "i": "1",
+     "j": "1"
+    },
+    "changed": [
+     "pasos"
+    ],
+    "text": {
+     "es": "Ejecuta la línea: `pasos` cambia de 4 a 5.",
+     "en": "Runs the line: `pasos` changes from 4 to 5."
+    }
+   },
+   {
+    "line": 4,
+    "depth": 0,
+    "fn": null,
+    "vars": {
+     "n": "3",
+     "pasos": "5",
+     "i": "1",
+     "j": "2"
+    },
+    "changed": [
+     "j"
+    ],
+    "text": {
+     "es": "Siguiente vuelta del ciclo: `j` = 2.",
+     "en": "Next loop iteration: `j` = 2."
+    }
+   },
+   {
+    "line": 5,
+    "depth": 0,
+    "fn": null,
+    "vars": {
+     "n": "3",
+     "pasos": "6",
+     "i": "1",
+     "j": "2"
+    },
+    "changed": [
+     "pasos"
+    ],
+    "text": {
+     "es": "Ejecuta la línea: `pasos` cambia de 5 a 6.",
+     "en": "Runs the line: `pasos` changes from 5 to 6."
+    }
+   },
+   {
+    "line": 4,
+    "depth": 0,
+    "fn": null,
+    "vars": {
+     "n": "3",
+     "pasos": "6",
+     "i": "1",
+     "j": "2"
+    },
+    "changed": [],
+    "text": {
+     "es": "Ya no quedan valores: termina el ciclo `for j`.",
+     "en": "No values left: the `for j` loop ends."
+    }
+   },
+   {
+    "line": 3,
+    "depth": 0,
+    "fn": null,
+    "vars": {
+     "n": "3",
+     "pasos": "6",
+     "i": "2",
+     "j": "2"
+    },
+    "changed": [
+     "i"
+    ],
+    "text": {
+     "es": "Siguiente vuelta del ciclo: `i` = 2.",
+     "en": "Next loop iteration: `i` = 2."
+    }
+   },
+   {
+    "line": 4,
+    "depth": 0,
+    "fn": null,
+    "vars": {
+     "n": "3",
+     "pasos": "6",
+     "i": "2",
+     "j": "0"
+    },
+    "changed": [
+     "j"
+    ],
+    "text": {
+     "es": "Siguiente vuelta del ciclo: `j` = 0.",
+     "en": "Next loop iteration: `j` = 0."
+    }
+   },
+   {
+    "line": 5,
+    "depth": 0,
+    "fn": null,
+    "vars": {
+     "n": "3",
+     "pasos": "7",
+     "i": "2",
+     "j": "0"
+    },
+    "changed": [
+     "pasos"
+    ],
+    "text": {
+     "es": "Ejecuta la línea: `pasos` cambia de 6 a 7.",
+     "en": "Runs the line: `pasos` changes from 6 to 7."
+    }
+   },
+   {
+    "line": 4,
+    "depth": 0,
+    "fn": null,
+    "vars": {
+     "n": "3",
+     "pasos": "7",
+     "i": "2",
+     "j": "1"
+    },
+    "changed": [
+     "j"
+    ],
+    "text": {
+     "es": "Siguiente vuelta del ciclo: `j` = 1.",
+     "en": "Next loop iteration: `j` = 1."
+    }
+   },
+   {
+    "line": 5,
+    "depth": 0,
+    "fn": null,
+    "vars": {
+     "n": "3",
+     "pasos": "8",
+     "i": "2",
+     "j": "1"
+    },
+    "changed": [
+     "pasos"
+    ],
+    "text": {
+     "es": "Ejecuta la línea: `pasos` cambia de 7 a 8.",
+     "en": "Runs the line: `pasos` changes from 7 to 8."
+    }
+   },
+   {
+    "line": 4,
+    "depth": 0,
+    "fn": null,
+    "vars": {
+     "n": "3",
+     "pasos": "8",
+     "i": "2",
+     "j": "2"
+    },
+    "changed": [
+     "j"
+    ],
+    "text": {
+     "es": "Siguiente vuelta del ciclo: `j` = 2.",
+     "en": "Next loop iteration: `j` = 2."
+    }
+   },
+   {
+    "line": 5,
+    "depth": 0,
+    "fn": null,
+    "vars": {
+     "n": "3",
+     "pasos": "9",
+     "i": "2",
+     "j": "2"
+    },
+    "changed": [
+     "pasos"
+    ],
+    "text": {
+     "es": "Ejecuta la línea: `pasos` cambia de 8 a 9.",
+     "en": "Runs the line: `pasos` changes from 8 to 9."
+    }
+   },
+   {
+    "line": 4,
+    "depth": 0,
+    "fn": null,
+    "vars": {
+     "n": "3",
+     "pasos": "9",
+     "i": "2",
+     "j": "2"
+    },
+    "changed": [],
+    "text": {
+     "es": "Ya no quedan valores: termina el ciclo `for j`.",
+     "en": "No values left: the `for j` loop ends."
+    }
+   },
+   {
+    "line": 3,
+    "depth": 0,
+    "fn": null,
+    "vars": {
+     "n": "3",
+     "pasos": "9",
+     "i": "2",
+     "j": "2"
+    },
+    "changed": [],
+    "text": {
+     "es": "Ya no quedan valores: termina el ciclo `for i`.",
+     "en": "No values left: the `for i` loop ends."
+    }
+   },
+   {
+    "line": 6,
+    "depth": 0,
+    "fn": null,
+    "vars": {
+     "n": "3",
+     "pasos": "9",
+     "i": "2",
+     "j": "2"
+    },
+    "changed": [],
+    "text": {
+     "es": "Imprime algo en pantalla (lo verás al comprobar tu respuesta).",
+     "en": "Prints something (you will see it when you check your answer)."
+    }
+   }
+  ],
+  "truncated": false
+ },
+ "p-dependent": {
+  "code": "n = 5\npasos = 0\nfor i in range(n):\n    for j in range(i):\n        pasos += 1\nprint(pasos)",
+  "kind": "predict",
+  "steps": [
+   {
+    "line": 1,
+    "depth": 0,
+    "fn": null,
+    "vars": {
+     "n": "5"
+    },
+    "changed": [
+     "n"
+    ],
+    "text": {
+     "es": "Ejecuta la línea: crea `n` = 5.",
+     "en": "Runs the line: creates `n` = 5."
+    }
+   },
+   {
+    "line": 2,
+    "depth": 0,
+    "fn": null,
+    "vars": {
+     "n": "5",
+     "pasos": "0"
+    },
+    "changed": [
+     "pasos"
+    ],
+    "text": {
+     "es": "Ejecuta la línea: crea `pasos` = 0.",
+     "en": "Runs the line: creates `pasos` = 0."
+    }
+   },
+   {
+    "line": 3,
+    "depth": 0,
+    "fn": null,
+    "vars": {
+     "n": "5",
+     "pasos": "0",
+     "i": "0"
+    },
+    "changed": [
+     "i"
+    ],
+    "text": {
+     "es": "Siguiente vuelta del ciclo: `i` = 0.",
+     "en": "Next loop iteration: `i` = 0."
+    }
+   },
+   {
+    "line": 4,
+    "depth": 0,
+    "fn": null,
+    "vars": {
+     "n": "5",
+     "pasos": "0",
+     "i": "0"
+    },
+    "changed": [],
+    "text": {
+     "es": "Ya no quedan valores: termina el ciclo `for j`.",
+     "en": "No values left: the `for j` loop ends."
+    }
+   },
+   {
+    "line": 3,
+    "depth": 0,
+    "fn": null,
+    "vars": {
+     "n": "5",
+     "pasos": "0",
+     "i": "1"
+    },
+    "changed": [
+     "i"
+    ],
+    "text": {
+     "es": "Siguiente vuelta del ciclo: `i` = 1.",
+     "en": "Next loop iteration: `i` = 1."
+    }
+   },
+   {
+    "line": 4,
+    "depth": 0,
+    "fn": null,
+    "vars": {
+     "n": "5",
+     "pasos": "0",
+     "i": "1",
+     "j": "0"
+    },
+    "changed": [
+     "j"
+    ],
+    "text": {
+     "es": "Siguiente vuelta del ciclo: `j` = 0.",
+     "en": "Next loop iteration: `j` = 0."
+    }
+   },
+   {
+    "line": 5,
+    "depth": 0,
+    "fn": null,
+    "vars": {
+     "n": "5",
+     "pasos": "1",
+     "i": "1",
+     "j": "0"
+    },
+    "changed": [
+     "pasos"
+    ],
+    "text": {
+     "es": "Ejecuta la línea: `pasos` cambia de 0 a 1.",
+     "en": "Runs the line: `pasos` changes from 0 to 1."
+    }
+   },
+   {
+    "line": 4,
+    "depth": 0,
+    "fn": null,
+    "vars": {
+     "n": "5",
+     "pasos": "1",
+     "i": "1",
+     "j": "0"
+    },
+    "changed": [],
+    "text": {
+     "es": "Ya no quedan valores: termina el ciclo `for j`.",
+     "en": "No values left: the `for j` loop ends."
+    }
+   },
+   {
+    "line": 3,
+    "depth": 0,
+    "fn": null,
+    "vars": {
+     "n": "5",
+     "pasos": "1",
+     "i": "2",
+     "j": "0"
+    },
+    "changed": [
+     "i"
+    ],
+    "text": {
+     "es": "Siguiente vuelta del ciclo: `i` = 2.",
+     "en": "Next loop iteration: `i` = 2."
+    }
+   },
+   {
+    "line": 4,
+    "depth": 0,
+    "fn": null,
+    "vars": {
+     "n": "5",
+     "pasos": "1",
+     "i": "2",
+     "j": "0"
+    },
+    "changed": [],
+    "text": {
+     "es": "Ya no quedan valores: termina el ciclo `for j`.",
+     "en": "No values left: the `for j` loop ends."
+    }
+   },
+   {
+    "line": 5,
+    "depth": 0,
+    "fn": null,
+    "vars": {
+     "n": "5",
+     "pasos": "2",
+     "i": "2",
+     "j": "0"
+    },
+    "changed": [
+     "pasos"
+    ],
+    "text": {
+     "es": "Ejecuta la línea: `pasos` cambia de 1 a 2.",
+     "en": "Runs the line: `pasos` changes from 1 to 2."
+    }
+   },
+   {
+    "line": 4,
+    "depth": 0,
+    "fn": null,
+    "vars": {
+     "n": "5",
+     "pasos": "2",
+     "i": "2",
+     "j": "1"
+    },
+    "changed": [
+     "j"
+    ],
+    "text": {
+     "es": "Siguiente vuelta del ciclo: `j` = 1.",
+     "en": "Next loop iteration: `j` = 1."
+    }
+   },
+   {
+    "line": 5,
+    "depth": 0,
+    "fn": null,
+    "vars": {
+     "n": "5",
+     "pasos": "3",
+     "i": "2",
+     "j": "1"
+    },
+    "changed": [
+     "pasos"
+    ],
+    "text": {
+     "es": "Ejecuta la línea: `pasos` cambia de 2 a 3.",
+     "en": "Runs the line: `pasos` changes from 2 to 3."
+    }
+   },
+   {
+    "line": 4,
+    "depth": 0,
+    "fn": null,
+    "vars": {
+     "n": "5",
+     "pasos": "3",
+     "i": "2",
+     "j": "1"
+    },
+    "changed": [],
+    "text": {
+     "es": "Ya no quedan valores: termina el ciclo `for j`.",
+     "en": "No values left: the `for j` loop ends."
+    }
+   },
+   {
+    "line": 3,
+    "depth": 0,
+    "fn": null,
+    "vars": {
+     "n": "5",
+     "pasos": "3",
+     "i": "3",
+     "j": "1"
+    },
+    "changed": [
+     "i"
+    ],
+    "text": {
+     "es": "Siguiente vuelta del ciclo: `i` = 3.",
+     "en": "Next loop iteration: `i` = 3."
+    }
+   },
+   {
+    "line": 4,
+    "depth": 0,
+    "fn": null,
+    "vars": {
+     "n": "5",
+     "pasos": "3",
+     "i": "3",
+     "j": "0"
+    },
+    "changed": [
+     "j"
+    ],
+    "text": {
+     "es": "Siguiente vuelta del ciclo: `j` = 0.",
+     "en": "Next loop iteration: `j` = 0."
+    }
+   },
+   {
+    "line": 5,
+    "depth": 0,
+    "fn": null,
+    "vars": {
+     "n": "5",
+     "pasos": "4",
+     "i": "3",
+     "j": "0"
+    },
+    "changed": [
+     "pasos"
+    ],
+    "text": {
+     "es": "Ejecuta la línea: `pasos` cambia de 3 a 4.",
+     "en": "Runs the line: `pasos` changes from 3 to 4."
+    }
+   },
+   {
+    "line": 4,
+    "depth": 0,
+    "fn": null,
+    "vars": {
+     "n": "5",
+     "pasos": "4",
+     "i": "3",
+     "j": "1"
+    },
+    "changed": [
+     "j"
+    ],
+    "text": {
+     "es": "Siguiente vuelta del ciclo: `j` = 1.",
+     "en": "Next loop iteration: `j` = 1."
+    }
+   },
+   {
+    "line": 5,
+    "depth": 0,
+    "fn": null,
+    "vars": {
+     "n": "5",
+     "pasos": "5",
+     "i": "3",
+     "j": "1"
+    },
+    "changed": [
+     "pasos"
+    ],
+    "text": {
+     "es": "Ejecuta la línea: `pasos` cambia de 4 a 5.",
+     "en": "Runs the line: `pasos` changes from 4 to 5."
+    }
+   },
+   {
+    "line": 4,
+    "depth": 0,
+    "fn": null,
+    "vars": {
+     "n": "5",
+     "pasos": "5",
+     "i": "3",
+     "j": "2"
+    },
+    "changed": [
+     "j"
+    ],
+    "text": {
+     "es": "Siguiente vuelta del ciclo: `j` = 2.",
+     "en": "Next loop iteration: `j` = 2."
+    }
+   },
+   {
+    "line": 5,
+    "depth": 0,
+    "fn": null,
+    "vars": {
+     "n": "5",
+     "pasos": "6",
+     "i": "3",
+     "j": "2"
+    },
+    "changed": [
+     "pasos"
+    ],
+    "text": {
+     "es": "Ejecuta la línea: `pasos` cambia de 5 a 6.",
+     "en": "Runs the line: `pasos` changes from 5 to 6."
+    }
+   },
+   {
+    "line": 4,
+    "depth": 0,
+    "fn": null,
+    "vars": {
+     "n": "5",
+     "pasos": "6",
+     "i": "3",
+     "j": "2"
+    },
+    "changed": [],
+    "text": {
+     "es": "Ya no quedan valores: termina el ciclo `for j`.",
+     "en": "No values left: the `for j` loop ends."
+    }
+   },
+   {
+    "line": 3,
+    "depth": 0,
+    "fn": null,
+    "vars": {
+     "n": "5",
+     "pasos": "6",
+     "i": "4",
+     "j": "2"
+    },
+    "changed": [
+     "i"
+    ],
+    "text": {
+     "es": "Siguiente vuelta del ciclo: `i` = 4.",
+     "en": "Next loop iteration: `i` = 4."
+    }
+   },
+   {
+    "line": 4,
+    "depth": 0,
+    "fn": null,
+    "vars": {
+     "n": "5",
+     "pasos": "6",
+     "i": "4",
+     "j": "0"
+    },
+    "changed": [
+     "j"
+    ],
+    "text": {
+     "es": "Siguiente vuelta del ciclo: `j` = 0.",
+     "en": "Next loop iteration: `j` = 0."
+    }
+   },
+   {
+    "line": 5,
+    "depth": 0,
+    "fn": null,
+    "vars": {
+     "n": "5",
+     "pasos": "7",
+     "i": "4",
+     "j": "0"
+    },
+    "changed": [
+     "pasos"
+    ],
+    "text": {
+     "es": "Ejecuta la línea: `pasos` cambia de 6 a 7.",
+     "en": "Runs the line: `pasos` changes from 6 to 7."
+    }
+   },
+   {
+    "line": 4,
+    "depth": 0,
+    "fn": null,
+    "vars": {
+     "n": "5",
+     "pasos": "7",
+     "i": "4",
+     "j": "1"
+    },
+    "changed": [
+     "j"
+    ],
+    "text": {
+     "es": "Siguiente vuelta del ciclo: `j` = 1.",
+     "en": "Next loop iteration: `j` = 1."
+    }
+   },
+   {
+    "line": 5,
+    "depth": 0,
+    "fn": null,
+    "vars": {
+     "n": "5",
+     "pasos": "8",
+     "i": "4",
+     "j": "1"
+    },
+    "changed": [
+     "pasos"
+    ],
+    "text": {
+     "es": "Ejecuta la línea: `pasos` cambia de 7 a 8.",
+     "en": "Runs the line: `pasos` changes from 7 to 8."
+    }
+   },
+   {
+    "line": 4,
+    "depth": 0,
+    "fn": null,
+    "vars": {
+     "n": "5",
+     "pasos": "8",
+     "i": "4",
+     "j": "2"
+    },
+    "changed": [
+     "j"
+    ],
+    "text": {
+     "es": "Siguiente vuelta del ciclo: `j` = 2.",
+     "en": "Next loop iteration: `j` = 2."
+    }
+   },
+   {
+    "line": 5,
+    "depth": 0,
+    "fn": null,
+    "vars": {
+     "n": "5",
+     "pasos": "9",
+     "i": "4",
+     "j": "2"
+    },
+    "changed": [
+     "pasos"
+    ],
+    "text": {
+     "es": "Ejecuta la línea: `pasos` cambia de 8 a 9.",
+     "en": "Runs the line: `pasos` changes from 8 to 9."
+    }
+   },
+   {
+    "line": 4,
+    "depth": 0,
+    "fn": null,
+    "vars": {
+     "n": "5",
+     "pasos": "9",
+     "i": "4",
+     "j": "3"
+    },
+    "changed": [
+     "j"
+    ],
+    "text": {
+     "es": "Siguiente vuelta del ciclo: `j` = 3.",
+     "en": "Next loop iteration: `j` = 3."
+    }
+   },
+   {
+    "line": 5,
+    "depth": 0,
+    "fn": null,
+    "vars": {
+     "n": "5",
+     "pasos": "10",
+     "i": "4",
+     "j": "3"
+    },
+    "changed": [
+     "pasos"
+    ],
+    "text": {
+     "es": "Ejecuta la línea: `pasos` cambia de 9 a 10.",
+     "en": "Runs the line: `pasos` changes from 9 to 10."
+    }
+   },
+   {
+    "line": 4,
+    "depth": 0,
+    "fn": null,
+    "vars": {
+     "n": "5",
+     "pasos": "10",
+     "i": "4",
+     "j": "3"
+    },
+    "changed": [],
+    "text": {
+     "es": "Ya no quedan valores: termina el ciclo `for j`.",
+     "en": "No values left: the `for j` loop ends."
+    }
+   },
+   {
+    "line": 3,
+    "depth": 0,
+    "fn": null,
+    "vars": {
+     "n": "5",
+     "pasos": "10",
+     "i": "4",
+     "j": "3"
+    },
+    "changed": [],
+    "text": {
+     "es": "Ya no quedan valores: termina el ciclo `for i`.",
+     "en": "No values left: the `for i` loop ends."
+    }
+   },
+   {
+    "line": 6,
+    "depth": 0,
+    "fn": null,
+    "vars": {
+     "n": "5",
+     "pasos": "10",
+     "i": "4",
+     "j": "3"
+    },
+    "changed": [],
+    "text": {
+     "es": "Imprime algo en pantalla (lo verás al comprobar tu respuesta).",
+     "en": "Prints something (you will see it when you check your answer)."
+    }
+   }
+  ],
+  "truncated": false
+ },
+ "p-log-loop": {
+  "code": "def pasos_hasta_uno(n):\n    pasos = 0\n    while n > 1:\n        ____\n        pasos += 1\n    return pasos\n\nprint(pasos_hasta_uno(1024))",
+  "kind": "complete",
+  "steps": [
+   {
+    "line": 1,
+    "depth": 0,
+    "fn": null,
+    "vars": {},
+    "changed": [],
+    "text": {
+     "es": "Define la función `pasos_hasta_uno` (todavía no la ejecuta).",
+     "en": "Defines the function `pasos_hasta_uno` (it does not run it yet)."
+    }
+   },
+   {
+    "line": 8,
+    "depth": 0,
+    "fn": null,
+    "vars": {},
+    "changed": [],
+    "text": {
+     "es": "Imprime algo en pantalla (lo verás al comprobar tu respuesta).",
+     "en": "Prints something (you will see it when you check your answer)."
+    }
+   },
+   {
+    "line": 1,
+    "depth": 1,
+    "fn": "pasos_hasta_uno",
+    "vars": {
+     "n": "1024"
+    },
+    "changed": [],
+    "text": {
+     "es": "Llama a `pasos_hasta_uno(n=1024)`.",
+     "en": "Calls `pasos_hasta_uno(n=1024)`."
+    }
+   },
+   {
+    "line": 2,
+    "depth": 1,
+    "fn": "pasos_hasta_uno",
+    "vars": {
+     "n": "1024",
+     "pasos": "0"
+    },
+    "changed": [
+     "pasos"
+    ],
+    "text": {
+     "es": "Ejecuta la línea: crea `pasos` = 0.",
+     "en": "Runs the line: creates `pasos` = 0."
+    }
+   },
+   {
+    "line": 3,
+    "depth": 1,
+    "fn": "pasos_hasta_uno",
+    "vars": {
+     "n": "1024",
+     "pasos": "0"
+    },
+    "changed": [],
+    "text": {
+     "es": "Condición del while `n > 1`: **verdadera**, da otra vuelta.",
+     "en": "While condition `n > 1`: **true**, it runs another iteration."
+    }
+   },
+   {
+    "line": 4,
+    "depth": 1,
+    "fn": "pasos_hasta_uno",
+    "vars": {
+     "n": "512",
+     "pasos": "0"
+    },
+    "changed": [
+     "n"
+    ],
+    "text": {
+     "es": "Ejecuta la línea: `n` cambia de 1024 a 512.",
+     "en": "Runs the line: `n` changes from 1024 to 512."
+    }
+   },
+   {
+    "line": 5,
+    "depth": 1,
+    "fn": "pasos_hasta_uno",
+    "vars": {
+     "n": "512",
+     "pasos": "1"
+    },
+    "changed": [
+     "pasos"
+    ],
+    "text": {
+     "es": "Ejecuta la línea: `pasos` cambia de 0 a 1.",
+     "en": "Runs the line: `pasos` changes from 0 to 1."
+    }
+   },
+   {
+    "line": 3,
+    "depth": 1,
+    "fn": "pasos_hasta_uno",
+    "vars": {
+     "n": "512",
+     "pasos": "1"
+    },
+    "changed": [],
+    "text": {
+     "es": "Condición del while `n > 1`: **verdadera**, da otra vuelta.",
+     "en": "While condition `n > 1`: **true**, it runs another iteration."
+    }
+   },
+   {
+    "line": 4,
+    "depth": 1,
+    "fn": "pasos_hasta_uno",
+    "vars": {
+     "n": "256",
+     "pasos": "1"
+    },
+    "changed": [
+     "n"
+    ],
+    "text": {
+     "es": "Ejecuta la línea: `n` cambia de 512 a 256.",
+     "en": "Runs the line: `n` changes from 512 to 256."
+    }
+   },
+   {
+    "line": 5,
+    "depth": 1,
+    "fn": "pasos_hasta_uno",
+    "vars": {
+     "n": "256",
+     "pasos": "2"
+    },
+    "changed": [
+     "pasos"
+    ],
+    "text": {
+     "es": "Ejecuta la línea: `pasos` cambia de 1 a 2.",
+     "en": "Runs the line: `pasos` changes from 1 to 2."
+    }
+   },
+   {
+    "line": 3,
+    "depth": 1,
+    "fn": "pasos_hasta_uno",
+    "vars": {
+     "n": "256",
+     "pasos": "2"
+    },
+    "changed": [],
+    "text": {
+     "es": "Condición del while `n > 1`: **verdadera**, da otra vuelta.",
+     "en": "While condition `n > 1`: **true**, it runs another iteration."
+    }
+   },
+   {
+    "line": 4,
+    "depth": 1,
+    "fn": "pasos_hasta_uno",
+    "vars": {
+     "n": "128",
+     "pasos": "2"
+    },
+    "changed": [
+     "n"
+    ],
+    "text": {
+     "es": "Ejecuta la línea: `n` cambia de 256 a 128.",
+     "en": "Runs the line: `n` changes from 256 to 128."
+    }
+   },
+   {
+    "line": 5,
+    "depth": 1,
+    "fn": "pasos_hasta_uno",
+    "vars": {
+     "n": "128",
+     "pasos": "3"
+    },
+    "changed": [
+     "pasos"
+    ],
+    "text": {
+     "es": "Ejecuta la línea: `pasos` cambia de 2 a 3.",
+     "en": "Runs the line: `pasos` changes from 2 to 3."
+    }
+   },
+   {
+    "line": 3,
+    "depth": 1,
+    "fn": "pasos_hasta_uno",
+    "vars": {
+     "n": "128",
+     "pasos": "3"
+    },
+    "changed": [],
+    "text": {
+     "es": "Condición del while `n > 1`: **verdadera**, da otra vuelta.",
+     "en": "While condition `n > 1`: **true**, it runs another iteration."
+    }
+   },
+   {
+    "line": 4,
+    "depth": 1,
+    "fn": "pasos_hasta_uno",
+    "vars": {
+     "n": "64",
+     "pasos": "3"
+    },
+    "changed": [
+     "n"
+    ],
+    "text": {
+     "es": "Ejecuta la línea: `n` cambia de 128 a 64.",
+     "en": "Runs the line: `n` changes from 128 to 64."
+    }
+   },
+   {
+    "line": 5,
+    "depth": 1,
+    "fn": "pasos_hasta_uno",
+    "vars": {
+     "n": "64",
+     "pasos": "4"
+    },
+    "changed": [
+     "pasos"
+    ],
+    "text": {
+     "es": "Ejecuta la línea: `pasos` cambia de 3 a 4.",
+     "en": "Runs the line: `pasos` changes from 3 to 4."
+    }
+   },
+   {
+    "line": 3,
+    "depth": 1,
+    "fn": "pasos_hasta_uno",
+    "vars": {
+     "n": "64",
+     "pasos": "4"
+    },
+    "changed": [],
+    "text": {
+     "es": "Condición del while `n > 1`: **verdadera**, da otra vuelta.",
+     "en": "While condition `n > 1`: **true**, it runs another iteration."
+    }
+   },
+   {
+    "line": 4,
+    "depth": 1,
+    "fn": "pasos_hasta_uno",
+    "vars": {
+     "n": "32",
+     "pasos": "4"
+    },
+    "changed": [
+     "n"
+    ],
+    "text": {
+     "es": "Ejecuta la línea: `n` cambia de 64 a 32.",
+     "en": "Runs the line: `n` changes from 64 to 32."
+    }
+   },
+   {
+    "line": 5,
+    "depth": 1,
+    "fn": "pasos_hasta_uno",
+    "vars": {
+     "n": "32",
+     "pasos": "5"
+    },
+    "changed": [
+     "pasos"
+    ],
+    "text": {
+     "es": "Ejecuta la línea: `pasos` cambia de 4 a 5.",
+     "en": "Runs the line: `pasos` changes from 4 to 5."
+    }
+   },
+   {
+    "line": 3,
+    "depth": 1,
+    "fn": "pasos_hasta_uno",
+    "vars": {
+     "n": "32",
+     "pasos": "5"
+    },
+    "changed": [],
+    "text": {
+     "es": "Condición del while `n > 1`: **verdadera**, da otra vuelta.",
+     "en": "While condition `n > 1`: **true**, it runs another iteration."
+    }
+   },
+   {
+    "line": 4,
+    "depth": 1,
+    "fn": "pasos_hasta_uno",
+    "vars": {
+     "n": "16",
+     "pasos": "5"
+    },
+    "changed": [
+     "n"
+    ],
+    "text": {
+     "es": "Ejecuta la línea: `n` cambia de 32 a 16.",
+     "en": "Runs the line: `n` changes from 32 to 16."
+    }
+   },
+   {
+    "line": 5,
+    "depth": 1,
+    "fn": "pasos_hasta_uno",
+    "vars": {
+     "n": "16",
+     "pasos": "6"
+    },
+    "changed": [
+     "pasos"
+    ],
+    "text": {
+     "es": "Ejecuta la línea: `pasos` cambia de 5 a 6.",
+     "en": "Runs the line: `pasos` changes from 5 to 6."
+    }
+   },
+   {
+    "line": 3,
+    "depth": 1,
+    "fn": "pasos_hasta_uno",
+    "vars": {
+     "n": "16",
+     "pasos": "6"
+    },
+    "changed": [],
+    "text": {
+     "es": "Condición del while `n > 1`: **verdadera**, da otra vuelta.",
+     "en": "While condition `n > 1`: **true**, it runs another iteration."
+    }
+   },
+   {
+    "line": 4,
+    "depth": 1,
+    "fn": "pasos_hasta_uno",
+    "vars": {
+     "n": "8",
+     "pasos": "6"
+    },
+    "changed": [
+     "n"
+    ],
+    "text": {
+     "es": "Ejecuta la línea: `n` cambia de 16 a 8.",
+     "en": "Runs the line: `n` changes from 16 to 8."
+    }
+   },
+   {
+    "line": 5,
+    "depth": 1,
+    "fn": "pasos_hasta_uno",
+    "vars": {
+     "n": "8",
+     "pasos": "7"
+    },
+    "changed": [
+     "pasos"
+    ],
+    "text": {
+     "es": "Ejecuta la línea: `pasos` cambia de 6 a 7.",
+     "en": "Runs the line: `pasos` changes from 6 to 7."
+    }
+   },
+   {
+    "line": 3,
+    "depth": 1,
+    "fn": "pasos_hasta_uno",
+    "vars": {
+     "n": "8",
+     "pasos": "7"
+    },
+    "changed": [],
+    "text": {
+     "es": "Condición del while `n > 1`: **verdadera**, da otra vuelta.",
+     "en": "While condition `n > 1`: **true**, it runs another iteration."
+    }
+   },
+   {
+    "line": 4,
+    "depth": 1,
+    "fn": "pasos_hasta_uno",
+    "vars": {
+     "n": "4",
+     "pasos": "7"
+    },
+    "changed": [
+     "n"
+    ],
+    "text": {
+     "es": "Ejecuta la línea: `n` cambia de 8 a 4.",
+     "en": "Runs the line: `n` changes from 8 to 4."
+    }
+   },
+   {
+    "line": 5,
+    "depth": 1,
+    "fn": "pasos_hasta_uno",
+    "vars": {
+     "n": "4",
+     "pasos": "8"
+    },
+    "changed": [
+     "pasos"
+    ],
+    "text": {
+     "es": "Ejecuta la línea: `pasos` cambia de 7 a 8.",
+     "en": "Runs the line: `pasos` changes from 7 to 8."
+    }
+   },
+   {
+    "line": 3,
+    "depth": 1,
+    "fn": "pasos_hasta_uno",
+    "vars": {
+     "n": "4",
+     "pasos": "8"
+    },
+    "changed": [],
+    "text": {
+     "es": "Condición del while `n > 1`: **verdadera**, da otra vuelta.",
+     "en": "While condition `n > 1`: **true**, it runs another iteration."
+    }
+   },
+   {
+    "line": 4,
+    "depth": 1,
+    "fn": "pasos_hasta_uno",
+    "vars": {
+     "n": "2",
+     "pasos": "8"
+    },
+    "changed": [
+     "n"
+    ],
+    "text": {
+     "es": "Ejecuta la línea: `n` cambia de 4 a 2.",
+     "en": "Runs the line: `n` changes from 4 to 2."
+    }
+   },
+   {
+    "line": 5,
+    "depth": 1,
+    "fn": "pasos_hasta_uno",
+    "vars": {
+     "n": "2",
+     "pasos": "9"
+    },
+    "changed": [
+     "pasos"
+    ],
+    "text": {
+     "es": "Ejecuta la línea: `pasos` cambia de 8 a 9.",
+     "en": "Runs the line: `pasos` changes from 8 to 9."
+    }
+   },
+   {
+    "line": 3,
+    "depth": 1,
+    "fn": "pasos_hasta_uno",
+    "vars": {
+     "n": "2",
+     "pasos": "9"
+    },
+    "changed": [],
+    "text": {
+     "es": "Condición del while `n > 1`: **verdadera**, da otra vuelta.",
+     "en": "While condition `n > 1`: **true**, it runs another iteration."
+    }
+   },
+   {
+    "line": 4,
+    "depth": 1,
+    "fn": "pasos_hasta_uno",
+    "vars": {
+     "n": "1",
+     "pasos": "9"
+    },
+    "changed": [
+     "n"
+    ],
+    "text": {
+     "es": "Ejecuta la línea: `n` cambia de 2 a 1.",
+     "en": "Runs the line: `n` changes from 2 to 1."
+    }
+   },
+   {
+    "line": 5,
+    "depth": 1,
+    "fn": "pasos_hasta_uno",
+    "vars": {
+     "n": "1",
+     "pasos": "10"
+    },
+    "changed": [
+     "pasos"
+    ],
+    "text": {
+     "es": "Ejecuta la línea: `pasos` cambia de 9 a 10.",
+     "en": "Runs the line: `pasos` changes from 9 to 10."
+    }
+   },
+   {
+    "line": 3,
+    "depth": 1,
+    "fn": "pasos_hasta_uno",
+    "vars": {
+     "n": "1",
+     "pasos": "10"
+    },
+    "changed": [],
+    "text": {
+     "es": "Condición del while `n > 1`: **falsa**, sale del ciclo.",
+     "en": "While condition `n > 1`: **false**, it leaves the loop."
+    }
+   },
+   {
+    "line": 6,
+    "depth": 1,
+    "fn": "pasos_hasta_uno",
+    "vars": {
+     "n": "1",
+     "pasos": "10"
+    },
+    "changed": [],
+    "text": {
+     "es": "Devuelve el resultado.",
+     "en": "Returns the result."
+    }
+   },
+   {
+    "line": 6,
+    "depth": 1,
+    "fn": "pasos_hasta_uno",
+    "vars": {
+     "n": "1",
+     "pasos": "10"
+    },
+    "changed": [],
+    "text": {
+     "es": "`pasos_hasta_uno` termina y devuelve 10.",
+     "en": "`pasos_hasta_uno` finishes and returns 10."
+    }
+   }
+  ],
+  "truncated": false
+ },
+ "p-recursion": {
+  "code": "def cuenta(n):\n    if n == 0:\n        return 0\n    return 1 + cuenta(n - 1)\n\nprint(cuenta(5))",
+  "kind": "predict",
+  "steps": [
+   {
+    "line": 1,
+    "depth": 0,
+    "fn": null,
+    "vars": {},
+    "changed": [],
+    "text": {
+     "es": "Define la función `cuenta` (todavía no la ejecuta).",
+     "en": "Defines the function `cuenta` (it does not run it yet)."
+    }
+   },
+   {
+    "line": 6,
+    "depth": 0,
+    "fn": null,
+    "vars": {},
+    "changed": [],
+    "text": {
+     "es": "Imprime algo en pantalla (lo verás al comprobar tu respuesta).",
+     "en": "Prints something (you will see it when you check your answer)."
+    }
+   },
+   {
+    "line": 1,
+    "depth": 1,
+    "fn": "cuenta",
+    "vars": {
+     "n": "5"
+    },
+    "changed": [],
+    "text": {
+     "es": "Llama a `cuenta(n=5)`.",
+     "en": "Calls `cuenta(n=5)`."
+    }
+   },
+   {
+    "line": 2,
+    "depth": 1,
+    "fn": "cuenta",
+    "vars": {
+     "n": "5"
+    },
+    "changed": [],
+    "text": {
+     "es": "Comprueba `n == 0`: es **falso**, así que se salta el bloque.",
+     "en": "Checks `n == 0`: it is **false**, so it skips the block."
+    }
+   },
+   {
+    "line": 4,
+    "depth": 1,
+    "fn": "cuenta",
+    "vars": {
+     "n": "5"
+    },
+    "changed": [],
+    "text": {
+     "es": "Devuelve el resultado.",
+     "en": "Returns the result."
+    }
+   },
+   {
+    "line": 1,
+    "depth": 2,
+    "fn": "cuenta",
+    "vars": {
+     "n": "4"
+    },
+    "changed": [],
+    "text": {
+     "es": "Llama a `cuenta(n=4)`.",
+     "en": "Calls `cuenta(n=4)`."
+    }
+   },
+   {
+    "line": 2,
+    "depth": 2,
+    "fn": "cuenta",
+    "vars": {
+     "n": "4"
+    },
+    "changed": [],
+    "text": {
+     "es": "Comprueba `n == 0`: es **falso**, así que se salta el bloque.",
+     "en": "Checks `n == 0`: it is **false**, so it skips the block."
+    }
+   },
+   {
+    "line": 4,
+    "depth": 2,
+    "fn": "cuenta",
+    "vars": {
+     "n": "4"
+    },
+    "changed": [],
+    "text": {
+     "es": "Devuelve el resultado.",
+     "en": "Returns the result."
+    }
+   },
+   {
+    "line": 1,
+    "depth": 3,
+    "fn": "cuenta",
+    "vars": {
+     "n": "3"
+    },
+    "changed": [],
+    "text": {
+     "es": "Llama a `cuenta(n=3)`.",
+     "en": "Calls `cuenta(n=3)`."
+    }
+   },
+   {
+    "line": 2,
+    "depth": 3,
+    "fn": "cuenta",
+    "vars": {
+     "n": "3"
+    },
+    "changed": [],
+    "text": {
+     "es": "Comprueba `n == 0`: es **falso**, así que se salta el bloque.",
+     "en": "Checks `n == 0`: it is **false**, so it skips the block."
+    }
+   },
+   {
+    "line": 4,
+    "depth": 3,
+    "fn": "cuenta",
+    "vars": {
+     "n": "3"
+    },
+    "changed": [],
+    "text": {
+     "es": "Devuelve el resultado.",
+     "en": "Returns the result."
+    }
+   },
+   {
+    "line": 1,
+    "depth": 4,
+    "fn": "cuenta",
+    "vars": {
+     "n": "2"
+    },
+    "changed": [],
+    "text": {
+     "es": "Llama a `cuenta(n=2)`.",
+     "en": "Calls `cuenta(n=2)`."
+    }
+   },
+   {
+    "line": 2,
+    "depth": 4,
+    "fn": "cuenta",
+    "vars": {
+     "n": "2"
+    },
+    "changed": [],
+    "text": {
+     "es": "Comprueba `n == 0`: es **falso**, así que se salta el bloque.",
+     "en": "Checks `n == 0`: it is **false**, so it skips the block."
+    }
+   },
+   {
+    "line": 4,
+    "depth": 4,
+    "fn": "cuenta",
+    "vars": {
+     "n": "2"
+    },
+    "changed": [],
+    "text": {
+     "es": "Devuelve el resultado.",
+     "en": "Returns the result."
+    }
+   },
+   {
+    "line": 1,
+    "depth": 5,
+    "fn": "cuenta",
+    "vars": {
+     "n": "1"
+    },
+    "changed": [],
+    "text": {
+     "es": "Llama a `cuenta(n=1)`.",
+     "en": "Calls `cuenta(n=1)`."
+    }
+   },
+   {
+    "line": 2,
+    "depth": 5,
+    "fn": "cuenta",
+    "vars": {
+     "n": "1"
+    },
+    "changed": [],
+    "text": {
+     "es": "Comprueba `n == 0`: es **falso**, así que se salta el bloque.",
+     "en": "Checks `n == 0`: it is **false**, so it skips the block."
+    }
+   },
+   {
+    "line": 4,
+    "depth": 5,
+    "fn": "cuenta",
+    "vars": {
+     "n": "1"
+    },
+    "changed": [],
+    "text": {
+     "es": "Devuelve el resultado.",
+     "en": "Returns the result."
+    }
+   },
+   {
+    "line": 1,
+    "depth": 6,
+    "fn": "cuenta",
+    "vars": {
+     "n": "0"
+    },
+    "changed": [],
+    "text": {
+     "es": "Llama a `cuenta(n=0)`.",
+     "en": "Calls `cuenta(n=0)`."
+    }
+   },
+   {
+    "line": 2,
+    "depth": 6,
+    "fn": "cuenta",
+    "vars": {
+     "n": "0"
+    },
+    "changed": [],
+    "text": {
+     "es": "Comprueba `n == 0`: es **verdadero**, así que entra al bloque.",
+     "en": "Checks `n == 0`: it is **true**, so it enters the block."
+    }
+   },
+   {
+    "line": 3,
+    "depth": 6,
+    "fn": "cuenta",
+    "vars": {
+     "n": "0"
+    },
+    "changed": [],
+    "text": {
+     "es": "Devuelve el resultado.",
+     "en": "Returns the result."
+    }
+   },
+   {
+    "line": 3,
+    "depth": 6,
+    "fn": "cuenta",
+    "vars": {
+     "n": "0"
+    },
+    "changed": [],
+    "text": {
+     "es": "`cuenta` termina y devuelve 0.",
+     "en": "`cuenta` finishes and returns 0."
+    }
+   },
+   {
+    "line": 4,
+    "depth": 5,
+    "fn": "cuenta",
+    "vars": {
+     "n": "1"
+    },
+    "changed": [],
+    "text": {
+     "es": "`cuenta` termina y devuelve 1.",
+     "en": "`cuenta` finishes and returns 1."
+    }
+   },
+   {
+    "line": 4,
+    "depth": 4,
+    "fn": "cuenta",
+    "vars": {
+     "n": "2"
+    },
+    "changed": [],
+    "text": {
+     "es": "`cuenta` termina y devuelve 2.",
+     "en": "`cuenta` finishes and returns 2."
+    }
+   },
+   {
+    "line": 4,
+    "depth": 3,
+    "fn": "cuenta",
+    "vars": {
+     "n": "3"
+    },
+    "changed": [],
+    "text": {
+     "es": "`cuenta` termina y devuelve 3.",
+     "en": "`cuenta` finishes and returns 3."
+    }
+   },
+   {
+    "line": 4,
+    "depth": 2,
+    "fn": "cuenta",
+    "vars": {
+     "n": "4"
+    },
+    "changed": [],
+    "text": {
+     "es": "`cuenta` termina y devuelve 4.",
+     "en": "`cuenta` finishes and returns 4."
+    }
+   },
+   {
+    "line": 4,
+    "depth": 1,
+    "fn": "cuenta",
+    "vars": {
+     "n": "5"
+    },
+    "changed": [],
+    "text": {
+     "es": "`cuenta` termina y devuelve 5.",
+     "en": "`cuenta` finishes and returns 5."
+    }
+   }
+  ],
+  "truncated": false
+ },
+ "p-sorted-loop": {
+  "code": "datos = [5, 3, 8]\ntotal = 0\nfor x in datos:\n    total += len(sorted(datos))\nprint(total)",
+  "kind": "predict",
+  "steps": [
+   {
+    "line": 1,
+    "depth": 0,
+    "fn": null,
+    "vars": {
+     "datos": "[5, 3, 8]"
+    },
+    "changed": [
+     "datos"
+    ],
+    "text": {
+     "es": "Ejecuta la línea: crea `datos` = [5, 3, 8].",
+     "en": "Runs the line: creates `datos` = [5, 3, 8]."
+    }
+   },
+   {
+    "line": 2,
+    "depth": 0,
+    "fn": null,
+    "vars": {
+     "datos": "[5, 3, 8]",
+     "total": "0"
+    },
+    "changed": [
+     "total"
+    ],
+    "text": {
+     "es": "Ejecuta la línea: crea `total` = 0.",
+     "en": "Runs the line: creates `total` = 0."
+    }
+   },
+   {
+    "line": 3,
+    "depth": 0,
+    "fn": null,
+    "vars": {
+     "datos": "[5, 3, 8]",
+     "total": "0",
+     "x": "5"
+    },
+    "changed": [
+     "x"
+    ],
+    "text": {
+     "es": "Siguiente vuelta del ciclo: `x` = 5.",
+     "en": "Next loop iteration: `x` = 5."
+    }
+   },
+   {
+    "line": 4,
+    "depth": 0,
+    "fn": null,
+    "vars": {
+     "datos": "[5, 3, 8]",
+     "total": "3",
+     "x": "5"
+    },
+    "changed": [
+     "total"
+    ],
+    "text": {
+     "es": "Ejecuta la línea: `total` cambia de 0 a 3.",
+     "en": "Runs the line: `total` changes from 0 to 3."
+    }
+   },
+   {
+    "line": 3,
+    "depth": 0,
+    "fn": null,
+    "vars": {
+     "datos": "[5, 3, 8]",
+     "total": "3",
+     "x": "3"
+    },
+    "changed": [
+     "x"
+    ],
+    "text": {
+     "es": "Siguiente vuelta del ciclo: `x` = 3.",
+     "en": "Next loop iteration: `x` = 3."
+    }
+   },
+   {
+    "line": 4,
+    "depth": 0,
+    "fn": null,
+    "vars": {
+     "datos": "[5, 3, 8]",
+     "total": "6",
+     "x": "3"
+    },
+    "changed": [
+     "total"
+    ],
+    "text": {
+     "es": "Ejecuta la línea: `total` cambia de 3 a 6.",
+     "en": "Runs the line: `total` changes from 3 to 6."
+    }
+   },
+   {
+    "line": 3,
+    "depth": 0,
+    "fn": null,
+    "vars": {
+     "datos": "[5, 3, 8]",
+     "total": "6",
+     "x": "8"
+    },
+    "changed": [
+     "x"
+    ],
+    "text": {
+     "es": "Siguiente vuelta del ciclo: `x` = 8.",
+     "en": "Next loop iteration: `x` = 8."
+    }
+   },
+   {
+    "line": 4,
+    "depth": 0,
+    "fn": null,
+    "vars": {
+     "datos": "[5, 3, 8]",
+     "total": "9",
+     "x": "8"
+    },
+    "changed": [
+     "total"
+    ],
+    "text": {
+     "es": "Ejecuta la línea: `total` cambia de 6 a 9.",
+     "en": "Runs the line: `total` changes from 6 to 9."
+    }
+   },
+   {
+    "line": 3,
+    "depth": 0,
+    "fn": null,
+    "vars": {
+     "datos": "[5, 3, 8]",
+     "total": "9",
+     "x": "8"
+    },
+    "changed": [],
+    "text": {
+     "es": "Ya no quedan valores: termina el ciclo `for x`.",
+     "en": "No values left: the `for x` loop ends."
+    }
+   },
+   {
+    "line": 5,
+    "depth": 0,
+    "fn": null,
+    "vars": {
+     "datos": "[5, 3, 8]",
+     "total": "9",
+     "x": "8"
+    },
+    "changed": [],
+    "text": {
+     "es": "Imprime algo en pantalla (lo verás al comprobar tu respuesta).",
+     "en": "Prints something (you will see it when you check your answer)."
+    }
+   }
+  ],
+  "truncated": false
+ },
+ "p-worst-case": {
+  "code": "def primer_par(nums):\n    for x in nums:\n        if x % 2 == 0:\n            return x\n    return None\n\nprint(primer_par([1, 3, 5, 6, 7]))",
+  "kind": "predict",
+  "steps": [
+   {
+    "line": 1,
+    "depth": 0,
+    "fn": null,
+    "vars": {},
+    "changed": [],
+    "text": {
+     "es": "Define la función `primer_par` (todavía no la ejecuta).",
+     "en": "Defines the function `primer_par` (it does not run it yet)."
+    }
+   },
+   {
+    "line": 7,
+    "depth": 0,
+    "fn": null,
+    "vars": {},
+    "changed": [],
+    "text": {
+     "es": "Imprime algo en pantalla (lo verás al comprobar tu respuesta).",
+     "en": "Prints something (you will see it when you check your answer)."
+    }
+   },
+   {
+    "line": 1,
+    "depth": 1,
+    "fn": "primer_par",
+    "vars": {
+     "nums": "[1, 3, 5, 6, 7]"
+    },
+    "changed": [],
+    "text": {
+     "es": "Llama a `primer_par(nums=[1, 3, 5, 6, 7])`.",
+     "en": "Calls `primer_par(nums=[1, 3, 5, 6, 7])`."
+    }
+   },
+   {
+    "line": 2,
+    "depth": 1,
+    "fn": "primer_par",
+    "vars": {
+     "nums": "[1, 3, 5, 6, 7]",
+     "x": "1"
+    },
+    "changed": [
+     "x"
+    ],
+    "text": {
+     "es": "Siguiente vuelta del ciclo: `x` = 1.",
+     "en": "Next loop iteration: `x` = 1."
+    }
+   },
+   {
+    "line": 3,
+    "depth": 1,
+    "fn": "primer_par",
+    "vars": {
+     "nums": "[1, 3, 5, 6, 7]",
+     "x": "1"
+    },
+    "changed": [],
+    "text": {
+     "es": "Comprueba `x % 2 == 0`: es **falso**, así que se salta el bloque.",
+     "en": "Checks `x % 2 == 0`: it is **false**, so it skips the block."
+    }
+   },
+   {
+    "line": 2,
+    "depth": 1,
+    "fn": "primer_par",
+    "vars": {
+     "nums": "[1, 3, 5, 6, 7]",
+     "x": "3"
+    },
+    "changed": [
+     "x"
+    ],
+    "text": {
+     "es": "Siguiente vuelta del ciclo: `x` = 3.",
+     "en": "Next loop iteration: `x` = 3."
+    }
+   },
+   {
+    "line": 3,
+    "depth": 1,
+    "fn": "primer_par",
+    "vars": {
+     "nums": "[1, 3, 5, 6, 7]",
+     "x": "3"
+    },
+    "changed": [],
+    "text": {
+     "es": "Comprueba `x % 2 == 0`: es **falso**, así que se salta el bloque.",
+     "en": "Checks `x % 2 == 0`: it is **false**, so it skips the block."
+    }
+   },
+   {
+    "line": 2,
+    "depth": 1,
+    "fn": "primer_par",
+    "vars": {
+     "nums": "[1, 3, 5, 6, 7]",
+     "x": "5"
+    },
+    "changed": [
+     "x"
+    ],
+    "text": {
+     "es": "Siguiente vuelta del ciclo: `x` = 5.",
+     "en": "Next loop iteration: `x` = 5."
+    }
+   },
+   {
+    "line": 3,
+    "depth": 1,
+    "fn": "primer_par",
+    "vars": {
+     "nums": "[1, 3, 5, 6, 7]",
+     "x": "5"
+    },
+    "changed": [],
+    "text": {
+     "es": "Comprueba `x % 2 == 0`: es **falso**, así que se salta el bloque.",
+     "en": "Checks `x % 2 == 0`: it is **false**, so it skips the block."
+    }
+   },
+   {
+    "line": 2,
+    "depth": 1,
+    "fn": "primer_par",
+    "vars": {
+     "nums": "[1, 3, 5, 6, 7]",
+     "x": "6"
+    },
+    "changed": [
+     "x"
+    ],
+    "text": {
+     "es": "Siguiente vuelta del ciclo: `x` = 6.",
+     "en": "Next loop iteration: `x` = 6."
+    }
+   },
+   {
+    "line": 3,
+    "depth": 1,
+    "fn": "primer_par",
+    "vars": {
+     "nums": "[1, 3, 5, 6, 7]",
+     "x": "6"
+    },
+    "changed": [],
+    "text": {
+     "es": "Comprueba `x % 2 == 0`: es **verdadero**, así que entra al bloque.",
+     "en": "Checks `x % 2 == 0`: it is **true**, so it enters the block."
+    }
+   },
+   {
+    "line": 4,
+    "depth": 1,
+    "fn": "primer_par",
+    "vars": {
+     "nums": "[1, 3, 5, 6, 7]",
+     "x": "6"
+    },
+    "changed": [],
+    "text": {
+     "es": "Devuelve el resultado.",
+     "en": "Returns the result."
+    }
+   },
+   {
+    "line": 4,
+    "depth": 1,
+    "fn": "primer_par",
+    "vars": {
+     "nums": "[1, 3, 5, 6, 7]",
+     "x": "6"
+    },
+    "changed": [],
+    "text": {
+     "es": "`primer_par` termina y devuelve 6.",
+     "en": "`primer_par` finishes and returns 6."
+    }
+   }
+  ],
+  "truncated": false
+ },
+ "w3": {
+  "code": "n = 64\npasos = 0\nwhile n > 1:\n    n //= 4\n    pasos += 1\nprint(pasos)",
+  "kind": "predict",
+  "steps": [
+   {
+    "line": 1,
+    "depth": 0,
+    "fn": null,
+    "vars": {
+     "n": "64"
+    },
+    "changed": [
+     "n"
+    ],
+    "text": {
+     "es": "Ejecuta la línea: crea `n` = 64.",
+     "en": "Runs the line: creates `n` = 64."
+    }
+   },
+   {
+    "line": 2,
+    "depth": 0,
+    "fn": null,
+    "vars": {
+     "n": "64",
+     "pasos": "0"
+    },
+    "changed": [
+     "pasos"
+    ],
+    "text": {
+     "es": "Ejecuta la línea: crea `pasos` = 0.",
+     "en": "Runs the line: creates `pasos` = 0."
+    }
+   },
+   {
+    "line": 3,
+    "depth": 0,
+    "fn": null,
+    "vars": {
+     "n": "64",
+     "pasos": "0"
+    },
+    "changed": [],
+    "text": {
+     "es": "Condición del while `n > 1`: **verdadera**, da otra vuelta.",
+     "en": "While condition `n > 1`: **true**, it runs another iteration."
+    }
+   },
+   {
+    "line": 4,
+    "depth": 0,
+    "fn": null,
+    "vars": {
+     "n": "16",
+     "pasos": "0"
+    },
+    "changed": [
+     "n"
+    ],
+    "text": {
+     "es": "Ejecuta la línea: `n` cambia de 64 a 16.",
+     "en": "Runs the line: `n` changes from 64 to 16."
+    }
+   },
+   {
+    "line": 5,
+    "depth": 0,
+    "fn": null,
+    "vars": {
+     "n": "16",
+     "pasos": "1"
+    },
+    "changed": [
+     "pasos"
+    ],
+    "text": {
+     "es": "Ejecuta la línea: `pasos` cambia de 0 a 1.",
+     "en": "Runs the line: `pasos` changes from 0 to 1."
+    }
+   },
+   {
+    "line": 3,
+    "depth": 0,
+    "fn": null,
+    "vars": {
+     "n": "16",
+     "pasos": "1"
+    },
+    "changed": [],
+    "text": {
+     "es": "Condición del while `n > 1`: **verdadera**, da otra vuelta.",
+     "en": "While condition `n > 1`: **true**, it runs another iteration."
+    }
+   },
+   {
+    "line": 4,
+    "depth": 0,
+    "fn": null,
+    "vars": {
+     "n": "4",
+     "pasos": "1"
+    },
+    "changed": [
+     "n"
+    ],
+    "text": {
+     "es": "Ejecuta la línea: `n` cambia de 16 a 4.",
+     "en": "Runs the line: `n` changes from 16 to 4."
+    }
+   },
+   {
+    "line": 5,
+    "depth": 0,
+    "fn": null,
+    "vars": {
+     "n": "4",
+     "pasos": "2"
+    },
+    "changed": [
+     "pasos"
+    ],
+    "text": {
+     "es": "Ejecuta la línea: `pasos` cambia de 1 a 2.",
+     "en": "Runs the line: `pasos` changes from 1 to 2."
+    }
+   },
+   {
+    "line": 3,
+    "depth": 0,
+    "fn": null,
+    "vars": {
+     "n": "4",
+     "pasos": "2"
+    },
+    "changed": [],
+    "text": {
+     "es": "Condición del while `n > 1`: **verdadera**, da otra vuelta.",
+     "en": "While condition `n > 1`: **true**, it runs another iteration."
+    }
+   },
+   {
+    "line": 4,
+    "depth": 0,
+    "fn": null,
+    "vars": {
+     "n": "1",
+     "pasos": "2"
+    },
+    "changed": [
+     "n"
+    ],
+    "text": {
+     "es": "Ejecuta la línea: `n` cambia de 4 a 1.",
+     "en": "Runs the line: `n` changes from 4 to 1."
+    }
+   },
+   {
+    "line": 5,
+    "depth": 0,
+    "fn": null,
+    "vars": {
+     "n": "1",
+     "pasos": "3"
+    },
+    "changed": [
+     "pasos"
+    ],
+    "text": {
+     "es": "Ejecuta la línea: `pasos` cambia de 2 a 3.",
+     "en": "Runs the line: `pasos` changes from 2 to 3."
+    }
+   },
+   {
+    "line": 3,
+    "depth": 0,
+    "fn": null,
+    "vars": {
+     "n": "1",
+     "pasos": "3"
+    },
+    "changed": [],
+    "text": {
+     "es": "Condición del while `n > 1`: **falsa**, sale del ciclo.",
+     "en": "While condition `n > 1`: **false**, it leaves the loop."
+    }
+   },
+   {
+    "line": 6,
+    "depth": 0,
+    "fn": null,
+    "vars": {
+     "n": "1",
+     "pasos": "3"
+    },
+    "changed": [],
+    "text": {
+     "es": "Imprime algo en pantalla (lo verás al comprobar tu respuesta).",
+     "en": "Prints something (you will see it when you check your answer)."
+    }
+   }
+  ],
+  "truncated": false
+ },
+ "w4": {
+  "code": "n = 4\npasos = 0\nfor i in range(n):\n    for j in range(i, n):\n        pasos += 1\nprint(pasos)",
+  "kind": "predict",
+  "steps": [
+   {
+    "line": 1,
+    "depth": 0,
+    "fn": null,
+    "vars": {
+     "n": "4"
+    },
+    "changed": [
+     "n"
+    ],
+    "text": {
+     "es": "Ejecuta la línea: crea `n` = 4.",
+     "en": "Runs the line: creates `n` = 4."
+    }
+   },
+   {
+    "line": 2,
+    "depth": 0,
+    "fn": null,
+    "vars": {
+     "n": "4",
+     "pasos": "0"
+    },
+    "changed": [
+     "pasos"
+    ],
+    "text": {
+     "es": "Ejecuta la línea: crea `pasos` = 0.",
+     "en": "Runs the line: creates `pasos` = 0."
+    }
+   },
+   {
+    "line": 3,
+    "depth": 0,
+    "fn": null,
+    "vars": {
+     "n": "4",
+     "pasos": "0",
+     "i": "0"
+    },
+    "changed": [
+     "i"
+    ],
+    "text": {
+     "es": "Siguiente vuelta del ciclo: `i` = 0.",
+     "en": "Next loop iteration: `i` = 0."
+    }
+   },
+   {
+    "line": 4,
+    "depth": 0,
+    "fn": null,
+    "vars": {
+     "n": "4",
+     "pasos": "0",
+     "i": "0",
+     "j": "0"
+    },
+    "changed": [
+     "j"
+    ],
+    "text": {
+     "es": "Siguiente vuelta del ciclo: `j` = 0.",
+     "en": "Next loop iteration: `j` = 0."
+    }
+   },
+   {
+    "line": 5,
+    "depth": 0,
+    "fn": null,
+    "vars": {
+     "n": "4",
+     "pasos": "1",
+     "i": "0",
+     "j": "0"
+    },
+    "changed": [
+     "pasos"
+    ],
+    "text": {
+     "es": "Ejecuta la línea: `pasos` cambia de 0 a 1.",
+     "en": "Runs the line: `pasos` changes from 0 to 1."
+    }
+   },
+   {
+    "line": 4,
+    "depth": 0,
+    "fn": null,
+    "vars": {
+     "n": "4",
+     "pasos": "1",
+     "i": "0",
+     "j": "1"
+    },
+    "changed": [
+     "j"
+    ],
+    "text": {
+     "es": "Siguiente vuelta del ciclo: `j` = 1.",
+     "en": "Next loop iteration: `j` = 1."
+    }
+   },
+   {
+    "line": 5,
+    "depth": 0,
+    "fn": null,
+    "vars": {
+     "n": "4",
+     "pasos": "2",
+     "i": "0",
+     "j": "1"
+    },
+    "changed": [
+     "pasos"
+    ],
+    "text": {
+     "es": "Ejecuta la línea: `pasos` cambia de 1 a 2.",
+     "en": "Runs the line: `pasos` changes from 1 to 2."
+    }
+   },
+   {
+    "line": 4,
+    "depth": 0,
+    "fn": null,
+    "vars": {
+     "n": "4",
+     "pasos": "2",
+     "i": "0",
+     "j": "2"
+    },
+    "changed": [
+     "j"
+    ],
+    "text": {
+     "es": "Siguiente vuelta del ciclo: `j` = 2.",
+     "en": "Next loop iteration: `j` = 2."
+    }
+   },
+   {
+    "line": 5,
+    "depth": 0,
+    "fn": null,
+    "vars": {
+     "n": "4",
+     "pasos": "3",
+     "i": "0",
+     "j": "2"
+    },
+    "changed": [
+     "pasos"
+    ],
+    "text": {
+     "es": "Ejecuta la línea: `pasos` cambia de 2 a 3.",
+     "en": "Runs the line: `pasos` changes from 2 to 3."
+    }
+   },
+   {
+    "line": 4,
+    "depth": 0,
+    "fn": null,
+    "vars": {
+     "n": "4",
+     "pasos": "3",
+     "i": "0",
+     "j": "3"
+    },
+    "changed": [
+     "j"
+    ],
+    "text": {
+     "es": "Siguiente vuelta del ciclo: `j` = 3.",
+     "en": "Next loop iteration: `j` = 3."
+    }
+   },
+   {
+    "line": 5,
+    "depth": 0,
+    "fn": null,
+    "vars": {
+     "n": "4",
+     "pasos": "4",
+     "i": "0",
+     "j": "3"
+    },
+    "changed": [
+     "pasos"
+    ],
+    "text": {
+     "es": "Ejecuta la línea: `pasos` cambia de 3 a 4.",
+     "en": "Runs the line: `pasos` changes from 3 to 4."
+    }
+   },
+   {
+    "line": 4,
+    "depth": 0,
+    "fn": null,
+    "vars": {
+     "n": "4",
+     "pasos": "4",
+     "i": "0",
+     "j": "3"
+    },
+    "changed": [],
+    "text": {
+     "es": "Ya no quedan valores: termina el ciclo `for j`.",
+     "en": "No values left: the `for j` loop ends."
+    }
+   },
+   {
+    "line": 3,
+    "depth": 0,
+    "fn": null,
+    "vars": {
+     "n": "4",
+     "pasos": "4",
+     "i": "1",
+     "j": "3"
+    },
+    "changed": [
+     "i"
+    ],
+    "text": {
+     "es": "Siguiente vuelta del ciclo: `i` = 1.",
+     "en": "Next loop iteration: `i` = 1."
+    }
+   },
+   {
+    "line": 4,
+    "depth": 0,
+    "fn": null,
+    "vars": {
+     "n": "4",
+     "pasos": "4",
+     "i": "1",
+     "j": "1"
+    },
+    "changed": [
+     "j"
+    ],
+    "text": {
+     "es": "Siguiente vuelta del ciclo: `j` = 1.",
+     "en": "Next loop iteration: `j` = 1."
+    }
+   },
+   {
+    "line": 5,
+    "depth": 0,
+    "fn": null,
+    "vars": {
+     "n": "4",
+     "pasos": "5",
+     "i": "1",
+     "j": "1"
+    },
+    "changed": [
+     "pasos"
+    ],
+    "text": {
+     "es": "Ejecuta la línea: `pasos` cambia de 4 a 5.",
+     "en": "Runs the line: `pasos` changes from 4 to 5."
+    }
+   },
+   {
+    "line": 4,
+    "depth": 0,
+    "fn": null,
+    "vars": {
+     "n": "4",
+     "pasos": "5",
+     "i": "1",
+     "j": "2"
+    },
+    "changed": [
+     "j"
+    ],
+    "text": {
+     "es": "Siguiente vuelta del ciclo: `j` = 2.",
+     "en": "Next loop iteration: `j` = 2."
+    }
+   },
+   {
+    "line": 5,
+    "depth": 0,
+    "fn": null,
+    "vars": {
+     "n": "4",
+     "pasos": "6",
+     "i": "1",
+     "j": "2"
+    },
+    "changed": [
+     "pasos"
+    ],
+    "text": {
+     "es": "Ejecuta la línea: `pasos` cambia de 5 a 6.",
+     "en": "Runs the line: `pasos` changes from 5 to 6."
+    }
+   },
+   {
+    "line": 4,
+    "depth": 0,
+    "fn": null,
+    "vars": {
+     "n": "4",
+     "pasos": "6",
+     "i": "1",
+     "j": "3"
+    },
+    "changed": [
+     "j"
+    ],
+    "text": {
+     "es": "Siguiente vuelta del ciclo: `j` = 3.",
+     "en": "Next loop iteration: `j` = 3."
+    }
+   },
+   {
+    "line": 5,
+    "depth": 0,
+    "fn": null,
+    "vars": {
+     "n": "4",
+     "pasos": "7",
+     "i": "1",
+     "j": "3"
+    },
+    "changed": [
+     "pasos"
+    ],
+    "text": {
+     "es": "Ejecuta la línea: `pasos` cambia de 6 a 7.",
+     "en": "Runs the line: `pasos` changes from 6 to 7."
+    }
+   },
+   {
+    "line": 4,
+    "depth": 0,
+    "fn": null,
+    "vars": {
+     "n": "4",
+     "pasos": "7",
+     "i": "1",
+     "j": "3"
+    },
+    "changed": [],
+    "text": {
+     "es": "Ya no quedan valores: termina el ciclo `for j`.",
+     "en": "No values left: the `for j` loop ends."
+    }
+   },
+   {
+    "line": 3,
+    "depth": 0,
+    "fn": null,
+    "vars": {
+     "n": "4",
+     "pasos": "7",
+     "i": "2",
+     "j": "3"
+    },
+    "changed": [
+     "i"
+    ],
+    "text": {
+     "es": "Siguiente vuelta del ciclo: `i` = 2.",
+     "en": "Next loop iteration: `i` = 2."
+    }
+   },
+   {
+    "line": 4,
+    "depth": 0,
+    "fn": null,
+    "vars": {
+     "n": "4",
+     "pasos": "7",
+     "i": "2",
+     "j": "2"
+    },
+    "changed": [
+     "j"
+    ],
+    "text": {
+     "es": "Siguiente vuelta del ciclo: `j` = 2.",
+     "en": "Next loop iteration: `j` = 2."
+    }
+   },
+   {
+    "line": 5,
+    "depth": 0,
+    "fn": null,
+    "vars": {
+     "n": "4",
+     "pasos": "8",
+     "i": "2",
+     "j": "2"
+    },
+    "changed": [
+     "pasos"
+    ],
+    "text": {
+     "es": "Ejecuta la línea: `pasos` cambia de 7 a 8.",
+     "en": "Runs the line: `pasos` changes from 7 to 8."
+    }
+   },
+   {
+    "line": 4,
+    "depth": 0,
+    "fn": null,
+    "vars": {
+     "n": "4",
+     "pasos": "8",
+     "i": "2",
+     "j": "3"
+    },
+    "changed": [
+     "j"
+    ],
+    "text": {
+     "es": "Siguiente vuelta del ciclo: `j` = 3.",
+     "en": "Next loop iteration: `j` = 3."
+    }
+   },
+   {
+    "line": 5,
+    "depth": 0,
+    "fn": null,
+    "vars": {
+     "n": "4",
+     "pasos": "9",
+     "i": "2",
+     "j": "3"
+    },
+    "changed": [
+     "pasos"
+    ],
+    "text": {
+     "es": "Ejecuta la línea: `pasos` cambia de 8 a 9.",
+     "en": "Runs the line: `pasos` changes from 8 to 9."
+    }
+   },
+   {
+    "line": 4,
+    "depth": 0,
+    "fn": null,
+    "vars": {
+     "n": "4",
+     "pasos": "9",
+     "i": "2",
+     "j": "3"
+    },
+    "changed": [],
+    "text": {
+     "es": "Ya no quedan valores: termina el ciclo `for j`.",
+     "en": "No values left: the `for j` loop ends."
+    }
+   },
+   {
+    "line": 3,
+    "depth": 0,
+    "fn": null,
+    "vars": {
+     "n": "4",
+     "pasos": "9",
+     "i": "3",
+     "j": "3"
+    },
+    "changed": [
+     "i"
+    ],
+    "text": {
+     "es": "Siguiente vuelta del ciclo: `i` = 3.",
+     "en": "Next loop iteration: `i` = 3."
+    }
+   },
+   {
+    "line": 4,
+    "depth": 0,
+    "fn": null,
+    "vars": {
+     "n": "4",
+     "pasos": "9",
+     "i": "3",
+     "j": "3"
+    },
+    "changed": [],
+    "text": {
+     "es": "Ya no quedan valores: termina el ciclo `for j`.",
+     "en": "No values left: the `for j` loop ends."
+    }
+   },
+   {
+    "line": 5,
+    "depth": 0,
+    "fn": null,
+    "vars": {
+     "n": "4",
+     "pasos": "10",
+     "i": "3",
+     "j": "3"
+    },
+    "changed": [
+     "pasos"
+    ],
+    "text": {
+     "es": "Ejecuta la línea: `pasos` cambia de 9 a 10.",
+     "en": "Runs the line: `pasos` changes from 9 to 10."
+    }
+   },
+   {
+    "line": 4,
+    "depth": 0,
+    "fn": null,
+    "vars": {
+     "n": "4",
+     "pasos": "10",
+     "i": "3",
+     "j": "3"
+    },
+    "changed": [],
+    "text": {
+     "es": "Ya no quedan valores: termina el ciclo `for j`.",
+     "en": "No values left: the `for j` loop ends."
+    }
+   },
+   {
+    "line": 3,
+    "depth": 0,
+    "fn": null,
+    "vars": {
+     "n": "4",
+     "pasos": "10",
+     "i": "3",
+     "j": "3"
+    },
+    "changed": [],
+    "text": {
+     "es": "Ya no quedan valores: termina el ciclo `for i`.",
+     "en": "No values left: the `for i` loop ends."
+    }
+   },
+   {
+    "line": 6,
+    "depth": 0,
+    "fn": null,
+    "vars": {
+     "n": "4",
+     "pasos": "10",
+     "i": "3",
+     "j": "3"
+    },
+    "changed": [],
+    "text": {
+     "es": "Imprime algo en pantalla (lo verás al comprobar tu respuesta).",
+     "en": "Prints something (you will see it when you check your answer)."
+    }
+   }
+  ],
+  "truncated": false
+ },
+ "w5": {
+  "code": "llamadas = 0\n\ndef fib(n):\n    global llamadas\n    llamadas += 1\n    if n < 2:\n        return n\n    return fib(n - 1) + fib(n - 2)\n\nfib(5)\nprint(llamadas)",
+  "kind": "predict",
+  "steps": [
+   {
+    "line": 1,
+    "depth": 0,
+    "fn": null,
+    "vars": {
+     "llamadas": "0"
+    },
+    "changed": [
+     "llamadas"
+    ],
+    "text": {
+     "es": "Ejecuta la línea: crea `llamadas` = 0.",
+     "en": "Runs the line: creates `llamadas` = 0."
+    }
+   },
+   {
+    "line": 3,
+    "depth": 0,
+    "fn": null,
+    "vars": {
+     "llamadas": "0"
+    },
+    "changed": [],
+    "text": {
+     "es": "Define la función `fib` (todavía no la ejecuta).",
+     "en": "Defines the function `fib` (it does not run it yet)."
+    }
+   },
+   {
+    "line": 10,
+    "depth": 0,
+    "fn": null,
+    "vars": {
+     "llamadas": "0"
+    },
+    "changed": [],
+    "text": {
+     "es": "Ejecuta `fib(5)`.",
+     "en": "Runs `fib(5)`."
+    }
+   },
+   {
+    "line": 3,
+    "depth": 1,
+    "fn": "fib",
+    "vars": {
+     "llamadas": "0",
+     "n": "5"
+    },
+    "changed": [],
+    "text": {
+     "es": "Llama a `fib(n=5)`.",
+     "en": "Calls `fib(n=5)`."
+    }
+   },
+   {
+    "line": 5,
+    "depth": 1,
+    "fn": "fib",
+    "vars": {
+     "llamadas": "1",
+     "n": "5"
+    },
+    "changed": [
+     "llamadas"
+    ],
+    "text": {
+     "es": "Ejecuta la línea: `llamadas` cambia de 0 a 1.",
+     "en": "Runs the line: `llamadas` changes from 0 to 1."
+    }
+   },
+   {
+    "line": 6,
+    "depth": 1,
+    "fn": "fib",
+    "vars": {
+     "llamadas": "1",
+     "n": "5"
+    },
+    "changed": [],
+    "text": {
+     "es": "Comprueba `n < 2`: es **falso**, así que se salta el bloque.",
+     "en": "Checks `n < 2`: it is **false**, so it skips the block."
+    }
+   },
+   {
+    "line": 8,
+    "depth": 1,
+    "fn": "fib",
+    "vars": {
+     "llamadas": "1",
+     "n": "5"
+    },
+    "changed": [],
+    "text": {
+     "es": "Devuelve el resultado.",
+     "en": "Returns the result."
+    }
+   },
+   {
+    "line": 3,
+    "depth": 2,
+    "fn": "fib",
+    "vars": {
+     "llamadas": "1",
+     "n": "4"
+    },
+    "changed": [],
+    "text": {
+     "es": "Llama a `fib(n=4)`.",
+     "en": "Calls `fib(n=4)`."
+    }
+   },
+   {
+    "line": 5,
+    "depth": 2,
+    "fn": "fib",
+    "vars": {
+     "llamadas": "2",
+     "n": "4"
+    },
+    "changed": [
+     "llamadas"
+    ],
+    "text": {
+     "es": "Ejecuta la línea: `llamadas` cambia de 1 a 2.",
+     "en": "Runs the line: `llamadas` changes from 1 to 2."
+    }
+   },
+   {
+    "line": 6,
+    "depth": 2,
+    "fn": "fib",
+    "vars": {
+     "llamadas": "2",
+     "n": "4"
+    },
+    "changed": [],
+    "text": {
+     "es": "Comprueba `n < 2`: es **falso**, así que se salta el bloque.",
+     "en": "Checks `n < 2`: it is **false**, so it skips the block."
+    }
+   },
+   {
+    "line": 8,
+    "depth": 2,
+    "fn": "fib",
+    "vars": {
+     "llamadas": "2",
+     "n": "4"
+    },
+    "changed": [],
+    "text": {
+     "es": "Devuelve el resultado.",
+     "en": "Returns the result."
+    }
+   },
+   {
+    "line": 3,
+    "depth": 3,
+    "fn": "fib",
+    "vars": {
+     "llamadas": "2",
+     "n": "3"
+    },
+    "changed": [],
+    "text": {
+     "es": "Llama a `fib(n=3)`.",
+     "en": "Calls `fib(n=3)`."
+    }
+   },
+   {
+    "line": 5,
+    "depth": 3,
+    "fn": "fib",
+    "vars": {
+     "llamadas": "3",
+     "n": "3"
+    },
+    "changed": [
+     "llamadas"
+    ],
+    "text": {
+     "es": "Ejecuta la línea: `llamadas` cambia de 2 a 3.",
+     "en": "Runs the line: `llamadas` changes from 2 to 3."
+    }
+   },
+   {
+    "line": 6,
+    "depth": 3,
+    "fn": "fib",
+    "vars": {
+     "llamadas": "3",
+     "n": "3"
+    },
+    "changed": [],
+    "text": {
+     "es": "Comprueba `n < 2`: es **falso**, así que se salta el bloque.",
+     "en": "Checks `n < 2`: it is **false**, so it skips the block."
+    }
+   },
+   {
+    "line": 8,
+    "depth": 3,
+    "fn": "fib",
+    "vars": {
+     "llamadas": "3",
+     "n": "3"
+    },
+    "changed": [],
+    "text": {
+     "es": "Devuelve el resultado.",
+     "en": "Returns the result."
+    }
+   },
+   {
+    "line": 3,
+    "depth": 4,
+    "fn": "fib",
+    "vars": {
+     "llamadas": "3",
+     "n": "2"
+    },
+    "changed": [],
+    "text": {
+     "es": "Llama a `fib(n=2)`.",
+     "en": "Calls `fib(n=2)`."
+    }
+   },
+   {
+    "line": 5,
+    "depth": 4,
+    "fn": "fib",
+    "vars": {
+     "llamadas": "4",
+     "n": "2"
+    },
+    "changed": [
+     "llamadas"
+    ],
+    "text": {
+     "es": "Ejecuta la línea: `llamadas` cambia de 3 a 4.",
+     "en": "Runs the line: `llamadas` changes from 3 to 4."
+    }
+   },
+   {
+    "line": 6,
+    "depth": 4,
+    "fn": "fib",
+    "vars": {
+     "llamadas": "4",
+     "n": "2"
+    },
+    "changed": [],
+    "text": {
+     "es": "Comprueba `n < 2`: es **falso**, así que se salta el bloque.",
+     "en": "Checks `n < 2`: it is **false**, so it skips the block."
+    }
+   },
+   {
+    "line": 8,
+    "depth": 4,
+    "fn": "fib",
+    "vars": {
+     "llamadas": "4",
+     "n": "2"
+    },
+    "changed": [],
+    "text": {
+     "es": "Devuelve el resultado.",
+     "en": "Returns the result."
+    }
+   },
+   {
+    "line": 3,
+    "depth": 5,
+    "fn": "fib",
+    "vars": {
+     "llamadas": "4",
+     "n": "1"
+    },
+    "changed": [],
+    "text": {
+     "es": "Llama a `fib(n=1)`.",
+     "en": "Calls `fib(n=1)`."
+    }
+   },
+   {
+    "line": 5,
+    "depth": 5,
+    "fn": "fib",
+    "vars": {
+     "llamadas": "5",
+     "n": "1"
+    },
+    "changed": [
+     "llamadas"
+    ],
+    "text": {
+     "es": "Ejecuta la línea: `llamadas` cambia de 4 a 5.",
+     "en": "Runs the line: `llamadas` changes from 4 to 5."
+    }
+   },
+   {
+    "line": 6,
+    "depth": 5,
+    "fn": "fib",
+    "vars": {
+     "llamadas": "5",
+     "n": "1"
+    },
+    "changed": [],
+    "text": {
+     "es": "Comprueba `n < 2`: es **verdadero**, así que entra al bloque.",
+     "en": "Checks `n < 2`: it is **true**, so it enters the block."
+    }
+   },
+   {
+    "line": 7,
+    "depth": 5,
+    "fn": "fib",
+    "vars": {
+     "llamadas": "5",
+     "n": "1"
+    },
+    "changed": [],
+    "text": {
+     "es": "Devuelve el resultado.",
+     "en": "Returns the result."
+    }
+   },
+   {
+    "line": 7,
+    "depth": 5,
+    "fn": "fib",
+    "vars": {
+     "llamadas": "5",
+     "n": "1"
+    },
+    "changed": [],
+    "text": {
+     "es": "`fib` termina y devuelve 1.",
+     "en": "`fib` finishes and returns 1."
+    }
+   },
+   {
+    "line": 3,
+    "depth": 5,
+    "fn": "fib",
+    "vars": {
+     "llamadas": "5",
+     "n": "0"
+    },
+    "changed": [],
+    "text": {
+     "es": "Llama a `fib(n=0)`.",
+     "en": "Calls `fib(n=0)`."
+    }
+   },
+   {
+    "line": 5,
+    "depth": 5,
+    "fn": "fib",
+    "vars": {
+     "llamadas": "6",
+     "n": "0"
+    },
+    "changed": [
+     "llamadas"
+    ],
+    "text": {
+     "es": "Ejecuta la línea: `llamadas` cambia de 5 a 6.",
+     "en": "Runs the line: `llamadas` changes from 5 to 6."
+    }
+   },
+   {
+    "line": 6,
+    "depth": 5,
+    "fn": "fib",
+    "vars": {
+     "llamadas": "6",
+     "n": "0"
+    },
+    "changed": [],
+    "text": {
+     "es": "Comprueba `n < 2`: es **verdadero**, así que entra al bloque.",
+     "en": "Checks `n < 2`: it is **true**, so it enters the block."
+    }
+   },
+   {
+    "line": 7,
+    "depth": 5,
+    "fn": "fib",
+    "vars": {
+     "llamadas": "6",
+     "n": "0"
+    },
+    "changed": [],
+    "text": {
+     "es": "Devuelve el resultado.",
+     "en": "Returns the result."
+    }
+   },
+   {
+    "line": 7,
+    "depth": 5,
+    "fn": "fib",
+    "vars": {
+     "llamadas": "6",
+     "n": "0"
+    },
+    "changed": [],
+    "text": {
+     "es": "`fib` termina y devuelve 0.",
+     "en": "`fib` finishes and returns 0."
+    }
+   },
+   {
+    "line": 8,
+    "depth": 4,
+    "fn": "fib",
+    "vars": {
+     "llamadas": "6",
+     "n": "2"
+    },
+    "changed": [],
+    "text": {
+     "es": "`fib` termina y devuelve 1.",
+     "en": "`fib` finishes and returns 1."
+    }
+   },
+   {
+    "line": 3,
+    "depth": 4,
+    "fn": "fib",
+    "vars": {
+     "llamadas": "6",
+     "n": "1"
+    },
+    "changed": [],
+    "text": {
+     "es": "Llama a `fib(n=1)`.",
+     "en": "Calls `fib(n=1)`."
+    }
+   },
+   {
+    "line": 5,
+    "depth": 4,
+    "fn": "fib",
+    "vars": {
+     "llamadas": "7",
+     "n": "1"
+    },
+    "changed": [
+     "llamadas"
+    ],
+    "text": {
+     "es": "Ejecuta la línea: `llamadas` cambia de 6 a 7.",
+     "en": "Runs the line: `llamadas` changes from 6 to 7."
+    }
+   },
+   {
+    "line": 6,
+    "depth": 4,
+    "fn": "fib",
+    "vars": {
+     "llamadas": "7",
+     "n": "1"
+    },
+    "changed": [],
+    "text": {
+     "es": "Comprueba `n < 2`: es **verdadero**, así que entra al bloque.",
+     "en": "Checks `n < 2`: it is **true**, so it enters the block."
+    }
+   },
+   {
+    "line": 7,
+    "depth": 4,
+    "fn": "fib",
+    "vars": {
+     "llamadas": "7",
+     "n": "1"
+    },
+    "changed": [],
+    "text": {
+     "es": "Devuelve el resultado.",
+     "en": "Returns the result."
+    }
+   },
+   {
+    "line": 7,
+    "depth": 4,
+    "fn": "fib",
+    "vars": {
+     "llamadas": "7",
+     "n": "1"
+    },
+    "changed": [],
+    "text": {
+     "es": "`fib` termina y devuelve 1.",
+     "en": "`fib` finishes and returns 1."
+    }
+   },
+   {
+    "line": 8,
+    "depth": 3,
+    "fn": "fib",
+    "vars": {
+     "llamadas": "7",
+     "n": "3"
+    },
+    "changed": [],
+    "text": {
+     "es": "`fib` termina y devuelve 2.",
+     "en": "`fib` finishes and returns 2."
+    }
+   },
+   {
+    "line": 3,
+    "depth": 3,
+    "fn": "fib",
+    "vars": {
+     "llamadas": "7",
+     "n": "2"
+    },
+    "changed": [],
+    "text": {
+     "es": "Llama a `fib(n=2)`.",
+     "en": "Calls `fib(n=2)`."
+    }
+   },
+   {
+    "line": 5,
+    "depth": 3,
+    "fn": "fib",
+    "vars": {
+     "llamadas": "8",
+     "n": "2"
+    },
+    "changed": [
+     "llamadas"
+    ],
+    "text": {
+     "es": "Ejecuta la línea: `llamadas` cambia de 7 a 8.",
+     "en": "Runs the line: `llamadas` changes from 7 to 8."
+    }
+   },
+   {
+    "line": 6,
+    "depth": 3,
+    "fn": "fib",
+    "vars": {
+     "llamadas": "8",
+     "n": "2"
+    },
+    "changed": [],
+    "text": {
+     "es": "Comprueba `n < 2`: es **falso**, así que se salta el bloque.",
+     "en": "Checks `n < 2`: it is **false**, so it skips the block."
+    }
+   },
+   {
+    "line": 8,
+    "depth": 3,
+    "fn": "fib",
+    "vars": {
+     "llamadas": "8",
+     "n": "2"
+    },
+    "changed": [],
+    "text": {
+     "es": "Devuelve el resultado.",
+     "en": "Returns the result."
+    }
+   },
+   {
+    "line": 3,
+    "depth": 4,
+    "fn": "fib",
+    "vars": {
+     "llamadas": "8",
+     "n": "1"
+    },
+    "changed": [],
+    "text": {
+     "es": "Llama a `fib(n=1)`.",
+     "en": "Calls `fib(n=1)`."
+    }
+   },
+   {
+    "line": 5,
+    "depth": 4,
+    "fn": "fib",
+    "vars": {
+     "llamadas": "9",
+     "n": "1"
+    },
+    "changed": [
+     "llamadas"
+    ],
+    "text": {
+     "es": "Ejecuta la línea: `llamadas` cambia de 8 a 9.",
+     "en": "Runs the line: `llamadas` changes from 8 to 9."
+    }
+   },
+   {
+    "line": 6,
+    "depth": 4,
+    "fn": "fib",
+    "vars": {
+     "llamadas": "9",
+     "n": "1"
+    },
+    "changed": [],
+    "text": {
+     "es": "Comprueba `n < 2`: es **verdadero**, así que entra al bloque.",
+     "en": "Checks `n < 2`: it is **true**, so it enters the block."
+    }
+   },
+   {
+    "line": 7,
+    "depth": 4,
+    "fn": "fib",
+    "vars": {
+     "llamadas": "9",
+     "n": "1"
+    },
+    "changed": [],
+    "text": {
+     "es": "Devuelve el resultado.",
+     "en": "Returns the result."
+    }
+   },
+   {
+    "line": 7,
+    "depth": 4,
+    "fn": "fib",
+    "vars": {
+     "llamadas": "9",
+     "n": "1"
+    },
+    "changed": [],
+    "text": {
+     "es": "`fib` termina y devuelve 1.",
+     "en": "`fib` finishes and returns 1."
+    }
+   },
+   {
+    "line": 3,
+    "depth": 4,
+    "fn": "fib",
+    "vars": {
+     "llamadas": "9",
+     "n": "0"
+    },
+    "changed": [],
+    "text": {
+     "es": "Llama a `fib(n=0)`.",
+     "en": "Calls `fib(n=0)`."
+    }
+   },
+   {
+    "line": 5,
+    "depth": 4,
+    "fn": "fib",
+    "vars": {
+     "llamadas": "10",
+     "n": "0"
+    },
+    "changed": [
+     "llamadas"
+    ],
+    "text": {
+     "es": "Ejecuta la línea: `llamadas` cambia de 9 a 10.",
+     "en": "Runs the line: `llamadas` changes from 9 to 10."
+    }
+   },
+   {
+    "line": 6,
+    "depth": 4,
+    "fn": "fib",
+    "vars": {
+     "llamadas": "10",
+     "n": "0"
+    },
+    "changed": [],
+    "text": {
+     "es": "Comprueba `n < 2`: es **verdadero**, así que entra al bloque.",
+     "en": "Checks `n < 2`: it is **true**, so it enters the block."
+    }
+   },
+   {
+    "line": 7,
+    "depth": 4,
+    "fn": "fib",
+    "vars": {
+     "llamadas": "10",
+     "n": "0"
+    },
+    "changed": [],
+    "text": {
+     "es": "Devuelve el resultado.",
+     "en": "Returns the result."
+    }
+   },
+   {
+    "line": 7,
+    "depth": 4,
+    "fn": "fib",
+    "vars": {
+     "llamadas": "10",
+     "n": "0"
+    },
+    "changed": [],
+    "text": {
+     "es": "`fib` termina y devuelve 0.",
+     "en": "`fib` finishes and returns 0."
+    }
+   },
+   {
+    "line": 8,
+    "depth": 3,
+    "fn": "fib",
+    "vars": {
+     "llamadas": "10",
+     "n": "2"
+    },
+    "changed": [],
+    "text": {
+     "es": "`fib` termina y devuelve 1.",
+     "en": "`fib` finishes and returns 1."
+    }
+   },
+   {
+    "line": 8,
+    "depth": 2,
+    "fn": "fib",
+    "vars": {
+     "llamadas": "10",
+     "n": "4"
+    },
+    "changed": [],
+    "text": {
+     "es": "`fib` termina y devuelve 3.",
+     "en": "`fib` finishes and returns 3."
+    }
+   },
+   {
+    "line": 3,
+    "depth": 2,
+    "fn": "fib",
+    "vars": {
+     "llamadas": "10",
+     "n": "3"
+    },
+    "changed": [],
+    "text": {
+     "es": "Llama a `fib(n=3)`.",
+     "en": "Calls `fib(n=3)`."
+    }
+   },
+   {
+    "line": 5,
+    "depth": 2,
+    "fn": "fib",
+    "vars": {
+     "llamadas": "11",
+     "n": "3"
+    },
+    "changed": [
+     "llamadas"
+    ],
+    "text": {
+     "es": "Ejecuta la línea: `llamadas` cambia de 10 a 11.",
+     "en": "Runs the line: `llamadas` changes from 10 to 11."
+    }
+   },
+   {
+    "line": 6,
+    "depth": 2,
+    "fn": "fib",
+    "vars": {
+     "llamadas": "11",
+     "n": "3"
+    },
+    "changed": [],
+    "text": {
+     "es": "Comprueba `n < 2`: es **falso**, así que se salta el bloque.",
+     "en": "Checks `n < 2`: it is **false**, so it skips the block."
+    }
+   },
+   {
+    "line": 8,
+    "depth": 2,
+    "fn": "fib",
+    "vars": {
+     "llamadas": "11",
+     "n": "3"
+    },
+    "changed": [],
+    "text": {
+     "es": "Devuelve el resultado.",
+     "en": "Returns the result."
+    }
+   },
+   {
+    "line": 3,
+    "depth": 3,
+    "fn": "fib",
+    "vars": {
+     "llamadas": "11",
+     "n": "2"
+    },
+    "changed": [],
+    "text": {
+     "es": "Llama a `fib(n=2)`.",
+     "en": "Calls `fib(n=2)`."
+    }
+   },
+   {
+    "line": 5,
+    "depth": 3,
+    "fn": "fib",
+    "vars": {
+     "llamadas": "12",
+     "n": "2"
+    },
+    "changed": [
+     "llamadas"
+    ],
+    "text": {
+     "es": "Ejecuta la línea: `llamadas` cambia de 11 a 12.",
+     "en": "Runs the line: `llamadas` changes from 11 to 12."
+    }
+   },
+   {
+    "line": 6,
+    "depth": 3,
+    "fn": "fib",
+    "vars": {
+     "llamadas": "12",
+     "n": "2"
+    },
+    "changed": [],
+    "text": {
+     "es": "Comprueba `n < 2`: es **falso**, así que se salta el bloque.",
+     "en": "Checks `n < 2`: it is **false**, so it skips the block."
+    }
+   },
+   {
+    "line": 8,
+    "depth": 3,
+    "fn": "fib",
+    "vars": {
+     "llamadas": "12",
+     "n": "2"
+    },
+    "changed": [],
+    "text": {
+     "es": "Devuelve el resultado.",
+     "en": "Returns the result."
+    }
+   },
+   {
+    "line": 3,
+    "depth": 4,
+    "fn": "fib",
+    "vars": {
+     "llamadas": "12",
+     "n": "1"
+    },
+    "changed": [],
+    "text": {
+     "es": "Llama a `fib(n=1)`.",
+     "en": "Calls `fib(n=1)`."
+    }
+   },
+   {
+    "line": 5,
+    "depth": 4,
+    "fn": "fib",
+    "vars": {
+     "llamadas": "13",
+     "n": "1"
+    },
+    "changed": [
+     "llamadas"
+    ],
+    "text": {
+     "es": "Ejecuta la línea: `llamadas` cambia de 12 a 13.",
+     "en": "Runs the line: `llamadas` changes from 12 to 13."
+    }
+   },
+   {
+    "line": 6,
+    "depth": 4,
+    "fn": "fib",
+    "vars": {
+     "llamadas": "13",
+     "n": "1"
+    },
+    "changed": [],
+    "text": {
+     "es": "Comprueba `n < 2`: es **verdadero**, así que entra al bloque.",
+     "en": "Checks `n < 2`: it is **true**, so it enters the block."
+    }
+   },
+   {
+    "line": 7,
+    "depth": 4,
+    "fn": "fib",
+    "vars": {
+     "llamadas": "13",
+     "n": "1"
+    },
+    "changed": [],
+    "text": {
+     "es": "Devuelve el resultado.",
+     "en": "Returns the result."
+    }
+   },
+   {
+    "line": 7,
+    "depth": 4,
+    "fn": "fib",
+    "vars": {
+     "llamadas": "13",
+     "n": "1"
+    },
+    "changed": [],
+    "text": {
+     "es": "`fib` termina y devuelve 1.",
+     "en": "`fib` finishes and returns 1."
+    }
+   },
+   {
+    "line": 3,
+    "depth": 4,
+    "fn": "fib",
+    "vars": {
+     "llamadas": "13",
+     "n": "0"
+    },
+    "changed": [],
+    "text": {
+     "es": "Llama a `fib(n=0)`.",
+     "en": "Calls `fib(n=0)`."
+    }
+   },
+   {
+    "line": 5,
+    "depth": 4,
+    "fn": "fib",
+    "vars": {
+     "llamadas": "14",
+     "n": "0"
+    },
+    "changed": [
+     "llamadas"
+    ],
+    "text": {
+     "es": "Ejecuta la línea: `llamadas` cambia de 13 a 14.",
+     "en": "Runs the line: `llamadas` changes from 13 to 14."
+    }
+   },
+   {
+    "line": 6,
+    "depth": 4,
+    "fn": "fib",
+    "vars": {
+     "llamadas": "14",
+     "n": "0"
+    },
+    "changed": [],
+    "text": {
+     "es": "Comprueba `n < 2`: es **verdadero**, así que entra al bloque.",
+     "en": "Checks `n < 2`: it is **true**, so it enters the block."
+    }
+   },
+   {
+    "line": 7,
+    "depth": 4,
+    "fn": "fib",
+    "vars": {
+     "llamadas": "14",
+     "n": "0"
+    },
+    "changed": [],
+    "text": {
+     "es": "Devuelve el resultado.",
+     "en": "Returns the result."
+    }
+   },
+   {
+    "line": 7,
+    "depth": 4,
+    "fn": "fib",
+    "vars": {
+     "llamadas": "14",
+     "n": "0"
+    },
+    "changed": [],
+    "text": {
+     "es": "`fib` termina y devuelve 0.",
+     "en": "`fib` finishes and returns 0."
+    }
+   },
+   {
+    "line": 8,
+    "depth": 3,
+    "fn": "fib",
+    "vars": {
+     "llamadas": "14",
+     "n": "2"
+    },
+    "changed": [],
+    "text": {
+     "es": "`fib` termina y devuelve 1.",
+     "en": "`fib` finishes and returns 1."
+    }
+   },
+   {
+    "line": 3,
+    "depth": 3,
+    "fn": "fib",
+    "vars": {
+     "llamadas": "14",
+     "n": "1"
+    },
+    "changed": [],
+    "text": {
+     "es": "Llama a `fib(n=1)`.",
+     "en": "Calls `fib(n=1)`."
+    }
+   },
+   {
+    "line": 5,
+    "depth": 3,
+    "fn": "fib",
+    "vars": {
+     "llamadas": "15",
+     "n": "1"
+    },
+    "changed": [
+     "llamadas"
+    ],
+    "text": {
+     "es": "Ejecuta la línea: `llamadas` cambia de 14 a 15.",
+     "en": "Runs the line: `llamadas` changes from 14 to 15."
+    }
+   },
+   {
+    "line": 6,
+    "depth": 3,
+    "fn": "fib",
+    "vars": {
+     "llamadas": "15",
+     "n": "1"
+    },
+    "changed": [],
+    "text": {
+     "es": "Comprueba `n < 2`: es **verdadero**, así que entra al bloque.",
+     "en": "Checks `n < 2`: it is **true**, so it enters the block."
+    }
+   },
+   {
+    "line": 7,
+    "depth": 3,
+    "fn": "fib",
+    "vars": {
+     "llamadas": "15",
+     "n": "1"
+    },
+    "changed": [],
+    "text": {
+     "es": "Devuelve el resultado.",
+     "en": "Returns the result."
+    }
+   },
+   {
+    "line": 7,
+    "depth": 3,
+    "fn": "fib",
+    "vars": {
+     "llamadas": "15",
+     "n": "1"
+    },
+    "changed": [],
+    "text": {
+     "es": "`fib` termina y devuelve 1.",
+     "en": "`fib` finishes and returns 1."
+    }
+   },
+   {
+    "line": 8,
+    "depth": 2,
+    "fn": "fib",
+    "vars": {
+     "llamadas": "15",
+     "n": "3"
+    },
+    "changed": [],
+    "text": {
+     "es": "`fib` termina y devuelve 2.",
+     "en": "`fib` finishes and returns 2."
+    }
+   },
+   {
+    "line": 8,
+    "depth": 1,
+    "fn": "fib",
+    "vars": {
+     "llamadas": "15",
+     "n": "5"
+    },
+    "changed": [],
+    "text": {
+     "es": "`fib` termina y devuelve 5.",
+     "en": "`fib` finishes and returns 5."
+    }
+   },
+   {
+    "line": 11,
+    "depth": 0,
+    "fn": null,
+    "vars": {
+     "llamadas": "15"
+    },
+    "changed": [],
+    "text": {
+     "es": "Imprime algo en pantalla (lo verás al comprobar tu respuesta).",
+     "en": "Prints something (you will see it when you check your answer)."
+    }
+   }
+  ],
+  "truncated": false
+ },
+ "w6": {
+  "code": "partes = [\"a\", \"b\", \"c\"]\ntexto = ____\nprint(texto)",
+  "kind": "complete",
+  "steps": [
+   {
+    "line": 1,
+    "depth": 0,
+    "fn": null,
+    "vars": {
+     "partes": "['a', 'b', 'c']"
+    },
+    "changed": [
+     "partes"
+    ],
+    "text": {
+     "es": "Ejecuta la línea: crea `partes` = ['a', 'b', 'c'].",
+     "en": "Runs the line: creates `partes` = ['a', 'b', 'c']."
+    }
+   },
+   {
+    "line": 2,
+    "depth": 0,
+    "fn": null,
+    "vars": {
+     "partes": "['a', 'b', 'c']",
+     "texto": "'abc'"
+    },
+    "changed": [
+     "texto"
+    ],
+    "text": {
+     "es": "Ejecuta la línea: crea `texto` = 'abc'.",
+     "en": "Runs the line: creates `texto` = 'abc'."
+    }
+   },
+   {
+    "line": 3,
+    "depth": 0,
+    "fn": null,
+    "vars": {
+     "partes": "['a', 'b', 'c']",
+     "texto": "'abc'"
+    },
+    "changed": [],
+    "text": {
+     "es": "Imprime algo en pantalla (lo verás al comprobar tu respuesta).",
+     "en": "Prints something (you will see it when you check your answer)."
+    }
+   }
+  ],
+  "truncated": false
+ }
+}
