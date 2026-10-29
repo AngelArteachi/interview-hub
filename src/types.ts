@@ -145,7 +145,7 @@ export interface AppData {
 }
 
 /* ---------- Lecciones ---------- */
-export type TrackId = 'dsa' | 'design' | 'web' | 'systems';
+export type TrackId = 'dsa' | 'design' | 'web' | 'systems' | 'interview';
 export type VisualizerId = 'sorting' | 'binary-search' | 'sliding-window' | 'stack-queue' | 'bst' | 'graph' | 'dp';
 
 export type Block =

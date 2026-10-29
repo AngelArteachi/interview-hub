@@ -26,17 +26,18 @@ Al abrir la app ves cuántas tarjetas te tocan hoy. El sistema usa **repetición
 
 Siempre usas **recuerdo activo**: la respuesta está oculta hasta que intentas responder con tus propias palabras.
 
-### 📚 Aprender: 4 rutas con 32 lecciones
-Lecciones cortas que explican los temas desde cero, con ejemplos de código, consejos de "qué te preguntarán en la entrevista" y un **mini-quiz** al final.
+### 📚 Aprender: 5 rutas con 35 lecciones
+Lecciones cortas que explican los temas desde cero, con ejemplos de código, consejos de "qué te preguntarán en la entrevista", **fuentes confiables** (documentación oficial, RFC, OWASP, universidades) y un **mini-quiz** al final.
 
 | Ruta | Temas |
 |---|---|
-| Estructuras de datos y algoritmos | Big O, arrays y hash maps, dos punteros, listas enlazadas, pilas y colas, recursión, ordenamiento, búsqueda binaria, árboles, heaps, grafos, programación dinámica |
-| Programación y diseño | Pilares de la OOP, SOLID, patrones de diseño, código limpio, testing, manejo de errores |
-| Web y backend | HTTP, APIs REST, SQL, NoSQL, autenticación (sesiones, JWT, OAuth), caché, seguridad web |
-| Sistemas y herramientas | Procesos e hilos, concurrencia, redes, Git, Linux, Docker y cloud, CI/CD |
+| Estructuras de datos y algoritmos | Big O y complejidad amortizada, arrays y hash maps, dos punteros, listas enlazadas, pilas y colas, recursión, ordenamiento, búsqueda binaria, árboles y tries, heaps, grafos, programación dinámica |
+| Programación y diseño | OOP (composición, interfaces, sobrecarga), SOLID e inyección de dependencias, patrones de diseño, código limpio, testing, manejo de errores |
+| Web y backend | HTTP, JavaScript esencial, APIs REST, SQL (ACID, normalización, N+1), NoSQL, autenticación (sesiones, JWT, OAuth), caché, seguridad web, introducción a system design |
+| Sistemas y herramientas | Procesos e hilos, concurrencia, redes, Git (conflictos, reset vs revert), Linux, Docker y cloud, CI/CD |
+| Preparación de entrevista | Entrevista conductual y método STAR |
 
-Al completar una lección, **sus conceptos clave entran solos a tu repaso diario**, y la lección te enlaza a los problemas de práctica relacionados.
+Cada pregunta del repaso está ligada a la lección que la explica: **solo te aparece cuando ya aprobaste esa lección**. Al aprobar una lección, sus conceptos clave entran solos a tu repaso diario, y la lección te enlaza a los problemas de práctica relacionados.
 
 ### 🎬 Visualizaciones interactivas
 Siete animaciones paso a paso (play, pausa, avanzar y retroceder) en las que **puedes cambiar los datos de entrada**:

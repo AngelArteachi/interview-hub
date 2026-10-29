@@ -2,7 +2,8 @@
  * Fuentes de referencia por lección.
  * Criterio: documentación oficial, estándares (RFC, NIST, OWASP), universidades y autores reconocidos
  * con obra publicada. Nada de blogs anónimos ni sitios de contenido generado automáticamente.
- * Todos los enlaces se comprobaron (respuesta HTTP 200) el 2026-10-29.
+ * Todos los enlaces se comprobaron el 2026-10-29: que respondan y que su contenido sea el que se cita
+ * (no páginas movidas, vacías o de error).
  */
 export interface Source {
   title: string;
@@ -23,11 +24,11 @@ const OSTEP: Source = {
 
 export const LESSON_SOURCES: Record<string, Source[]> = {
   /* ---------- Estructuras de datos y algoritmos ---------- */
-  'big-o': [MIT_6006, { title: 'TimeComplexity: costo de las operaciones en Python', publisher: 'Python Wiki (python.org)', url: 'https://wiki.python.org/moin/TimeComplexity' }],
+  'big-o': [MIT_6006, { title: 'Time complexity of operations on built-in types', publisher: 'Documentación oficial de Python', url: 'https://docs.python.org/3/builtins/time-complexity.html' }],
   'arrays-hashing': [
     { title: 'Data Structures (listas, diccionarios y sets)', publisher: 'Documentación oficial de Python', url: 'https://docs.python.org/3/tutorial/datastructures.html' },
     { title: 'Built-in Types: dict y set', publisher: 'Documentación oficial de Python', url: 'https://docs.python.org/3/builtins/stdtypes.html' },
-    { title: 'TimeComplexity', publisher: 'Python Wiki (python.org)', url: 'https://wiki.python.org/moin/TimeComplexity' },
+    { title: 'Time complexity of operations on built-in types', publisher: 'Documentación oficial de Python', url: 'https://docs.python.org/3/builtins/time-complexity.html' },
   ],
   'two-pointers-window': [
     { title: 'Two Pointers', publisher: 'USACO Guide (guía de la USA Computing Olympiad)', url: 'https://usaco.guide/silver/two-pointers' },
@@ -61,7 +62,8 @@ export const LESSON_SOURCES: Record<string, Source[]> = {
   /* ---------- Programación y diseño ---------- */
   'oop-pillars': [
     { title: 'Classes', publisher: 'Documentación oficial de Python', url: 'https://docs.python.org/3/tutorial/classes.html' },
-    { title: 'Object-Oriented Programming Concepts', publisher: 'The Java Tutorials — Oracle', url: 'https://docs.oracle.com/javase/tutorial/java/concepts/' },
+    { title: 'abc: clases base abstractas', publisher: 'Documentación oficial de Python', url: 'https://docs.python.org/3/library/abc.html' },
+    { title: 'functools.singledispatch (cómo se imita la sobrecarga)', publisher: 'Documentación oficial de Python', url: 'https://docs.python.org/3/library/functools.html' },
   ],
   solid: [
     { title: 'The Single Responsibility Principle', publisher: 'Robert C. Martin (autor de los principios SOLID)', url: 'https://blog.cleancoder.com/uncle-bob/2014/05/08/SingleReponsibilityPrinciple.html' },
@@ -137,6 +139,23 @@ export const LESSON_SOURCES: Record<string, Source[]> = {
   'docker-cloud': [
     { title: 'What is Docker?', publisher: 'Documentación oficial de Docker', url: 'https://docs.docker.com/get-started/docker-overview/' },
     { title: 'SP 800-145: The NIST Definition of Cloud Computing (IaaS, PaaS, SaaS)', publisher: 'NIST (gobierno de EE. UU.)', url: 'https://csrc.nist.gov/pubs/sp/800/145/final' },
+  ],
+  'javascript-essentials': [
+    { title: 'Closures', publisher: 'MDN Web Docs (Mozilla)', url: 'https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Closures' },
+    { title: 'Equality comparisons and sameness', publisher: 'MDN Web Docs (Mozilla)', url: 'https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Equality_comparisons_and_sameness' },
+    { title: 'let (ámbito de bloque y zona muerta temporal)', publisher: 'MDN Web Docs (Mozilla)', url: 'https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/let' },
+    { title: 'In depth: Microtasks and the JavaScript runtime environment', publisher: 'MDN Web Docs (Mozilla)', url: 'https://developer.mozilla.org/en-US/docs/Web/API/HTML_DOM_API/Microtask_guide' },
+    { title: 'Using promises', publisher: 'MDN Web Docs (Mozilla)', url: 'https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Using_promises' },
+    { title: 'async function', publisher: 'MDN Web Docs (Mozilla)', url: 'https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/async_function' },
+  ],
+  'system-design-intro': [
+    { title: 'AWS Well-Architected Framework', publisher: 'Amazon Web Services', url: 'https://docs.aws.amazon.com/wellarchitected/latest/framework/welcome.html' },
+    { title: 'Site Reliability Engineering (libro gratuito)', publisher: 'Google', url: 'https://sre.google/sre-book/table-of-contents/' },
+    { title: 'Designing Data-Intensive Applications', publisher: 'Martin Kleppmann (O\'Reilly)', url: 'https://dataintensive.net/' },
+  ],
+  'behavioral-star': [
+    { title: 'The STAR Method for Behavioral Interviews', publisher: 'MIT Career Advising & Professional Development', url: 'https://capd.mit.edu/resources/the-star-method-for-behavioral-interviews/' },
+    { title: 'Structured Interviews', publisher: 'U.S. Office of Personnel Management (gobierno de EE. UU.)', url: 'https://www.opm.gov/policy-data-oversight/assessment-and-selection/other-assessment-methods/structured-interviews/' },
   ],
   cicd: [
     { title: 'Continuous Integration', publisher: 'Martin Fowler', url: 'https://martinfowler.com/articles/continuousIntegration.html' },

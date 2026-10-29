@@ -4,6 +4,8 @@ import { DSA_LESSONS } from './dsa';
 import { DESIGN_LESSONS } from './design';
 import { WEB_LESSONS } from './web';
 import { SYSTEMS_LESSONS } from './systems';
+import { EXTRA_BLOCKS } from './extras';
+import { BEHAVIORAL_LESSON, JS_LESSON, SYSTEM_DESIGN_LESSON } from './newLessons';
 
 export const TRACKS: Track[] = [
   {
@@ -30,9 +32,27 @@ export const TRACKS: Track[] = [
     description: l('Sistemas operativos, concurrencia, redes, Git, Linux, Docker y CI/CD.', 'Operating systems, concurrency, networking, Git, Linux, Docker and CI/CD.'),
     color: 'from-amber-500 to-orange-500',
   },
+  {
+    id: 'interview',
+    title: l('Preparación de entrevista', 'Interview preparation'),
+    description: l('Cómo responder preguntas conductuales con el método STAR.', 'How to answer behavioral questions with the STAR method.'),
+    color: 'from-pink-500 to-rose-500',
+  },
 ];
 
-export const LESSONS: Lesson[] = [...DSA_LESSONS, ...DESIGN_LESSONS, ...WEB_LESSONS, ...SYSTEMS_LESSONS];
+// JavaScript va justo después de "Cómo funciona la web"; system design cierra la ruta web
+const [firstWeb, ...restWeb] = WEB_LESSONS;
+
+export const LESSONS: Lesson[] = [
+  ...DSA_LESSONS,
+  ...DESIGN_LESSONS,
+  firstWeb,
+  JS_LESSON,
+  ...restWeb,
+  SYSTEM_DESIGN_LESSON,
+  ...SYSTEMS_LESSONS,
+  BEHAVIORAL_LESSON,
+].map((les) => (EXTRA_BLOCKS[les.id] ? { ...les, blocks: [...les.blocks, ...EXTRA_BLOCKS[les.id]] } : les));
 
 export const lessonsByTrack = (t: TrackId) => LESSONS.filter((x) => x.track === t);
 export const lessonById = (id: string) => LESSONS.find((x) => x.id === id);

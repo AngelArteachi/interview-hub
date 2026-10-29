@@ -63,6 +63,19 @@ export default function Today() {
                 {tr('Empezar repaso', 'Start review')} <ArrowRight size={18} />
               </button>
             </>
+          ) : !Object.keys(data.lessons).length && nextLesson ? (
+            <div className="mt-4 rounded-xl bg-brand-50 p-4 text-brand-900 dark:bg-brand-500/10 dark:text-brand-200">
+              <div className="font-bold">{tr('Empieza por tu primera lección', 'Start with your first lesson')}</div>
+              <div className="mt-1 text-sm">
+                {tr(
+                  'Tu repaso se llena con los temas que vas aprobando. Completa una lección y su quiz para desbloquear sus preguntas.',
+                  'Your review fills up with the topics you pass. Complete a lesson and its quiz to unlock its questions.',
+                )}
+              </div>
+              <Link to={`/learn/${nextLesson.id}`} className="btn-primary mt-3">
+                {t(nextLesson.title)} <ArrowRight size={16} />
+              </Link>
+            </div>
           ) : (
             <div className="mt-4 flex items-center gap-3 rounded-xl bg-emerald-50 p-4 text-emerald-800 dark:bg-emerald-500/10 dark:text-emerald-300">
               <CheckCircle2 />

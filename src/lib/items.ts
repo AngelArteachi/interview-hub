@@ -172,12 +172,11 @@ const CONCEPT_LESSON: Record<string, string> = {
   'test-pyramid': 'testing',
   'test-mock': 'testing',
   'test-tdd': 'testing',
-  // No hay lección de JavaScript: se desbloquean con la primera lección web
-  'js-event-loop': 'how-web-works',
-  'js-closure': 'how-web-works',
-  'js-var-let-const': 'how-web-works',
-  'js-equality': 'how-web-works',
-  'js-promise-async': 'how-web-works',
+  'js-event-loop': 'javascript-essentials',
+  'js-closure': 'javascript-essentials',
+  'js-var-let-const': 'javascript-essentials',
+  'js-equality': 'javascript-essentials',
+  'js-promise-async': 'javascript-essentials',
 };
 
 /** Lección que hay que completar para que una pregunta aparezca como nueva (null = siempre disponible) */
@@ -188,8 +187,9 @@ export function requiredLesson(itemId: string): string | null {
     return a ? PATTERN_LESSON[a.pattern] : null;
   }
   if (prefix === 'con') return CONCEPT_LESSON[id] ?? null;
-  if (prefix === 'des') return 'rest-apis'; // system design requiere bases de APIs
-  return null; // conductuales, propias y conceptos de lecciones
+  if (prefix === 'des') return 'system-design-intro';
+  if (prefix === 'beh') return 'behavioral-star';
+  return null; // tarjetas propias y conceptos/preguntas de lecciones
 }
 
 export function isUnlocked(itemId: string, data: AppData): boolean {
