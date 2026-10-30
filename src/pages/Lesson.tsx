@@ -7,7 +7,7 @@ import { algorithmById } from '../data/algorithms';
 import { LESSON_SOURCES } from '../content/lessons/sources';
 import { useStore } from '../store/AppStore';
 import { useI18n } from '../i18n/I18nContext';
-import { Markdown } from '../components/Markdown';
+import { InlineMarkdown, Markdown } from '../components/Markdown';
 import { CodeBlock } from '../components/CodeBlock';
 import { Quiz } from '../components/Quiz';
 import { Exercise } from '../components/Exercise';
@@ -181,7 +181,7 @@ function LessonView({ id }: { id: string }) {
       )}
 
       <section ref={quizRef} className="card mt-10 scroll-mt-20 p-6">
-        <h2 className="mb-1 text-xl font-extrabold">{tr('Mini-quiz', 'Mini quiz')}</h2>
+        <h2 className="mb-1 text-xl font-extrabold">{tr('Quiz de la lección', 'Lesson quiz')}</h2>
         <p className="mb-4 text-sm text-zinc-500">{tr(`Necesitas ${PASS}% o más para aprobar la lección.`, `You need ${PASS}% or more to pass the lesson.`)}</p>
 
         {retryIdx ? (
@@ -227,11 +227,11 @@ function LessonView({ id }: { id: string }) {
                 const q = lesson.quiz[i];
                 return (
                   <li key={i} className="rounded-xl bg-white p-4 text-sm dark:bg-zinc-900">
-                    <div className="font-semibold">{t(q.q)}</div>
+                    <div className="font-semibold"><InlineMarkdown>{t(q.q)}</InlineMarkdown></div>
                     <div className="mt-2 text-emerald-700 dark:text-emerald-400">
-                      ✓ <b>{t(q.options[q.answer])}</b>
+                      ✓ <b><InlineMarkdown>{t(q.options[q.answer])}</InlineMarkdown></b>
                     </div>
-                    <div className="mt-1 text-zinc-600 dark:text-zinc-400">💡 {t(q.explanation)}</div>
+                    <div className="mt-1 text-zinc-600 dark:text-zinc-400">💡 <InlineMarkdown>{t(q.explanation)}</InlineMarkdown></div>
                   </li>
                 );
               })}

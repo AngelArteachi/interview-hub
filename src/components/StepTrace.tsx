@@ -21,7 +21,7 @@ interface TraceData {
 
 /** Devuelve el paso a paso de un ejercicio, o null si no existe o está desactualizado */
 export function traceFor(exId: string, code: string): TraceData | null {
-  const t = (TRACES as Record<string, TraceData>)[exId];
+  const t = (TRACES as unknown as Record<string, TraceData>)[exId];
   return t && t.code === code ? t : null;
 }
 

@@ -10,7 +10,7 @@ import { code, concept, interview, l, md, q, tip } from '../helpers';
 
 /** Checkpoints para insertar en la lección `big-o` (clave = índice del bloque tras el que van) */
 export const BIG_O_CHECKPOINTS: Record<number, Exercise> = {
-  0: {
+  4: {
     id: 'cp-rules',
     level: 'basic',
     kind: 'recall',
@@ -20,7 +20,7 @@ export const BIG_O_CHECKPOINTS: Record<number, Exercise> = {
       'Because Big O describes **how the cost grows** as n gets large: constants (the 2) and slower-growing terms (the 10) stop mattering compared to n.',
     ),
   },
-  1: {
+  5: {
     id: 'cp-nested',
     level: 'basic',
     kind: 'predict',
@@ -39,14 +39,14 @@ print(pasos)`,
     answer: '16',
     explanation: l('El ciclo de adentro corre n veces por cada vuelta del de afuera: 4 × 4 = 16. Con n elementos son n × n pasos → **O(n²)**.', 'The inner loop runs n times for each outer iteration: 4 × 4 = 16. With n elements that is n × n steps → **O(n²)**.'),
   },
-  2: {
+  11: {
     id: 'cp-space',
     level: 'basic',
     kind: 'recall',
     q: l('Una función recursiva se llama a sí misma n veces antes de empezar a regresar, y no crea listas. ¿Cuánto espacio extra usa?', 'A recursive function calls itself n times before it starts returning, and creates no lists. How much extra space does it use?'),
     a: l('**O(n)**: cada llamada pendiente ocupa un marco en la pila de llamadas, y llega a haber n a la vez.', '**O(n)**: each pending call takes a frame on the call stack, and up to n are there at once.'),
   },
-  4: {
+  12: {
     id: 'cp-amortized',
     level: 'medium',
     kind: 'predict',
@@ -546,6 +546,23 @@ print(texto)`,
       'La base del logaritmo no cambia la clase de complejidad.', 'The base of the logarithm does not change the complexity class.'),
     q('¿Cuál de estas operaciones sobre una lista de Python es O(n)?', 'Which of these operations on a Python list is O(n)?', [['lista.append(x)', 'list.append(x)'], ['lista[i]', 'list[i]'], ['x in lista', 'x in list'], ['len(lista)', 'len(list)']], 2,
       '`in` recorre la lista; append es O(1) amortizado y len e indexar son O(1).', '`in` scans the list; append is O(1) amortized and len and indexing are O(1).'),
+    // Los índices identifican las tarjetas de repaso: agrega preguntas nuevas al final
+    q('Dos ciclos sobre `nums`, uno después del otro (no anidados). ¿Complejidad?', 'Two loops over `nums`, one after the other (not nested). Complexity?', [['O(n²)', 'O(n²)'], ['O(2ⁿ)', 'O(2ⁿ)'], ['O(n)', 'O(n)'], ['O(log n)', 'O(log n)']], 2,
+      'n + n = 2n → O(n). Que sean dos no importa: no están anidados.', 'n + n = 2n → O(n). Having two does not matter: they are not nested.'),
+    q('Recorres la lista `a` y después la lista `b`, de tamaños distintos. ¿Complejidad?', 'You walk list `a` and then list `b`, of different sizes. Complexity?', [['O(a)', 'O(a)'], ['O(a + b)', 'O(a + b)'], ['O(a · b)', 'O(a · b)'], ['O(1)', 'O(1)']], 1,
+      'Son dos entradas distintas: se nombran por separado y se suman.', 'They are two different inputs: you name them separately and add them.'),
+    q('¿Cuántas vueltas da `while n > 1: n //= 2` empezando con n = 1024?', 'How many iterations does `while n > 1: n //= 2` run starting at n = 1024?', [['1024', '1024'], ['512', '512'], ['10', '10'], ['32', '32']], 2,
+      '1024 = 2¹⁰: se puede partir a la mitad 10 veces. Es O(log n).', '1024 = 2¹⁰: it can be halved 10 times. It is O(log n).'),
+    q('`for i in range(n): for j in range(i): ...` hace 0 + 1 + … + (n − 1) vueltas. ¿Complejidad?', '`for i in range(n): for j in range(i): ...` does 0 + 1 + … + (n − 1) iterations. Complexity?', [['O(n)', 'O(n)'], ['O(n²)', 'O(n²)'], ['O(n log n)', 'O(n log n)'], ['O(n/2)', 'O(n/2)']], 1,
+      'La suma es n(n − 1)/2 ≈ n²/2. El /2 es una constante: sigue siendo O(n²).', 'The sum is n(n − 1)/2 ≈ n²/2. The /2 is a constant: it is still O(n²).'),
+    q('¿Qué complejidad tiene `fib(n)` recursivo que llama a `fib(n - 1)` y a `fib(n - 2)` sin memoria?', 'What is the complexity of recursive `fib(n)` calling `fib(n - 1)` and `fib(n - 2)` with no memory?', [['O(n)', 'O(n)'], ['O(n²)', 'O(n²)'], ['O(log n)', 'O(log n)'], ['O(2ⁿ)', 'O(2ⁿ)']], 3,
+      'Cada llamada se ramifica en dos: el número de llamadas casi se duplica con cada n más.', 'Each call branches in two: the number of calls nearly doubles with each extra n.'),
+    q('Construir un texto con `texto += parte` dentro de un ciclo puede costar O(n²). ¿Qué usas en su lugar?', 'Building a text with `text += part` inside a loop can cost O(n²). What do you use instead?', [['`"".join(partes)`', '`"".join(parts)`'], ['`str(partes)`', '`str(parts)`'], ['`partes.join("")`', '`parts.join("")`'], ['Un set', 'A set']], 0,
+      '`join` recorre las partes una sola vez: O(n). `join` es un método del separador, no de la lista.', '`join` walks the parts once: O(n). `join` is a method of the separator, not of the list.'),
+    q('¿Cuánto cuesta `lista.pop(0)` y qué usas para una cola?', 'What does `list.pop(0)` cost and what do you use for a queue?', [['O(1); una lista', 'O(1); a list'], ['O(log n); un heap', 'O(log n); a heap'], ['O(n); `collections.deque`', 'O(n); `collections.deque`'], ['O(n²); un set', 'O(n²); a set']], 2,
+      'Sacar el primero obliga a mover a todos los demás. `deque.popleft()` es O(1).', 'Removing the first forces moving everyone else. `deque.popleft()` is O(1).'),
+    q('¿Qué cuesta `lista[1:]`?', 'What does `list[1:]` cost?', [['O(1): solo cambia el inicio', 'O(1): it just changes the start'], ['O(k): copia los k elementos que toma', 'O(k): it copies the k elements it takes'], ['O(log n)', 'O(log n)'], ['Nada', 'Nothing']], 1,
+      'Un slice crea una lista nueva. En una recursión que lo hace en cada llamada, el costo se multiplica.', 'A slice creates a new list. In a recursion doing it on every call, the cost multiplies.'),
   ],
   concepts: [
     concept('Método para calcular la complejidad de un fragmento', 'Method to compute the complexity of a snippet', 'Define n → cuenta repeticiones de cada ciclo → anidados se multiplican, seguidos se suman → término dominante sin constantes.', 'Define n → count each loop\'s repetitions → nested multiply, consecutive add → dominant term without constants.'),

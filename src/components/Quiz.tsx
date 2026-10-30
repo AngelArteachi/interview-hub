@@ -3,6 +3,8 @@ import { Check, CheckCircle2, Eye, ListChecks, RotateCcw, X, XCircle } from 'luc
 import type { AIEvaluation, QuizQ } from '../types';
 import { useI18n } from '../i18n/I18nContext';
 import { AIEvaluateButton, AIFeedbackView } from './AIFeedback';
+import { InlineMarkdown } from './Markdown';
+import { shuffledOrder } from '../lib/exercise';
 
 /**
  * Cada pregunta se responde primero por escrito (recuerdo activo).
@@ -28,12 +30,14 @@ function QuizQuestion({ q, n, s, set }: { q: QuizQ; n: number; s: QState; set: (
   const { t, tr } = useI18n();
   const resolved = isResolved(s);
   const correctText = t(q.options[q.answer]);
+  // Orden fijo por pregunta pero barajado, para que la respuesta correcta no quede siempre en el mismo lugar
+  const order = shuffledOrder(q.q.es, q.options.length);
 
   return (
     <div className="rounded-2xl border border-zinc-200 p-4 dark:border-zinc-800">
       <div className="mb-3 flex items-start gap-2 font-semibold">
         <span className="text-brand-600 dark:text-brand-300">{n}.</span>
-        <span className="flex-1">{t(q.q)}</span>
+        <span className="flex-1"><InlineMarkdown>{t(q.q)}</InlineMarkdown></span>
         {resolved &&
           (isCorrect(s, q) ? <CheckCircle2 size={20} className="shrink-0 text-emerald-500" /> : <XCircle size={20} className="shrink-0 text-rose-500" />)}
       </div>
@@ -62,7 +66,8 @@ function QuizQuestion({ q, n, s, set }: { q: QuizQ; n: number; s: QState; set: (
       {/* Opciones (ocultas hasta que las pidas) */}
       {s.showOptions && (
         <div className="mt-3 grid gap-2 sm:grid-cols-2">
-          {q.options.map((o, oi) => {
+          {order.map((oi) => {
+            const o = q.options[oi];
             const chosen = s.picked === oi;
             const right = s.picked !== null && oi === q.answer;
             const wrong = chosen && oi !== q.answer;
@@ -81,7 +86,7 @@ function QuizQuestion({ q, n, s, set }: { q: QuizQ; n: number; s: QState; set: (
               >
                 {right && <Check size={15} className="shrink-0 text-emerald-600" />}
                 {wrong && <X size={15} className="shrink-0 text-rose-600" />}
-                {t(o)}
+                <InlineMarkdown>{t(o)}</InlineMarkdown>
               </button>
             );
           })}
@@ -113,7 +118,7 @@ function QuizQuestion({ q, n, s, set }: { q: QuizQ; n: number; s: QState; set: (
         </div>
       )}
 
-      {resolved && <p className="mt-3 text-sm text-zinc-500">💡 {t(q.explanation)}</p>}
+      {resolved && <p className="mt-3 text-sm text-zinc-500">💡 <InlineMarkdown>{t(q.explanation)}</InlineMarkdown></p>}
     </div>
   );
 }

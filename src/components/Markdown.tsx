@@ -27,3 +27,17 @@ export function Markdown({ children, className = '' }: { children: string; class
     </div>
   );
 }
+
+/** Markdown en una sola línea (negritas, `código`) para textos cortos como preguntas y opciones */
+export function InlineMarkdown({ children }: { children: string }) {
+  return (
+    <ReactMarkdown
+      components={{
+        p: ({ children }) => <>{children}</>,
+        code: ({ children }) => <code className="rounded bg-zinc-100 px-1 py-0.5 font-mono text-[0.9em] dark:bg-zinc-800">{children}</code>,
+      }}
+    >
+      {children}
+    </ReactMarkdown>
+  );
+}

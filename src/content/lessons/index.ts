@@ -7,6 +7,17 @@ import { SYSTEMS_LESSONS } from './systems';
 import { EXTRA_BLOCKS } from './extras';
 import { BEHAVIORAL_LESSON, JS_LESSON, SYSTEM_DESIGN_LESSON } from './newLessons';
 import { BIG_O_CHECKPOINTS, BIG_O_PRACTICE, BIG_O_PRACTICE_LESSON } from './exercises/bigO';
+import { CHECKPOINTS as BASICS_CHECKPOINTS, PRACTICE as BASICS_PRACTICE } from './exercises/dsaBasics';
+import { CHECKPOINTS as MID_CHECKPOINTS, PRACTICE as MID_PRACTICE } from './exercises/dsaMid';
+import { CHECKPOINTS as ADV_CHECKPOINTS, PRACTICE as ADV_PRACTICE } from './exercises/dsaAdvanced';
+import { CHECKPOINTS as WEB_B_CHECKPOINTS, PRACTICE as WEB_B_PRACTICE, SQL_PRACTICE_LESSON } from './exercises/webB';
+import { CHECKPOINTS as WEB_C_CHECKPOINTS, PRACTICE as WEB_C_PRACTICE } from './exercises/webC';
+import { CHECKPOINTS as SYS_A_CHECKPOINTS, PRACTICE as SYS_A_PRACTICE } from './exercises/sysA';
+import { CHECKPOINTS as SYS_B_CHECKPOINTS, PRACTICE as SYS_B_PRACTICE } from './exercises/sysB';
+import { CHECKPOINTS as INTERVIEW_CHECKPOINTS, PRACTICE as INTERVIEW_PRACTICE } from './exercises/interview';
+import { CHECKPOINTS as WEB_A_CHECKPOINTS, PRACTICE as WEB_A_PRACTICE } from './exercises/webA';
+import { CHECKPOINTS as DESIGN_CHECKPOINTS, PRACTICE as DESIGN_PRACTICE } from './exercises/design';
+import { DP_PRACTICE_LESSON, GRAPHS_PRACTICE_LESSON, RECURSION_PRACTICE_LESSON, TREES_PRACTICE_LESSON } from './exercises/dsaPart2';
 
 export const TRACKS: Track[] = [
   {
@@ -45,8 +56,8 @@ export const TRACKS: Track[] = [
 const [firstWeb, ...restWeb] = WEB_LESSONS;
 
 /** Checkpoints (ejercicios entre secciones) y banco de práctica por lección */
-const CHECKPOINTS: Record<string, Record<number, Exercise>> = { 'big-o': BIG_O_CHECKPOINTS };
-const PRACTICE: Record<string, Exercise[]> = { 'big-o': BIG_O_PRACTICE };
+const CHECKPOINTS: Record<string, Record<number, Exercise>> = { 'big-o': BIG_O_CHECKPOINTS, ...BASICS_CHECKPOINTS, ...MID_CHECKPOINTS, ...ADV_CHECKPOINTS, ...DESIGN_CHECKPOINTS, ...WEB_A_CHECKPOINTS, ...WEB_B_CHECKPOINTS, ...WEB_C_CHECKPOINTS, ...SYS_A_CHECKPOINTS, ...SYS_B_CHECKPOINTS, ...INTERVIEW_CHECKPOINTS };
+const PRACTICE: Record<string, Exercise[]> = { 'big-o': BIG_O_PRACTICE, ...BASICS_PRACTICE, ...MID_PRACTICE, ...ADV_PRACTICE, ...DESIGN_PRACTICE, ...WEB_A_PRACTICE, ...WEB_B_PRACTICE, ...WEB_C_PRACTICE, ...SYS_A_PRACTICE, ...SYS_B_PRACTICE, ...INTERVIEW_PRACTICE };
 
 function withExercises(les: Lesson): Lesson {
   const blocks = [...les.blocks, ...(EXTRA_BLOCKS[les.id] ?? [])];
@@ -60,14 +71,22 @@ function withExercises(les: Lesson): Lesson {
 
 const [bigO, ...restDsa] = DSA_LESSONS;
 
+/** "Parte 2: en la práctica" va justo después de su lección base */
+const PART2_AFTER: Record<string, Lesson> = {
+  recursion: RECURSION_PRACTICE_LESSON,
+  trees: TREES_PRACTICE_LESSON,
+  graphs: GRAPHS_PRACTICE_LESSON,
+  'dp-intro': DP_PRACTICE_LESSON,
+};
+
 export const LESSONS: Lesson[] = [
   bigO,
   BIG_O_PRACTICE_LESSON,
-  ...restDsa,
+  ...restDsa.flatMap((les) => (PART2_AFTER[les.id] ? [les, PART2_AFTER[les.id]] : [les])),
   ...DESIGN_LESSONS,
   firstWeb,
   JS_LESSON,
-  ...restWeb,
+  ...restWeb.flatMap((les) => (les.id === 'sql' ? [les, SQL_PRACTICE_LESSON] : [les])),
   SYSTEM_DESIGN_LESSON,
   ...SYSTEMS_LESSONS,
   BEHAVIORAL_LESSON,

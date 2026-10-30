@@ -250,7 +250,9 @@ function Complete({ ex, record, setWide }: { ex: Of<'complete'>; record: (ok: bo
         setWide={setWide}
       />
       <div className="grid gap-2">
-        {ex.options.map((o, i) => {
+        {/* Orden barajado (fijo por ejercicio) para que la correcta no quede siempre en el mismo lugar */}
+        {shuffledOrder(ex.id, ex.options.length).map((i) => {
+          const o = ex.options[i];
           const right = picked !== null && i === ex.answer;
           const wrong = picked === i && i !== ex.answer;
           return (

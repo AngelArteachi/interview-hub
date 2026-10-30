@@ -30,6 +30,16 @@ export const LESSON_SOURCES: Record<string, Source[]> = {
     { title: 'Time complexity of operations on built-in types', publisher: 'Documentación oficial de Python', url: 'https://docs.python.org/3/builtins/time-complexity.html' },
     { title: 'Built-in Types: nota sobre concatenar secuencias (costo cuadrático)', publisher: 'Documentación oficial de Python', url: 'https://docs.python.org/3/builtins/stdtypes.html' },
   ],
+  'recursion-practice': [
+    { title: 'Think Python, cap. 5: Conditionals and recursion', publisher: 'Allen B. Downey (Green Tea Press)', url: 'https://greenteapress.com/thinkpython2/html/thinkpython2006.html' },
+    MIT_6006,
+  ],
+  'trees-practice': [{ title: 'Binary Search Trees', publisher: 'Algorithms, 4th ed. — Sedgewick y Wayne, Princeton University', url: 'https://algs4.cs.princeton.edu/32bst/' }, MIT_6006],
+  'graphs-practice': [
+    { title: 'Undirected Graphs (DFS, BFS, componentes conexas)', publisher: 'Algorithms, 4th ed. — Sedgewick y Wayne, Princeton University', url: 'https://algs4.cs.princeton.edu/41graph/' },
+    { title: 'Directed Graphs (orden topológico)', publisher: 'Algorithms, 4th ed. — Sedgewick y Wayne, Princeton University', url: 'https://algs4.cs.princeton.edu/42digraph/' },
+  ],
+  'dp-practice': [MIT_6006],
   'arrays-hashing': [
     { title: 'Data Structures (listas, diccionarios y sets)', publisher: 'Documentación oficial de Python', url: 'https://docs.python.org/3/tutorial/datastructures.html' },
     { title: 'Built-in Types: dict y set', publisher: 'Documentación oficial de Python', url: 'https://docs.python.org/3/builtins/stdtypes.html' },
@@ -102,6 +112,10 @@ export const LESSON_SOURCES: Record<string, Source[]> = {
   sql: [
     { title: 'Tutorial de SQL', publisher: 'Documentación oficial de PostgreSQL', url: 'https://www.postgresql.org/docs/current/tutorial.html' },
     { title: 'Indexes', publisher: 'Documentación oficial de PostgreSQL', url: 'https://www.postgresql.org/docs/current/indexes.html' },
+  ],
+  'sql-practice': [
+    { title: 'Tutorial de SQL', publisher: 'Documentación oficial de PostgreSQL', url: 'https://www.postgresql.org/docs/current/tutorial.html' },
+    { title: 'sqlite3: interfaz DB-API para SQLite', publisher: 'Documentación oficial de Python', url: 'https://docs.python.org/3/library/sqlite3.html' },
   ],
   nosql: [
     { title: 'Data Modeling', publisher: 'Documentación oficial de MongoDB', url: 'https://www.mongodb.com/docs/manual/data-modeling/' },

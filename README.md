@@ -26,14 +26,14 @@ Al abrir la app ves cuántas tarjetas te tocan hoy. El sistema usa **repetición
 
 Siempre usas **recuerdo activo**: la respuesta está oculta hasta que intentas responder con tus propias palabras.
 
-### 📚 Aprender: 5 rutas con 35 lecciones
-Lecciones cortas que explican los temas desde cero, con ejemplos de código, consejos de "qué te preguntarán en la entrevista", **fuentes confiables** (documentación oficial, RFC, OWASP, universidades) y un **mini-quiz** al final.
+### 📚 Aprender: 5 rutas con 41 lecciones
+Lecciones cortas que explican los temas desde cero, con ejemplos de código, consejos de "qué te preguntarán en la entrevista", **fuentes confiables** (documentación oficial, RFC, OWASP, universidades) y un **quiz** al final que repasa todos los temas de la lección.
 
 | Ruta | Temas |
 |---|---|
-| Estructuras de datos y algoritmos | Big O y complejidad amortizada, arrays y hash maps, dos punteros, listas enlazadas, pilas y colas, recursión, ordenamiento, búsqueda binaria, árboles y tries, heaps, grafos, programación dinámica |
+| Estructuras de datos y algoritmos | Big O y complejidad amortizada (+ práctica), arrays y hash maps, dos punteros, listas enlazadas, pilas y colas, recursión, ordenamiento, búsqueda binaria, árboles y tries, heaps, grafos, programación dinámica — con lecciones "en la práctica" de Big O, recursión, árboles, grafos y DP |
 | Programación y diseño | OOP (composición, interfaces, sobrecarga), SOLID e inyección de dependencias, patrones de diseño, código limpio, testing, manejo de errores |
-| Web y backend | HTTP, JavaScript esencial, APIs REST, SQL (ACID, normalización, N+1), NoSQL, autenticación (sesiones, JWT, OAuth), caché, seguridad web, introducción a system design |
+| Web y backend | HTTP, JavaScript esencial, APIs REST, SQL (ACID, normalización, N+1, más una lección "en la práctica"), NoSQL, autenticación (sesiones, JWT, OAuth), caché, seguridad web, introducción a system design |
 | Sistemas y herramientas | Procesos e hilos, concurrencia, redes, Git (conflictos, reset vs revert), Linux, Docker y cloud, CI/CD |
 | Preparación de entrevista | Entrevista conductual y método STAR |
 
@@ -44,7 +44,7 @@ Las lecciones incluyen ejercicios cortos entre secciones y un banco **"Practica 
 
 En los ejercicios con código puedes abrir un **paso a paso** opcional al lado del código: resalta la línea que se ejecuta, explica qué hace y muestra las variables. Te guía en los primeros pasos y deja el final para ti hasta que respondes, así que no te da la respuesta.
 
-> Para desarrolladores: el paso a paso se genera **ejecutando el código real** de cada ejercicio con `python -I -X utf8 scripts/gen_traces.py`, que escribe `src/content/lessons/exercises/traces.json`. Vuelve a ejecutarlo al cambiar un ejercicio (la app ignora un paso a paso desactualizado).
+> Para desarrolladores: el paso a paso se genera **ejecutando el código real** de cada ejercicio con `python -X utf8 scripts/gen_traces.py`, que escribe `src/content/lessons/exercises/traces.json`. Vuelve a ejecutarlo al cambiar un ejercicio (la app ignora un paso a paso desactualizado). `python -X utf8 scripts/check_exercises.py` ejecuta todos los ejercicios y confirma que cada respuesta marcada como correcta lo sea de verdad.
 
 ### 🎬 Visualizaciones interactivas
 Siete animaciones paso a paso (play, pausa, avanzar y retroceder) en las que **puedes cambiar los datos de entrada**:
