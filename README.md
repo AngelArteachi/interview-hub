@@ -16,7 +16,7 @@ Prepararse para una entrevista técnica suele ser caótico: decenas de pestañas
 
 ## Funciones
 
-### 📅 Hoy: tu plan diario automático
+### Hoy: tu plan diario automático
 Al abrir la app ves cuántas tarjetas te tocan hoy. El sistema usa **repetición espaciada** (algoritmo SM-2, el mismo principio que Anki):
 
 - Cada pregunta tiene una fecha de próximo repaso.
@@ -26,7 +26,7 @@ Al abrir la app ves cuántas tarjetas te tocan hoy. El sistema usa **repetición
 
 Siempre usas **recuerdo activo**: la respuesta está oculta hasta que intentas responder con tus propias palabras.
 
-### 📚 Aprender: 5 rutas con 41 lecciones
+### Aprender: 5 rutas con 41 lecciones
 Lecciones cortas que explican los temas desde cero, con ejemplos de código, consejos de "qué te preguntarán en la entrevista", **fuentes confiables** (documentación oficial, RFC, OWASP, universidades) y un **quiz** al final que repasa todos los temas de la lección.
 
 | Ruta | Temas |
@@ -39,14 +39,14 @@ Lecciones cortas que explican los temas desde cero, con ejemplos de código, con
 
 Cada pregunta del repaso está ligada a la lección que la explica: **solo te aparece cuando ya aprobaste esa lección**. Al aprobar una lección, sus conceptos clave entran solos a tu repaso diario, y la lección te enlaza a los problemas de práctica relacionados.
 
-### ✏️ Ejercicios para recordar, no para releer
+### Ejercicios para recordar, no para releer
 Las lecciones incluyen ejercicios cortos entre secciones y un banco **"Practica esta lección"** en 3 niveles (básico, intermedio y tipo entrevista), de cuatro tipos: **predice la salida**, **completa el código**, **repaso rápido** y **ordena los pasos**. Los que fallas entran a tu repaso diario. En los temas difíciles hay una "Parte 2" hecha de ejemplos resueltos seguidos de un "Ahora tú" (p. ej. *Big O en la práctica*).
 
 En los ejercicios con código puedes abrir un **paso a paso** opcional al lado del código: resalta la línea que se ejecuta, explica qué hace y muestra las variables. Te guía en los primeros pasos y deja el final para ti hasta que respondes, así que no te da la respuesta.
 
 > Para desarrolladores: el paso a paso se genera **ejecutando el código real** de cada ejercicio con `python -X utf8 scripts/gen_traces.py`, que escribe `src/content/lessons/exercises/traces.json`. Vuelve a ejecutarlo al cambiar un ejercicio (la app ignora un paso a paso desactualizado). `python -X utf8 scripts/check_exercises.py` ejecuta todos los ejercicios y confirma que cada respuesta marcada como correcta lo sea de verdad.
 
-### 🎬 Visualizaciones interactivas
+### Visualizaciones interactivas
 Siete animaciones paso a paso (play, pausa, avanzar y retroceder) en las que **puedes cambiar los datos de entrada**:
 
 - Ordenamientos: bubble, merge y quick sort
@@ -57,7 +57,7 @@ Siete animaciones paso a paso (play, pausa, avanzar y retroceder) en las que **p
 - BFS y DFS en un grafo
 - Programación dinámica (cambio de monedas)
 
-### 💪 Practicar
+### Practicar
 - **42 problemas de algoritmos** organizados por patrón. Escribes tu enfoque y tu complejidad, revelas pistas una a una, ves la solución explicada y lo programas en LeetCode.
 - **Adivina el patrón**: lees solo el enunciado y eliges la técnica correcta. Entrena la habilidad más importante de una entrevista de código.
 - **50 flashcards de fundamentos**: OOP, estructuras de datos, bases de datos, web, Git, sistemas operativos, testing y JavaScript.
@@ -66,19 +66,19 @@ Siete animaciones paso a paso (play, pausa, avanzar y retroceder) en las que **p
 - **Mis preguntas**: agrega las preguntas de tus entrevistas reales y entran al mismo sistema de repaso.
 - **Sesiones personalizadas**: elige tipos, dificultad y modo (aleatorio, solo nuevas o tus puntos débiles primero).
 
-### 🎤 Simulador de entrevista
+### Simulador de entrevista
 Elige el tipo (técnica, conductual o mixta), la duración y el número de preguntas. Igual que en una entrevista real, las preguntas salen **al azar de todos los temas**, sin importar qué lecciones hayas completado, y corre con temporizador real. Al terminar revisas cada respuesta junto a la respuesta de referencia y te calificas; el resultado se guarda en tu historial de simulacros sin modificar tu repaso diario.
 
-### 🤖 Inteligencia artificial con Claude (opcional)
+### Inteligencia artificial con Claude (opcional)
 - **Evaluación de respuestas**: Claude califica lo que escribiste (1 a 5), te dice tus fortalezas, qué mejorar y cómo sería una respuesta ideal. Funciona en algoritmos, conceptos, system design, conductuales y el simulador.
 - **Tutor en cada lección**: un chat que conoce la lección que estás leyendo. Puedes pedirle que te lo explique más simple, que te dé otro ejemplo o que te haga una pregunta de entrevista.
 
 Sin IA la app funciona completa con autoevaluación.
 
-### 📈 Progreso
+### Progreso
 Racha de días, mapa de actividad, dominio por categoría, por patrón de algoritmos y por tema, tus 5 puntos más débiles, pronóstico de repasos para los próximos 7 días y la evolución de tus simulacros.
 
-### ☁️ Cuentas y sincronización
+### Cuentas y sincronización
 Inicia sesión con **Google** y tu progreso se sincroniza entre tu computadora y tu celular. También puedes usarla **sin cuenta** (modo invitado): al iniciar sesión, lo que llevabas se sube y se combina con tu cuenta sin perder nada. Cada usuario solo puede ver su propio progreso.
 
 ### Otros detalles
